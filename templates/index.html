@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Frontend Backend Interaction</title>
+</head>
+<body>
+    <h1>Simple Frontend Backend Interaction with Flask</h1>
+
+    <button onclick="fetchGreeting()">Get Greeting</button>
+    <div id="displayGreeting"></div>
+
+    <input type="text" id="userName" placeholder="Enter your name">
+    <button onclick="submitName()">Submit Name</button>
+    <div id="displayName"></div>
+
+    <script>
+        function fetchGreeting() {
+            fetch('/api/greeting')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('displayGreeting').innerText = data.message;
+                });
+        }
+
+        function submitName() {
+            const userName = document.getElementById('userName').value;
+            fetch('/api/name', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: userName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('displayName').innerText = data.message;
+            });
+        }
+    </script>
+</body>
+</html>
