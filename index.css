@@ -10,7 +10,7 @@ body {
 header{
     height: 60px;
     width: 100%;
-    background-color:rgba(35,28,26,0.8);
+    background-color:rgba(134, 99, 89, 0.8);
     position:fixed;    
 }
 
@@ -42,12 +42,12 @@ nav a{
     text-decoration: none;
 }
 
-.product {
+.product_photography {
     background-color: antiquewhite;
     color: white;
     height: 100vh;
     width: auto;
-    background-image: url(images/3.jpg);
+    background-image: url(images/IMG_1015.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -58,10 +58,34 @@ nav a{
     margin: 0 auto;
 }
 
-.product-item {
+.product_model {
+    background-color: antiquewhite;
+    color: white;
+    height: 100vh;
+    width: auto;
+    background-image: url(images/untitled3840216.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;/*水平分散*/
+    align-items: center;/*水平對齊*/
+    margin: 0 auto;
+}
+
+.product_item_landscape {
     float: left;/*float 屬性將圖片浮動到容器的左側或右側。*/
     margin: 5vh;  /* 在圖片的右側加入10px的間距 */
-    width: 500px;
+    width: auto;
+    height: 30vh;
+    position: center;
+}
+
+.product_item_portrait {
+    float: left;/*float 屬性將圖片浮動到容器的左側或右側。*/
+    margin: 5vh;  /* 在圖片的右側加入10px的間距 */
+    width: 30vh;
     height: auto;
     position: center;
 }
@@ -76,13 +100,16 @@ nav a{
 
 img {
     /*display: inline-block;*/
+    display: inline-block;
+    object-fit: cover; /* 圖片將保持比例並且被剪裁來填滿容器 */
     max-width: 100%;
     max-height: 100%;
-    object-fit: cover; /* 圖片將保持比例並且被剪裁來填滿容器 */
+    width: 100%;
+    border-radius: 30px;
 }
 
 .divider{
-    background-color: #000000;
+    background-color: #ffcd83;
     color: white;
     height: 100px;
     display: flex;
@@ -102,12 +129,12 @@ img {
     background-position: center;
 }
   
-.news-item {
+/*.news_item {
     float: left;
     margin: 0px 10px;
     width: 200px;
     height: 200px;
-}
+}*/
 
 footer{
     background-color: #000000;
