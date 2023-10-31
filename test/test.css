@@ -1,15 +1,7 @@
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.5s ease-in;
-}
-
-.fade-in.active {
-  opacity: 1;
-}
-
-@keyframes change-color2{
-  from {background-color: #69f;}
-  to {background-color: #afc;}
+:root {
+  --clr-accent: rgb(239, 82, 173);
+  --clr-accent2: rgb(239, 176, 213);
+  --clr-rgba: rgb(255, 225, 240);
 }
 
 @keyframes change-color{
@@ -24,7 +16,7 @@
 .box{
   width: 200px;
   height: 200px;
-  background-color: gray;
+  background-color: rgb(225, 225, 225);
 }
 
 .box-animation{
@@ -33,35 +25,27 @@
   animation-iteration-count: infinite;/*重複次數*/
 }
 
-:root {
-  --clr-accent: rgb(239, 82, 173);
-  --clr-accent2: rgb(239, 176, 213);
-  --clr-rgba: rgb(255, 225, 240);
-}
-
 .btn {
   font-size: 2rex;
   font-weight: 700;
   padding: 0.5em 1em;
   color: var(--clr-accent);
   background-color: var(--clr-rgba);
-  border: 5px solid var(--clr-accent);
-  border-radius: 5px;
+  border: 5px solid var(--clr-accent);/*邊框*/
+  border-radius: 5px;/*圓角*/
 
   transition-property: transform;
   transition-duration: 0.3s;
   transition-timing-function: ease;
   transition-delay: 0s;
-
-  /*transition: all 0.3s;*/
 }
+
 .btn:hover{
   transform: translate(0, -5px);
   background-color: var(--clr-accent2);
   color: var(--clr-rgba);
-}
+}  
 
-    
 @keyframes slideInLeft{
   from{
     transform: translateX(-300px);
@@ -72,25 +56,25 @@
     opacity: 1;
   }
 }
-
+animate{
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}  
 .slideInLeft {
-  /*animation: slideInLeft 1s ease 1s 1 normal both;*/
-  animation-name: slideInLeft;
-  animation-duration: 1s;  /* 這個值表示動畫總持續時間 */
-  animation-timing-function: ease;  /* 這個值表示動畫的速度曲線 */
-  animation-delay: 1s;  /* 這個值表示在動畫開始前的延遲時間 */
-  animation-iteration-count: infinite;  /* 這個值表示動畫播放的次數 */
   animation-direction: normal;  /* 這個值表示動畫的方向 */
   animation-fill-mode: forwards;  /* 這個值表示動畫結束後的樣式 */
 
   transform: translateX(-150px);
 }
 
-.animate{
+.infinite{
+  animation-iteration-count: infinite;  /* 這個值表示動畫播放的次數 */
+}
+.slideInLeft{
   animation-name: slideInLeft;
+}
+.animate--ease{
   animation-timing-function: ease;  /* 這個值表示動畫的速度曲線 */
-  animation-duration: 1s;
-  animation-fill-mode: both;
 }
 
 .animate.animate--infinite{
@@ -101,8 +85,40 @@
   animation-delay: 1s;
 }
 .animate.animate--fast{
-  animation-duration: 0.6s;
+  animation-duration: 1s;
 }
 .animate.animate--slow{
   animation-duration: 2s;
 }
+
+@keyframes rotate{
+ from{
+  transform: rotate(0);
+ }
+ to{
+  transform: rotate(360deg);
+ }
+}
+
+.rotate{
+  animation-name: rotate;
+  animation-timing-function: linear;
+  width: 150px;
+  height: 30px;
+  transform-origin:center;
+}
+
+@keyframes bounce{
+  0% {transform: translateY(0);}
+  20% {transform: translateY(0);}
+  40% {transform: translateY(-30px);}
+  50% {transform: translateY(0);}
+  60% {transform: translateY(-15px);}
+  80% {transform: translateY(0);}
+  100% {transform: translateY(0);}
+}
+
+.bounce{
+  animation-name: bounce;
+}
+
