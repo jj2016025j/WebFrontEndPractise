@@ -4,6 +4,22 @@
   --clr-rgba: rgb(255, 225, 240);
 }
 
+.typesetting {
+  background-color: antiquewhite;
+  color: rgb(0, 0, 0);
+  height: auto;
+  width: auto;
+  background-color: rgb(255, 226, 164);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;/*水平分散*/
+  align-items: center;/*水平對齊*/
+  margin: 0 auto;
+}
+
 @keyframes change-color{
   0% {background-color: rgb(255, 171, 171);}
   20% {background-color: rgb(255, 222, 160);}
