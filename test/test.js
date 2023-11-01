@@ -43,11 +43,11 @@ element.style.transform = "translate(100px, 100px)";*/
 // let card1=new CreateCard("Amy")
 // console.log(card1)
 
-class Card{
-  constructor(name){
-    this.name=name
-  }
-}
+// class Card{
+//   constructor(name){
+//     this.name=name
+//   }
+// }
 
 // const card2=new Card("Bruce")
 // console.log(card2)
@@ -70,57 +70,28 @@ class Card{
 //   // Handle the error here
 // }
 
-var test = document.getElementById("test")
-test.addEventListener("click",Click)
+// var test = document.getElementById("test")
+// test.addEventListener("click",Click)
 
-function Click(){
-  console.log(this)
-  this.style.color= "white"
-}
-function onClick(element){
-  console.log(element)
-  element.style.color= "white"
-}
+// function Click(){
+//   console.log(this)
+//   this.style.color= "white"
+// }
+// function onClick(element){
+//   console.log(element)
+//   element.style.color= "white"
+// }
 
-var addlist = document.getElementById("addlist")
-let testString1 ="testString1"
-let testString2 ="testString2"
-let testString3 ="testString3"
-addlist.addEventListener("click",function(){
-  addlist.innerHTML +=    `    
-  <h1 class="animate infinite bounce animate--fast">${testString1}</h1>
-  <h2 class="animate infinite slideInLeft animate--slow">${testString2}</h1>
-  <h3 class="animate infinite rotate animate--slow">${testString3}</h1>
-`
-})
+// var addlist = document.getElementById("addlist")
+// let testString1 ="testString1"
+// let testString2 ="testString2"
+// let testString3 ="testString3"
+// addlist.addEventListener("click",function(){
+//   addlist.innerHTML +=    `    
+//   <h1 class="animate infinite bounce animate--fast">${testString1}</h1>
+//   <h2 class="animate infinite slideInLeft animate--slow">${testString2}</h1>
+//   <h3 class="animate infinite rotate animate--slow">${testString3}</h1>
+// `
+// })
 
-var myobj={}//可以這樣建立物件
-
-
-
-
-//以下是主要程式碼
-function Main(){
-  function Start(){
-    console.log("Initialization something...")
-  }
-  function Update(){
-    console.log("Update data..."+i)
-  }
-  function End(){
-    console.log("It's over...")
-  }
-  Start()
-  for(i=1;i<=5;i++){
-    Update()
-  }
-  End()
-}
-
-class Player{
-  constructor(_name){
-    this.name=_name
-  }
-}
-
-// Main()
+// var myobj={}//可以這樣建立物件
