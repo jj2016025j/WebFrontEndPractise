@@ -82,6 +82,23 @@ function onClick(element){
   element.style.color= "white"
 }
 
+var addlist = document.getElementById("addlist")
+let testString1 ="testString1"
+let testString2 ="testString2"
+let testString3 ="testString3"
+addlist.addEventListener("click",function(){
+  addlist.innerHTML +=    `    
+  <h1 class="animate infinite bounce animate--fast">${testString1}</h1>
+  <h2 class="animate infinite slideInLeft animate--slow">${testString2}</h1>
+  <h3 class="animate infinite rotate animate--slow">${testString3}</h1>
+`
+})
+
+var myobj={}//可以這樣建立物件
+
+
+
+
 //以下是主要程式碼
 function Main(){
   function Start(){
