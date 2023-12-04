@@ -1,0 +1,56 @@
+*{
+    padding: 0;/*內邊距*/
+    margin: 0;/*外邊距*/
+    border: 1px solid gray;
+}
+html, body {
+    background-color: #f9f9f9;
+    overflow-x: hidden; /* 防止在 body 上滾動 */
+}
+header{
+    height: 80px;
+    width: 100%;
+    background-color:rgba(255, 255, 255);
+    position:fixed;   
+    padding: 0 5vh; 
+}
+header .logo{
+    position: absolute;
+    left: 5vw;
+    line-height: 80px;
+    background-image: url(./images/Logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width:210px;
+    text-indent: -9999px;
+}
+header ul{
+    position: absolute;
+    right: 5vw;
+    line-height: 80px;
+}
+header li{    
+    display: inline;
+    margin-right: 4vw;/* 比例 */
+
+}
+nav a{
+    text-decoration: none;
+}
+
+.display{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+.container {
+    color: white;
+    height: 100vh;
+    width: auto;
+    background-image: url(images/IMG_1015.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    margin: 0 auto;
+}
