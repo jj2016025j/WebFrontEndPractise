@@ -1,0 +1,37 @@
+*{
+    border: 1px solid gray;
+}
+.navbar{
+    position:fixed;
+    top: 0;
+    left:0;
+    right: 0;
+    background-color: rgba(white,0.3);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    .navbar-list{
+        display: flex;
+        list-style: none;
+    }
+    .list-item{
+        padding: 1rem;
+        text-decoration: none;
+        display: inline-block;
+        color: black;
+        &:hover, &.active{
+            color: orange;
+        }
+    }
+}
+
+.d-flex{
+    display: flex;
+}
+
+.justify-content-between{
+    justify-content: space-between;
+}
+
+.align-items-center{
+    align-items: center;
+}

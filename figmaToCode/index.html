@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;900&family=Open+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="brand open-sans">PORTFOLIO.</div>
+                <ul class="navbar-list">
+                    <li><a href="#" class="list-item">About</a></li>
+                    <li><a href="#" class="list-item">Skill</a></li>
+                    <li><a href="#" class="list-item">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div class="container p-relative"></div>
+        <img src="../img/header-top-decoration.png"
+        class="p-absolute pos-3d" style="top: 0;left: 45px;" data-layer="30" data-invert="0">
+        <img src="../img/header-main-decoration.png"
+        class="p-absolute z-index-1 pos-3d" style="top: 340px;left: 360px;" data-layer="15" data-invert="0">
+        <div class="row">
+            <div class="col-md-5 d-flex align-items-center">
+                <div class="header-content">
+                    <h2>哈囉</h2>
+                    <h1>我是
+                        <span class="note-sans-black" id="typing">
+                            UI 設計師
+                        </span>
+                        <span class="type-blink"></span>
+                    </h1>
+                    <p>我熱愛挑戰自己，並不斷追求個人成長和學習。我的經驗涵蓋了設計與前端，
+                        並且我喜歡在這些領域中不斷創新和探索。我擁有良好的溝通和團隊合作能力，
+                        並能夠在壓力下保持高效率。</p>
+                    <div>
+                        <a href=""><i class="bi bi-github"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                    </div>
+                    <button type="button" class="btn-primary">認識我</button>
+                </div>
+            </div>
+            <div class="col-md-5 offset-md-1">
+                <img src="../img/person-image.png" class="pos-3d" alt="" data-layer="6" data-invert="1">
+            </div>
+        </div>
+
+    </header>
+    <!-- <section class="section"></section> -->
+    <script> 
+      // 打字特效
+      const texts = ['UI 設計師', '前端工程師'];
+      let count = 0;
+      let index = 0;
+      let currentText = '';
+      let letter = '';
+
+      (function type() {
+        if (count === texts.length) {
+          count = 0;
+        }
+        currentText = texts[count];
+        letter = currentText.slice(0, ++index);
+
+        document.getElementById('typing').textContent = letter;
+        if (letter.length === currentText.length) {
+          count++;
+          index = 0;
+          setTimeout(type, 3000);
+        } else {
+          setTimeout(type, 150);
+        }
+      })();
+    
+      
+      document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('mousemove', (e) => {
+          //傳入滑鼠位置
+          document.querySelectorAll('.pos-3d').forEach((element) => {
+            add3d(element, e);
+          });
+        });
+      });
+
+      function add3d(element, e) {
+        // 滑鼠位置
+        const m_x = e.pageX;
+        const m_y = e.pageY;
+
+        const w_w = window.innerWidth,
+          w_h = window.innerHeight,
+          o_w = element.offsetWidth,
+          distance = (element.offsetWidth - w_w) / 2,
+          layer = Number(element.getAttribute('data-layer')),
+          invert = Number(element.getAttribute('data-invert'));
+
+        // 物件在頁面上的位置
+        const o_x = w_w / 2;
+        const o_y = w_h / 2;
+
+        // 兩者的距離差
+        let w_x = m_x - o_x;
+        let w_y = m_y - o_y;
+
+        // 距離相乘後開平方
+        const w_wSqrt = Math.sqrt(w_w / 2);
+        const d = distance / w_wSqrt / layer;
+
+        // 距離計算
+        let s_x = Math.sqrt(Math.abs(w_x));
+        if (w_x < 0) {
+          s_x = -s_x;
+        }
+
+        let d_x = s_x * d;
+        // 加入樣式
+        element.style.transform = `translateX(${invert ? d_x : -d_x}px)`;
+      }
+    
+    </script>
+</body>
+</html>

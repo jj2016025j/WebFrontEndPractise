@@ -1,0 +1,109 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
+
+*{
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid gray; */
+}
+body{
+    width: 100%;
+    height: 100%;
+    padding: 0 150px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-image: linear-gradient(to bottom,rgb(255, 255, 255),rgb(192, 206, 255));
+}
+
+.open-sans{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+}
+
+.note-sans-black{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 900;
+}
+
+.brand{
+    font-size: 24px
+}
+.navbar{
+    position:fixed;
+    width: 100%;
+    padding: 0 150px;
+    top: 0;
+    left:0;
+    right: 0;
+    background-color: rgba(white,0.3);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+
+    .navbar-list{
+        display: flex;
+        list-style: none;
+    }
+    .list-item{
+        padding: 1rem;
+        text-decoration: none;
+        display: inline-block;
+        color: black;
+        &:hover, &.active{
+            color: orange;
+        }
+    }
+}
+
+.type-blink {
+    width: 3px;
+    height: 68px;
+    background-image: linear-gradient(to bottom, #3586ff, rgba(0, 101, 252, 0.5));
+    position: absolute;
+    right: -10px;
+    top: 55%;
+    transform: translateY(-50%);
+    animation: blink 1s infinite;
+}
+
+.section{
+    padding: 100px 0;
+    background-color: rgb(233, 233, 233);
+}
+
+.btn-primary{
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    width: 30%;
+    box-shadow: rgb(118, 118, 118) 0 0 5px;
+
+    background-color: rgb(255, 255, 255);
+    &:hover, &.active{
+        background-color: rgb(246, 246, 246);
+    }
+}
+
+.d-flex{
+    display: flex;
+}
+
+.justify-content-between{
+    justify-content: space-between;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.p-relative{
+    position: relative;
+}
+
+.p-absolute{
+    position: absolute;
+}
+
+.z-index-1{
+    z-index: -1;
+}
