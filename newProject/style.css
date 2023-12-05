@@ -1,12 +1,16 @@
 *{
     padding: 0;/*內邊距*/
     margin: 0;/*外邊距*/
-    border: 1px solid gray;
+    border: 1px solid orange;
+    box-sizing: border-box;
 }
+
 html, body {
+    font-family: 'Open Sans', sans-serif;
     background-color: #f9f9f9;
     overflow-x: hidden; /* 防止在 body 上滾動 */
 }
+
 header{
     height: 80px;
     width: 100%;
@@ -14,35 +18,31 @@ header{
     position:fixed;   
     padding: 0 5vh; 
 }
-header .logo{
-    position: absolute;
-    left: 5vw;
-    line-height: 80px;
-    background-image: url(./images/Logo.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    width:210px;
-    text-indent: -9999px;
-}
-header ul{
-    position: absolute;
-    right: 5vw;
-    line-height: 80px;
-}
-header li{    
-    display: inline;
-    margin-right: 4vw;/* 比例 */
 
-}
-nav a{
-    text-decoration: none;
+/**/
+.navbar {
+    background-color: #007bff;
 }
 
-.display{
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
+.navbar-brand {
+    font-weight: 600;
+    color: white;
 }
+.nav-link {
+    color: white;
+}
+.card {
+    margin: 10px;
+}
+.card-img-top {
+    height: 180px
+}
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+/**/
+
 .container {
     color: white;
     height: 100vh;
@@ -54,3 +54,34 @@ nav a{
     display: flex;
     margin: 0 auto;
 }
+
+
+.home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url("../img/DALL·E\ 2023-12-05\ 15.31.21\ -\ A\ wide\,\ more\ lifelike\ image\ of\ a\ futuristic\ cityscape\ where\ technology\ and\ magic\ coexist\,\ suitable\ for\ a\ website\ background.\ The\ scene\ includes\ bustli.png");
+}
+.slogan{
+    width: 100%;
+    height: 300px;
+}
+
+.hot-commodity{
+    background-image: url(../img/DALL·E\ 2023-12-05\ 15.07.17\ -\ A\ wide\ futuristic\ cityscape\ blending\ technology\ and\ magic\ for\ a\ website\ background.\ The\ panoramic\ view\ showcases\ advanced\ skyscrapers\ with\ neon\ lights.png);
+}
+.AI{
+    background-image: url(../img/DALL·E\ 2023-12-05\ 15.07.17\ -\ A\ wide\ futuristic\ cityscape\ blending\ technology\ and\ magic\ for\ a\ website\ background.\ The\ panoramic\ view\ showcases\ advanced\ skyscrapers\ with\ neon\ lights.png);
+}
+
+/*另一份檔案*/
+
+.full-width{
+    width: 100%;
+}
+
+.full-height{
+    height: 100%;
+}
+

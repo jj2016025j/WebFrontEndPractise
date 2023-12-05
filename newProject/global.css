@@ -1,0 +1,80 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 1px solid orange;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+}
+/*header*/
+header{
+    height: 60px;
+    width: 100%;
+    background-color:rgba(255, 255, 255);
+    position:fixed;   
+    padding: 0 5vh; 
+    .logo{
+        position: absolute;
+        left: 5vw;
+        line-height: 60px;
+        background-color:rgb(0, 0, 0);
+        background-repeat: no-repeat;
+        background-position: center;
+        width:210px;
+        text-indent: -9999px;
+    }
+}
+header ul{
+    position: absolute;
+    right: 5vw;
+    line-height: 60px;
+}
+header li{    
+    display: inline;
+    margin-right: 4vw;/* 比例 */
+    text-decoration: none;
+    color: black;
+    &:hover, &.active{
+        color: orange;
+    }
+}
+nav a{
+    text-decoration: none;
+}
+
+/*main*/
+main{
+    margin-top: 60px;
+    width: 100%;
+    height: 600px;
+}
+
+.display{
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/DALL·E\ 2023-12-05\ 15.07.17\ -\ A\ wide\ futuristic\ cityscape\ blending\ technology\ and\ magic\ for\ a\ website\ background.\ The\ panoramic\ view\ showcases\ advanced\ skyscrapers\ with\ neon\ lights.png);
+    .dark{
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.display-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+/*可以用來做點甚麼*/
+aside{
+    position: fixed;
+    top:100px;
+    right: 100px;
+}
+

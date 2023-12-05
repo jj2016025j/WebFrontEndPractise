@@ -20,7 +20,7 @@ header{
     top: 0;
     color: white;
     line-height: 60px;
-    background-image: url(./images/Logo.svg);
+    background-image: url(./img/Logo.svg);
     background-repeat: no-repeat;
     background-position: center;
     width:210px;
@@ -47,7 +47,7 @@ nav a{
     color: white;
     height: 100vh;
     width: auto;
-    background-image: url(images/IMG_1015.jpg);
+    background-image: url(img/IMG_1015.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -63,7 +63,7 @@ nav a{
     color: white;
     height: 100vh;
     width: auto;
-    background-image: url(images/untitled3840216.png);
+    background-image: url(img/untitled3840216.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -123,7 +123,7 @@ img {
     background-color: antiquewhite;
     color: white;
     height: 90vh;
-    background-image: url(images/3.jpg);
+    background-image: url(img/3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
