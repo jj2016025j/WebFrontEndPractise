@@ -1,3 +1,16 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
+
+/*all*/
+.note-sans-black{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 900;
+}
+
+.open-sans{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -6,26 +19,30 @@
 }
 
 html, body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
     overflow-x: hidden;
 }
+
 /*header*/
 header{
     height: 60px;
     width: 100%;
+    padding: 0 5vh; 
     background-color:rgba(255, 255, 255);
     position:fixed;   
-    padding: 0 5vh; 
     .logo{
         position: absolute;
         left: 5vw;
         line-height: 60px;
-        background-color:rgb(0, 0, 0);
         background-repeat: no-repeat;
         background-position: center;
         width:210px;
-        text-indent: -9999px;
+        text-indent: 0px;
     }
 }
 header ul{
@@ -50,25 +67,115 @@ nav a{
 main{
     margin-top: 60px;
     width: 100%;
-    height: 600px;
+}
+
+article{
+    width: 50%;
+    height: 100%;
+}
+
+/* footer */
+footer{
+    background-color: black;
+    color: white;
+    div{
+        padding: 0 5vh; 
+        margin: 0 5vh;     
+    }
 }
 
 .display{
     width: 100%;
-    height: 100%;
-    background-image: url(../img/DALL·E\ 2023-12-05\ 15.07.17\ -\ A\ wide\ futuristic\ cityscape\ blending\ technology\ and\ magic\ for\ a\ website\ background.\ The\ panoramic\ view\ showcases\ advanced\ skyscrapers\ with\ neon\ lights.png);
+    height: 90vh;
+    background-image: linear-gradient(#fff0f0, rgb(241, 247, 255));
     .dark{
         height: 100%;
         width: 100%;
         background-color: rgba(255, 255, 255, 0.5);
     }
+    +.slogan{
+        height: 200px;
+    }
+    +.hot-commodity{
+        height: 400px;
+    }
 }
 
-.display-center{
+.button{
+    width: 100px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255);
+}
+
+.commodity{
+    width: 200px;
+    height: 300px;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255);
+    .img{
+        width: 200px;
+        height: 200px;    
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    /*沒用*/
+    .commodity-price{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: currentColor;
+}
+
+h1, p{
+    text-align: center;
+}
+
+/*公用*/
+.d-flex{
     display: flex;
+}
+.flex-direction-column{
     flex-direction: column;
+}
+.flex-direction-row{
+    flex-direction: row;
+}
+.display-center{
     justify-content: center;
-    align-content: center;
+    align-items: center;
+}
+.justify-content-space-around {
+    justify-content: space-around;
+}
+/*用不了*/
+.align-content-space-between{
+    align-content: stretch;
+}
+
+.flex-wrap-space-between{
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+.full{
+    width: 100%;
+    height: 100%;
+}
+
+.margin-0-10vh{
+    margin: 0 10vh;
 }
 
 /*可以用來做點甚麼*/
@@ -77,4 +184,3 @@ aside{
     top:100px;
     right: 100px;
 }
-

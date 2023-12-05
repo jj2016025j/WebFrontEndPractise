@@ -4,41 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberShop | 首頁</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;900&family=Open+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="global.css">
 </head>
 <body>
-
+  <header>
+    <h1 class="logo">魔王城</h1>
+    <nav>
+        <ul>
+            <li><a href=./index.html>HOME</a></li>
+            <li><a href=./store.html>STORE</a></li>
+            <li><a href=./portfolio.html>PORTFOLIO</a></li>
+            <li><a href=./about.html>ABOUT</a></li>
+        </ul>  
+    </nav>
+  </header>
   <main>
-    <section class="home section-display">
-      <div class="dark full-width full-height"></div>
-      <div class="header-content">
-        <h2>哈囉</h2>
-        <h1>我是
-            <span class="note-sans-black" id="typing">
-                UI 設計師
-            </span>
-            <span class="type-blink"></span>
-        </h1>
-        <p>我熱愛挑戰自己，並不斷追求個人成長和學習。我的經驗涵蓋了設計與前端，
-            並且我喜歡在這些領域中不斷創新和探索。我擁有良好的溝通和團隊合作能力，
-            並能夠在壓力下保持高效率。</p>
-        <button type="button" class="btn-primary">了解更多</button>
+    <!-- <section class="display">
+      <div class="dark">
+        <article class="d-flex flex-direction-column display-center">
+          <h1>科技： <span class="note-sans-black">未來的窗口</span></h1>
+          <p>我們的城市擁有最先進的科技設施。從飛行的汽車到智能機器人，從虛擬實境遊戲到全息投影，
+            每一項創新都在塑造我們的未來。在這裡，科技不僅是一種工具，更是一種生活方式。
+            我們的城市擁有最先進的科技設施。從飛行的汽車到智能機器人，從虛擬實境遊戲到全息投影，
+            每一項創新都在塑造我們的未來。在這裡，科技不僅是一種工具，更是一種生活方式。</p>    
+        </article>
+      </div>
+    </section> -->
+
+    <section class="display">
+      <div class="dark">
+        <div class="full d-flex flex-direction-column display-center">
+          <h1 class="note-sans-black">UI 設計師</h1>
+          <p>我熱愛挑戰自己，並不斷追求個人成長和學習。我的經驗涵蓋了設計與前端，
+              並且我喜歡在這些領域中不斷創新和探索。我擁有良好的溝通和團隊合作能力，
+              並能夠在壓力下保持高效率。</p>
+          <a href=./about.html class="button">了解更多</a>
+        </div>
       </div>
     </section>
 
-    <section class="slogan section-display">
-      <h3>我熱愛挑戰自己，並不斷追求個人成長和學習。我的經驗涵蓋了設計與前端，
+    <section class="display slogan d-flex display-center">
+      <h5 class="text-align-center margin-0-10vh">我熱愛挑戰自己，
+        並不斷追求個人成長和學習。我的經驗涵蓋了設計與前端，
         並且我喜歡在這些領域中不斷創新和探索。我擁有良好的溝通和團隊合作能力，
         並能夠在壓力下保持高效率。</h3>
     </section>
 
-    <section class="hot-commodity section-display">
-      <div class="commodity">
-        <img src="" alt="">
-        <a href="">名稱</a>
-        <a href="">價格</a>
-      </div>
+    <section class="display hot-commodity d-flex flex-direction-row
+     justify-content-space-between">
+     <div class="commodity d-flex flex-direction-column">
+      <div class="img" style="background-image: url(../img/3.jpg);"></div>
+      <a href="commodity-name">名稱</a>
+      <a href="commodity-price">價格</a>
+    </div>
+    <div class="commodity d-flex flex-direction-column">
+      <div class="img" style="background-image: url(../img/3.jpg);"></div>
+      <a href="commodity-name">名稱</a>
+      <a href="commodity-price">價格</a>
+    </div>
+    <div class="commodity d-flex flex-direction-column">
+      <div class="img" style="background-image: url(../img/3.jpg);"></div>
+      <a href="commodity-name">名稱</a>
+      <a href="commodity-price">價格</a>
+    </div>
+    <div class="commodity d-flex flex-direction-column">
+      <div class="img" style="background-image: url(../img/3.jpg);"></div>
+      <a href="commodity-name">名稱</a>
+      <a href="commodity-price">價格</a>
+    </div>
     </section>
 
 
