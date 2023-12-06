@@ -32,14 +32,14 @@
         <!-- 基本資訊 money-->
         <div class="info-display row flex-direction-row justify-content-between">
             <!-- <img class="img col-md-3" src="../img/107270.jpg" alt=""> -->
-            <div class="name col-md-3">名前：<span>Frieren</span></div>
-            <div class="money col-md-3">お金：<span>100</span></div>
+            <div class="name col-md-3">名前：<span id="name">Frieren</span></div>
+            <div class="money col-md-3">お金：<span id="money">100</span></div>
         </div>
 
         <!-- 玩家 名稱 數值 旅行 物品欄 技能 裝備-->
         <h1 class="note-sans-black colorful">全部の友達</h1>
         <div class="display-row-scroll">
-            <div class="role-list col-12 d-flex py-3">
+            <div class="role-list col-12 d-flex py-3" id="role-list">
                 <div class="role-card">
                     <div class="img" style="background-image: url(../img/1657047335767.jpg);"></div>
                     <div class="role-info">
@@ -144,7 +144,7 @@
         <!-- 擁有物品 名稱數量丟棄-->
         <h1 class="note-sans-black colorful">持有物品</h1>
         <section class="display all-item-display">
-            <div class="row all-item-list col-12 py-3">
+            <div class="row all-item-list col-12 py-3" id="all-item-list">
                 <div class="item d-flex flex-direction-column">
                     <div class="img" style="background-image: url(../img/IMG_20190331_153707_420.jpg);"></div>
                     <a class="item-name"><b>Pixel 8</b></a>
@@ -221,7 +221,7 @@
         <p class="text-align-center">Copyright © 2023 建陞教練的工作室 All Rights Reserved.</p>
     </footer>
 
-        
+    <script src="data.js"></script>    
     <!-- 引入Bootstrap JavaScript（可選） -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

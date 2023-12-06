@@ -41,6 +41,7 @@
         </div>
       </section>
 
+      <!-- slogan -->
       <section class="display slogan d-flex display-center">
         <h5 class="text-align-center">我熱愛挑戰自己，
           並不斷追求個人成長和學習。我的經驗涵蓋了設計與前端，
@@ -48,61 +49,29 @@
           並能夠在壓力下保持高效率。</h3>
       </section>
 
-            <!-- 第一區塊：熱門商品 -->
-            <h1 class="note-sans-black colorful">熱門商品</h1>       
-            <section class="display row overflow-auto product-list">
-                <div class="product-list col-12 d-flex py-3">
-                    <div class="product-card d-flex flex-direction-column">
-                        <div class="img" style="background-image: url(../img/3.jpg);"></div>
-                        <a class="product-name"><b>Pixel 8</b></a>
-                        <a class="product-price">$24,900 起</a>
-                    </div>
-                    <div class="product-card d-flex flex-direction-column">
-                        <div class="img" style="background-image: url(../img/3.jpg);"></div>
-                        <a class="product-name"><b>Pixel 8</b></a>
-                        <a class="product-price">$24,900 起</a>
-                    </div>
-                    <div class="product-card d-flex flex-direction-column">
-                        <div class="img" style="background-image: url(../img/3.jpg);"></div>
-                        <a class="product-name"><b>Pixel 8</b></a>
-                        <a class="product-price">$24,900 起</a>
-                    </div>
-                    <div class="product-card d-flex flex-direction-column">
-                        <div class="img" style="background-image: url(../img/3.jpg);"></div>
-                        <a class="product-name"><b>Pixel 8</b></a>
-                        <a class="product-price">$24,900 起</a>
-                    </div>
-                    <div class="product-card d-flex flex-direction-column">
-                        <div class="img" style="background-image: url(../img/3.jpg);"></div>
-                        <a class="product-name"><b>Pixel 8</b></a>
-                        <a class="product-price">$24,900 起</a>
-                    </div>
-                    <div class="product-card d-flex flex-direction-column">
-                        <div class="img" style="background-image: url(../img/3.jpg);"></div>
-                        <a class="product-name"><b>Pixel 8</b></a>
-                        <a class="product-price">$24,900 起</a>
-                    </div>
-                    <div class="product-card d-flex flex-direction-column">
-                        <div class="img" style="background-image: url(../img/3.jpg);"></div>
-                        <a class="product-name"><b>Pixel 8</b></a>
-                        <a class="product-price">$24,900 起</a>
-                    </div>
-                </div>
-            </section>
-
-
+      <!-- 熱門商品 -->
+      <h1 class="note-sans-black colorful">熱門商品</h1>       
+      <section class="display row overflow-auto product-list">
+          <div class="product-list col-12 d-flex py-3" id="hot-product-list">
+              <div class="product-card d-flex flex-direction-column">
+                  <div class="img" style="background-image: url(../img/3.jpg);"></div>
+                  <a class="product-name"><b>Pixel 8</b></a>
+                  <a class="product-price">$24,900 起</a>
+              </div>
+          </div>
+      </section>
     </main>
 
     <footer class="footer">
       <div class="d-flex flex-direction-row justify-content-space-around">
-        <div>
+        <div class="d-flex column-gap justify-content-space-around" style="width: 50%;">
             <a href="https://github.com/jj2016025j"><i class="bi bi-github"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>            
+            <a href="#"><i class="bi bi-facebook" size="2x"></i></a>            
             <a href="#"><i class="bi bi-instagram"></i></a>           
             <a href="#"><i class="bi bi-twitter"></i></a>
             <a href="../"><i class="bi bi-browser-chrome"></i></a>
         </div>
-        <div>
+        <div class="d-flex column-gap justify-content-space-around" style="width: 50%;">
           <a href="https://genshin.hoyoverse.com/zh-tw/company/privacy" target="_blank"
           rel="noopener noreferrer">
             隱私權政策</a>
@@ -126,7 +95,7 @@
       </p>
       <p class="text-align-center">Copyright © 2023 建陞教練的工作室 All Rights Reserved.</p>
     </footer>
-
+    <script src="data.js"></script>
     <!-- 引入Bootstrap JavaScript（可選） -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

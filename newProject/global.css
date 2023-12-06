@@ -34,6 +34,11 @@ h1, p{
     text-align: center;
 }
 
+i{
+    font-size: 30px;
+  }
+  
+
 /*固定標籤屬性*/
 html, body {
     display: flex;
@@ -174,19 +179,20 @@ footer{
     }
 }
 
-.product-list{
-    height: 350px;
-    column-gap: 5vh;
-    overflow-y: hidden;
-}
-
 .all-product-list{
     height: fit-content;
     column-gap: 5vh;
     row-gap: 5vh;
     overflow-y: hidden;
     align-content: flex-start;
-}   
+}  
+
+.product-list, .product-classification-card{
+    height: 350px;
+    column-gap: 5vh;
+    overflow-y: hidden;
+}
+ 
 
 .product-card{
     width: 200px;
@@ -285,8 +291,8 @@ footer{
 
 .inventory{
     .img{
-        width: 10vh;
-        height: 10vh;
+        width: 70px;
+        height: 70px;
         border-radius: 10px;  
         background-repeat: no-repeat;
         background-size: cover;
@@ -320,7 +326,10 @@ footer{
 }
 
 .row-gap{
-    row-gap: 5px;
+    row-gap: 20px;
+}
+.column-gap{
+    column-gap: 20px;
 }
 .travel{
     border-radius: 25px;  
@@ -379,7 +388,7 @@ footer{
     justify-content: space-around;
 }
 
-.justify-content-between{
+.justify-content-space-between{
     justify-content: space-between;
 }
 /*用不了*/

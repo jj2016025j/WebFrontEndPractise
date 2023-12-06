@@ -1,0 +1,126 @@
+{
+    "user":{
+      "name":"果寶寶",
+      "money":100
+    },
+    "activities": [
+      {
+        "image": "../img/e弓箭手22.png",
+        "name": "活動名稱 1"
+      },
+      {
+        "image": "../img/e弓箭手22.png",
+        "name": "活動名稱 2"
+      }
+    ],
+    "products": [
+      {
+        "image": "../img/3.jpg",
+        "name": "Pixel 8",
+        "price": 24900,
+        "category": {
+          "name": "科技"
+        }
+      },
+      {
+        "image": "../img/3.jpg",
+        "name": "果寶寶",
+        "price": 2000,
+        "category": {
+          "name": "寵物"
+        }
+      },
+      {
+        "image": "../img/3.jpg",
+        "name": "Pixel 8",
+        "price": 24900,
+        "category": {
+          "name": "科技"
+        }
+      },
+      {
+        "image": "../img/3.jpg",
+        "name": "果寶寶",
+        "price": 2000,
+        "category": {
+          "name": "寵物"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "name": "科技",
+        "image": "../img/3.jpg"
+      },
+      {
+        "name": "魔法",
+        "image": "../img/3.jpg"
+      },
+      {
+        "name": "寵物",
+        "image": "../img/3.jpg"
+      },
+      {
+        "name": "寵物",
+        "image": "../img/3.jpg"
+      }
+    ],
+    "roles": [
+      {
+        "image": "../img/1657047335767.jpg",
+        "name": "角色名稱 2",
+        "value": 200,
+        "inventory":[      
+          {
+            "image":"../img/671.png",
+            "name": "物品名稱 1",
+            "amount": 10
+          },
+          {
+            "image":"../img/671.png",
+            "name": "物品名稱 2",
+            "amount": 20
+          },
+          {
+            "image":"../img/671.png",
+            "name": "物品名稱 2",
+            "amount": 20
+          }
+        ]
+      },
+      {
+        "image": "../img/1657047335767.jpg",
+        "name": "角色名稱 2",
+        "value": 200,
+        "inventory":[      
+          {
+            "image":"../img/671.png",
+            "name": "物品名稱 1",
+            "amount": 10
+          },
+          {
+            "image":"../img/671.png",
+            "name": "物品名稱 2",
+            "amount": 20
+          },
+          {
+            "image":"../img/671.png",
+            "name": "物品名稱 2",
+            "amount": 20
+          }
+        ]
+      }
+    ],
+    "items": [
+      {
+        "image":"../img/IMG_20190331_153707_420.jpg",
+        "name": "物品名稱 1",
+        "amount": 10
+      },
+      {
+        "image":"../img/IMG_20190331_153707_420.jpg",
+        "name": "物品名稱 2",
+        "amount": 20
+      }
+    ]
+  }
