@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多层导航栏</title>
+    <link rel="stylesheet" href="style.css"> <!-- 链接到您的CSS文件 -->
+</head>
+<body>
+    <style>
+        /* 导航栏基础样式 */
+        .top-level-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: #333;
+            display: flex;
+        }
+
+        .top-level-menu > li {
+            position: relative;
+        }
+
+        .top-level-menu > li > a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* 子菜单样式 */
+        .second-level-menu {
+            display: none;
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #666;
+            padding: 0;
+        }
+
+        .second-level-menu > li > a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* 显示子菜单 */
+        .top-level-menu > li:hover > .second-level-menu {
+            display: block;
+        }
+
+    </style>
+    <nav>
+        <ul class="top-level-menu">
+            <li><a href="#">主页</a></li>
+            <li>
+                <a href="#">产品</a>
+                <ul class="second-level-menu">
+                    <li><a href="#">产品 1</a></li>
+                    <li><a href="#">产品 2</a></li>
+                    <li><a href="#">产品 3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">服务</a>
+                <ul class="second-level-menu">
+                    <li><a href="#">服务 1</a></li>
+                    <li><a href="#">服务 2</a></li>
+                </ul>
+            </li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
