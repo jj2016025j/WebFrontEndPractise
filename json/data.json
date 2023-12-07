@@ -220,54 +220,6 @@
     ],
     "items": [
       {
-        "image": "../img/IMG_20190331_153707_420.jpg",
-        "name": "物品名稱 1",
-        "amount": 10,
-        "category": "電子產品"
-      },
-      {
-        "image": "../img/IMG_20190331_153707_421.jpg",
-        "name": "物品名稱 2",
-        "amount": 20,
-        "category": "家居用品"
-      },
-      {
-        "image": "../img/IMG_20190331_153707_422.jpg",
-        "name": "物品名稱 3",
-        "amount": 15,
-        "category": "運動裝備"
-      },
-      {
-        "image": "../img/IMG_20190331_153707_423.jpg",
-        "name": "物品名稱 4",
-        "amount": 8,
-        "category": "書籍"
-      },
-      {
-        "image": "../img/IMG_20190331_153707_424.jpg",
-        "name": "物品名稱 5",
-        "amount": 12,
-        "category": "食品"
-      },
-      {
-        "image": "../img/IMG_20190331_153707_425.jpg",
-        "name": "物品名稱 6",
-        "amount": 30,
-        "category": "服飾"
-      },
-      {
-        "image": "../img/IMG_20190331_153707_426.jpg",
-        "name": "物品名稱 7",
-        "amount": 22,
-        "category": "工具"
-      },
-      {
-        "image": "../img/IMG_20190331_153707_427.jpg",
-        "name": "物品名稱 8",
-        "amount": 18,
-        "category": "玩具"
-      },
-      {
         "image": "https://picsum.photos/100/100?random=1",
         "name": "神秘魔方",
         "amount": 5,
