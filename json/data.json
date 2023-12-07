@@ -5,122 +5,315 @@
     },
     "activities": [
       {
-        "image": "../img/e弓箭手22.png",
+        "image": "https://picsum.photos/500/350?random=1",
         "name": "活動名稱 1"
       },
       {
-        "image": "../img/e弓箭手22.png",
+        "image": "https://picsum.photos/500/350?random=2",
         "name": "活動名稱 2"
+      },
+      {
+        "image": "https://picsum.photos/500/350?random=3",
+        "name": "活動名稱 3"
+      },
+      {
+        "image": "https://picsum.photos/500/350?random=4",
+        "name": "活動名稱 4"
+      },
+      {
+        "image": "https://picsum.photos/500/350?random=5",
+        "name": "活動名稱 5"
+      },
+      {
+        "image": "https://picsum.photos/500/350?random=6",
+        "name": "活動名稱 6"
       }
     ],
     "products": [
       {
-        "image": "../img/3.jpg",
+        "image": "https://picsum.photos/200/300?random=1",
         "name": "Pixel 8",
         "price": 24900,
-        "category": {
-          "name": "科技"
-        }
+        "category": "科技"
       },
       {
-        "image": "../img/3.jpg",
-        "name": "果寶寶",
+        "image": "https://picsum.photos/200/300?random=2",
+        "name": "Magic Wand",
+        "price": 9800,
+        "category": "魔法"
+      },
+      {
+        "image": "https://picsum.photos/200/300?random=3",
+        "name": "Pet Food",
+        "price": 5000,
+        "category": "寵物"
+      },
+      {
+        "image": "https://picsum.photos/200/300?random=4",
+        "name": "Smart Watch",
+        "price": 32000,
+        "category": "科技"
+      },
+      {
+        "image": "https://picsum.photos/200/300?random=5",
+        "name": "Magic Broom",
+        "price": 8500,
+        "category": "魔法"
+      },
+      {
+        "image": "https://picsum.photos/200/300?random=6",
+        "name": "Dog Leash",
         "price": 2000,
-        "category": {
-          "name": "寵物"
-        }
+        "category": "寵物"
       },
       {
-        "image": "../img/3.jpg",
-        "name": "Pixel 8",
-        "price": 24900,
-        "category": {
-          "name": "科技"
-        }
+        "image": "https://picsum.photos/200/300?random=7",
+        "name": "Eco Bag",
+        "price": 1200,
+        "category": "生活用品"
       },
       {
-        "image": "../img/3.jpg",
-        "name": "果寶寶",
-        "price": 2000,
-        "category": {
-          "name": "寵物"
-        }
+        "image": "https://picsum.photos/200/300?random=8",
+        "name": "Yoga Mat",
+        "price": 2200,
+        "category": "健身"
+      },
+      {
+        "image": "https://picsum.photos/200/300?random=9",
+        "name": "Cookbook",
+        "price": 3000,
+        "category": "書籍"
+      },
+      {
+        "image": "https://picsum.photos/200/300?random=10",
+        "name": "Gaming Mouse",
+        "price": 4500,
+        "category": "科技"
+      },
+      {
+        "image": "https://picsum.photos/200/300?random=11",
+        "name": "Bluetooth Speaker",
+        "price": 5500,
+        "category": "科技"
+      },
+      {
+        "image": "https://picsum.photos/200/300?random=12",
+        "name": "Herbal Tea",
+        "price": 1500,
+        "category": "食品"
       }
-    ],
-    "categories": [
+    ],    
+    "salesRecords": [
       {
-        "name": "科技",
-        "image": "../img/3.jpg"
+        "product_name": "Pixel 8",
+        "category": "寵物",
+        "saleTime": "2023-03-01T10:00:00",
+        "quantity": 1
       },
       {
-        "name": "魔法",
-        "image": "../img/3.jpg"
+        "product_name": "Pixel 8",
+        "category": "寵物",
+        "saleTime": "2023-12-01T15:30:45",
+        "quantity": 1
       },
       {
-        "name": "寵物",
-        "image": "../img/3.jpg"
+        "product_name": "Pixel 8",
+        "category": "科技",
+        "saleTime": "2023-03-01T10:00:00",
+        "quantity": 2
       },
       {
-        "name": "寵物",
-        "image": "../img/3.jpg"
+        "product_name": "Smart Watch",
+        "category": "科技",
+        "saleTime": "2023-03-02T12:00:00",
+        "quantity": 1
+      },
+      {
+        "product_name": "Magic Wand",
+        "category": "魔法",
+        "saleTime": "2023-03-05T09:30:00",
+        "quantity": 3
+      },
+      {
+        "product_name": "Pet Food",
+        "category": "寵物",
+        "saleTime": "2023-03-06T14:20:30",
+        "quantity": 5
+      },
+      {
+        "product_name": "Eco Bag",
+        "category": "生活用品",
+        "saleTime": "2023-03-10T11:00:00",
+        "quantity": 2
+      },
+      {
+        "product_name": "Yoga Mat",
+        "category": "健身",
+        "saleTime": "2023-03-12T17:45:00",
+        "quantity": 1
+      },
+      {
+        "product_name": "Cookbook",
+        "category": "書籍",
+        "saleTime": "2023-03-15T13:05:00",
+        "quantity": 4
+      },
+      {
+        "product_name": "Gaming Mouse",
+        "category": "科技",
+        "saleTime": "2023-03-18T19:00:00",
+        "quantity": 2
       }
-    ],
+    ],    
     "roles": [
       {
-        "image": "../img/1657047335767.jpg",
-        "name": "角色名稱 2",
+        "image": "https://picsum.photos/240/240?random=1",
+        "name": "探險家艾莉",
         "value": 200,
-        "inventory":[      
+        "inventory": [
           {
-            "image":"../img/671.png",
-            "name": "物品名稱 1",
-            "amount": 10
+            "image": "https://picsum.photos/70/70?random=2",
+            "name": "神秘水晶",
+            "description": "閃耀著奇異光芒的水晶。"
           },
           {
-            "image":"../img/671.png",
-            "name": "物品名稱 2",
-            "amount": 20
+            "image": "https://picsum.photos/70/70?random=3",
+            "name": "古老卷軸",
+            "description": "記錄著遠古知識的卷軸。"
           },
           {
-            "image":"../img/671.png",
-            "name": "物品名稱 2",
-            "amount": 20
+            "image": "https://picsum.photos/70/70?random=4",
+            "name": "迷你機器人",
+            "description": "一個小巧但功能強大的機器人。"
           }
         ]
       },
       {
-        "image": "../img/1657047335767.jpg",
-        "name": "角色名稱 2",
-        "value": 200,
-        "inventory":[      
+        "image": "https://picsum.photos/240/240?random=5",
+        "name": "魔法師莉亞",
+        "value": 150,
+        "inventory": [
           {
-            "image":"../img/671.png",
-            "name": "物品名稱 1",
-            "amount": 10
+            "image": "https://picsum.photos/70/70?random=6",
+            "name": "藍焰火炬",
+            "description": "發出藍色火焰的神秘火炬。"
           },
           {
-            "image":"../img/671.png",
-            "name": "物品名稱 2",
-            "amount": 20
-          },
+            "image": "https://picsum.photos/70/70?random=7",
+            "name": "幻影斗篷",
+            "description": "穿上後可隱形的神奇斗篷。"
+          }
+        ]
+      },
+      {
+        "image": "https://picsum.photos/240/240?random=8",
+        "name": "勇士卡爾",
+        "value": 180,
+        "inventory": [
           {
-            "image":"../img/671.png",
-            "name": "物品名稱 2",
-            "amount": 20
+            "image": "https://picsum.photos/70/70?random=9",
+            "name": "金色長劍",
+            "description": "鑄造精良，閃耀金光的長劍。"
           }
         ]
       }
     ],
     "items": [
       {
-        "image":"../img/IMG_20190331_153707_420.jpg",
+        "image": "../img/IMG_20190331_153707_420.jpg",
         "name": "物品名稱 1",
-        "amount": 10
+        "amount": 10,
+        "category": "電子產品"
       },
       {
-        "image":"../img/IMG_20190331_153707_420.jpg",
+        "image": "../img/IMG_20190331_153707_421.jpg",
         "name": "物品名稱 2",
-        "amount": 20
+        "amount": 20,
+        "category": "家居用品"
+      },
+      {
+        "image": "../img/IMG_20190331_153707_422.jpg",
+        "name": "物品名稱 3",
+        "amount": 15,
+        "category": "運動裝備"
+      },
+      {
+        "image": "../img/IMG_20190331_153707_423.jpg",
+        "name": "物品名稱 4",
+        "amount": 8,
+        "category": "書籍"
+      },
+      {
+        "image": "../img/IMG_20190331_153707_424.jpg",
+        "name": "物品名稱 5",
+        "amount": 12,
+        "category": "食品"
+      },
+      {
+        "image": "../img/IMG_20190331_153707_425.jpg",
+        "name": "物品名稱 6",
+        "amount": 30,
+        "category": "服飾"
+      },
+      {
+        "image": "../img/IMG_20190331_153707_426.jpg",
+        "name": "物品名稱 7",
+        "amount": 22,
+        "category": "工具"
+      },
+      {
+        "image": "../img/IMG_20190331_153707_427.jpg",
+        "name": "物品名稱 8",
+        "amount": 18,
+        "category": "玩具"
+      },
+      {
+        "image": "https://picsum.photos/100/100?random=1",
+        "name": "神秘魔方",
+        "amount": 5,
+        "category": "玩具"
+      },
+      {
+        "image": "https://picsum.photos/100/100?random=2",
+        "name": "未来手机",
+        "amount": 10,
+        "category": "電子產品"
+      },
+      {
+        "image": "https://picsum.photos/100/100?random=3",
+        "name": "環保購物袋",
+        "amount": 20,
+        "category": "家居用品"
+      },
+      {
+        "image": "https://picsum.photos/100/100?random=4",
+        "name": "智能手錶",
+        "amount": 8,
+        "category": "電子產品"
+      },
+      {
+        "image": "https://picsum.photos/100/100?random=5",
+        "name": "太空筆記本",
+        "amount": 15,
+        "category": "書籍"
+      },
+      {
+        "image": "https://picsum.photos/100/100?random=6",
+        "name": "迷你烤箱",
+        "amount": 12,
+        "category": "家電"
+      },
+      {
+        "image": "https://picsum.photos/100/100?random=7",
+        "name": "運動健身帶",
+        "amount": 25,
+        "category": "運動裝備"
+      },
+      {
+        "image": "https://picsum.photos/100/100?random=8",
+        "name": "多功能工具箱",
+        "amount": 18,
+        "category": "工具"
       }
-    ]
+    ]        
   }

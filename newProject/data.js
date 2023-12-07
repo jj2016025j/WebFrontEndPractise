@@ -16,7 +16,6 @@
 // // 物品
 // const items = data.items.sort((a, b) => a.name.localeCompare(b.name));
 
-
 //............................................
 let data ={}
 
@@ -24,30 +23,54 @@ fetch('../json/data.json')
   .then(response => response.json())
   .then(jsonData => {
     data = jsonData
-    console.log(data); // 访问产品名
+    // console.log(data); // 访问产品名
+
     updateUI(data);
-  })
+})
   .catch(error => {
     console.error('Error fetching JSON:', error);
-  });
+});
 
 //===============================================================
 
 function updateUI(data){
-    document.getElementById("name").innerText=data.user.name
-    document.getElementById("money").innerText=data.user.money
+    const nameElement = document.querySelector("#name");
+    if (nameElement) {
+      nameElement.innerText = data.user.name;
+    } else {
+      // 略過
+    }
+    const moneyElement = document.querySelector("#money");
+    if (moneyElement) {
+        moneyElement.innerText = data.user.money;
+    } else {
+      // 略過
+    }
 
     updateActivityList(data)
-    updateHotProductList(data)
-    updateProductClassificationList(data)
-    updateClassificationList(data)
-    updateAllProductList(data)
     
-    updateRoleList(data)
-    updateAllItemList(data)
+    // 熱門商品
+    const hotProductList = createHotProductList(data.products, data.salesRecords);
+    console.log(hotProductList);
+    updateHotProductList(hotProductList)
+    
+    //熱門分類
+    const categoryBestSellers = getCategoryBestSellers(data.products);
+    console.log("Category Best Sellers:", categoryBestSellers);
+    updateProductClassificationList(categoryBestSellers)
+    //列出分類
+    updateClassificationList(categoryBestSellers)
+    
+    //所有物品
+    const selectedProducts = selectRandomProducts(data.products, 20);
+    console.log("random product:",selectedProducts);
+    updateAllProductList(selectedProducts)
+    
+    updateRoleList(data.roles)
+    updateAllItemList(data.items)
 }
 
-//===============================================================
+//==================活動=============================================
 const activityList = document.getElementById("activity-list");
 
 function updateActivityList(data) {
@@ -66,15 +89,39 @@ function updateActivityList(data) {
         activityList.appendChild(imgElement);
     });
 }
-//===============================================================
+//====================熱門商品===========================================
 const hotProductList = document.getElementById("hot-product-list");
 
-function updateHotProductList(data) {
+function createHotProductList(products, salesRecords) {
+    let salesMap = {};
+  
+    // 累计每个产品的销售量
+    salesRecords.forEach(record => {
+      if (salesMap[record.product_name]) {
+        salesMap[record.product_name] += record.quantity;
+      } else {
+        salesMap[record.product_name] = record.quantity;
+      }
+    });
+  
+    // 匹配产品信息并创建热门商品列表
+    return products
+      .filter(product => salesMap[product.name])
+      .map(product => ({
+        image: product.image,
+        name: product.name,
+        category: product.category,
+        price: product.price,
+        quantity: salesMap[product.name]
+      }));
+}
+
+function updateHotProductList(topSellingProducts) {
     if(hotProductList===null)
         return
     hotProductList.innerHTML = "";
     // 遍历每个产品并创建相应的 DOM 元素
-    data.products.forEach(product => {
+    topSellingProducts.forEach(product => {
         // 创建产品卡片容器
         let productCard = document.createElement('div');
         productCard.className = "product-card d-flex flex-direction-column";
@@ -92,7 +139,7 @@ function updateHotProductList(data) {
         // 创建产品价格元素
         let productPrice = document.createElement('a');
         productPrice.className = "product-price";
-        productPrice.textContent = `$${product.price} 起`;
+        productPrice.textContent = `$${product.price}`;
 
         // 组合所有元素
         productCard.appendChild(imgDiv);
@@ -104,15 +151,28 @@ function updateHotProductList(data) {
     });
 }
 
-//===============================================================
+//=====================熱門分類==========================================
 const productClassificationList = document.getElementById("product-classification-list");
 
-function updateProductClassificationList(data) {
+function getCategoryBestSellers(products) {
+    const categoryBestSellers = new Map();
+
+    products.forEach(product => {
+        const category = product.category;
+        if (!categoryBestSellers.has(category) || categoryBestSellers.get(category).sales < product.sales) {
+            categoryBestSellers.set(category, { image: product.image, sales: product.sales });
+        }
+    });
+
+    return Array.from(categoryBestSellers, ([category, { image, sales }]) => ({ category, image, sales }));
+}
+
+function updateProductClassificationList(products) {
     if(productClassificationList===null)
         return
     productClassificationList.innerHTML = "";
     // 遍历每个商品分类并创建相应的 DOM 元素
-    data.categories.forEach(category => {
+    products.forEach(product => {
         // 创建商品分类卡片容器
         let categoryCard = document.createElement('div');
         categoryCard.className = "product-card d-flex flex-direction-column";
@@ -120,12 +180,12 @@ function updateProductClassificationList(data) {
         // 创建图片元素
         let imgDiv = document.createElement('div');
         imgDiv.className = "img";
-        imgDiv.style.backgroundImage = `url(${category.image})`;
+        imgDiv.style.backgroundImage = `url(${product.image})`;
 
         // 创建商品分类名称元素
         let categoryName = document.createElement('a');
         categoryName.className = "product-classification-name";
-        categoryName.innerHTML = `<b>${category.name}</b>`;
+        categoryName.innerHTML = `<b>${product.category}</b>`;
 
         // 组合所有元素
         categoryCard.appendChild(imgDiv);
@@ -137,35 +197,40 @@ function updateProductClassificationList(data) {
 }
 
 
-//===============================================================
+//========================商品種類=======================================
 //創建分類
 const classificationList = document.getElementById("classification-list");
 
-function updateClassificationList(data) {
+function updateClassificationList(products) {
     if(classificationList===null)
         return
     classificationList.innerHTML = "";
     // 假设 data.categories 是你的数据源
-    data.categories.forEach(category => {
+    products.forEach(product => {
         // 创建分类选项元素
         let categoryElement = document.createElement('div');
         categoryElement.className = "classification-option";
-        categoryElement.textContent = category.name;
+        categoryElement.textContent = product.category;
 
         // 将分类选项添加到分类列表中
         classificationList.appendChild(categoryElement);
     });
 }
-//===============================================================
+//========================所有商品=======================================
 //創建所有商品
 const allProductList = document.getElementById("all-product-list");
 
-function updateAllProductList(data){
+function selectRandomProducts(products, maxCount) {
+    const shuffledProducts = [...products].sort(() => 0.5 - Math.random()); // 打乱数组
+    return shuffledProducts.slice(0, maxCount); // 选择前20个商品
+}
+  
+function updateAllProductList(selectedProducts){
     if(allProductList===null)
         return
     allProductList.innerHTML = "";
     // 遍历每个产品并创建相应的 DOM 元素
-    data.products.forEach(product => {
+    selectedProducts.forEach(product => {
         // 创建产品卡片容器
         let productCard = document.createElement('div');
         productCard.className = "product-card d-flex flex-direction-column";
@@ -183,7 +248,7 @@ function updateAllProductList(data){
         // 创建产品价格元素
         let productPrice = document.createElement('a');
         productPrice.className = "product-price";
-        productPrice.textContent = `$${product.price} 起`;
+        productPrice.textContent = `$${product.price}`;
 
         // 组合所有元素
         productCard.appendChild(imgDiv);
@@ -198,12 +263,12 @@ function updateAllProductList(data){
 //角色創建
 const roleList = document.getElementById("role-list");
 
-function updateRoleList(data){
+function updateRoleList(roles){
     if(roleList===null)
         return
     roleList.innerHTML = "";
     // 假设 data.roles 是你的数据源
-    data.roles.forEach(role => {
+    roles.forEach(role => {
         // 创建角色卡片容器
         let roleCard = document.createElement('div');
         roleCard.className = "role-card";
@@ -274,12 +339,12 @@ function updateRoleList(data){
 //物品列表
 const allItemList = document.getElementById("all-item-list");
 
-function updateAllItemList(data){
+function updateAllItemList(items){
     if(allItemList===null)
         return
     allItemList.innerHTML = "";
     // 假设 data.items 是你的数据源
-    data.items.forEach(item => {
+    items.forEach(item => {
         // 创建每个项目的容器
         let itemElement = document.createElement('div');
         itemElement.className = "item d-flex flex-direction-column";
