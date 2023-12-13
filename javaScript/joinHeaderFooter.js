@@ -2,7 +2,7 @@
 const header = document.querySelector('header')
 if (header) {
     header.innerHTML = `
-        <h1 class="note-sans-black logo">魔術場域</h1>
+        <h1 class="note-sans-black logo">魔術空間</h1>
         <nav>
             <ul>
                 <li><a href=./index.html>HOME</a></li>

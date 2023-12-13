@@ -1,201 +1,93 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
-/*class屬性*/
-.display{
+
+/* 簡化並重組代碼 */
+.display, .Activity-display, .all-product-list, .product-list, .product-classification-card, .all-item-list {
+    height: fit-content;
+    overflow-y: hidden;
+}
+
+.display {
     width: 100%;
     min-height: 20vh;
     height: 70vh;
-    /* background-image: linear-gradient(#fff0f0, rgb(241, 247, 255)); */
-    +.slogan{
-        height: fit-content;
-        /* box-shadow: 0 0 30px rgba(126, 126, 126, 0.482); */
-    }
-    /*+.hot-commodity{
-        height: 400px;
-    }
-    title{
-        display: block;
-        height: 10vh;
-    } */
 }
 
-.button{
+.slogan, .dropdown-menu {
+    height: fit-content;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.button {
     width: 100px;
     padding: 8px 16px;
     border-radius: 25px;
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
 }
 
-.display-row-scroll{
-    height: fit-content;
-    overflow-y: hidden;
+.display-row-scroll, .Activity-display, .Activity-list, .all-product-list, .product-list, .product-classification-card, .all-item-list {
     overflow-x: auto;
 }
 
-.Activity-display{
-    height: 400px;
-    overflow-y: hidden;
-    overflow-x: auto;
+.Activity-display, .Activity-list {
     margin: 50px 0;
 }
-.Activity-list{
-    height: 400px;
-    column-gap: 5vh;
-    overflow-y: hidden;
-    .img{
-        height: 350px;
-        margin: auto auto;
-        position: relative;
-        border-radius: 25px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center; 
-    }
+
+.img {
+    border-radius: 25px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-.all-product-list{
-    height: fit-content;
+.Activity-list, .product-list, .product-classification-card, .all-product-list, .all-item-list {
     column-gap: 5vh;
-    row-gap: 5vh;
-    overflow-y: hidden;
-    align-content: flex-start;
-}  
-
-.product-list, .product-classification-card{
-    height: 350px;
-    column-gap: 5vh;
-    overflow-y: hidden;
 }
- 
 
-.product-card{
+.product-card {
     width: 200px;
     height: 300px;
-    margin: auto auto;
+    margin: auto;
     position: relative;
-    .img{
-        width: 200px;
-        height: 240px;
-        border-radius: 25px;  
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-    .card-body{
-        text-align: left;
-    }
-    /*沒用*/
-    .product-name{
-        position: absolute;
-        bottom: 30px;
-        left: 0;
-    }
-    .product-price{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-    a{
-        margin: auto 0;
-    }
 }
 
-.classification-list{
+.product-card .img {
+    width: 200px;
+    height: 240px;
+}
+
+.classification-list {
     margin: 20px auto;
     column-gap: 10px;
 }
 
-.classification-option{
+.classification-option, .buy-btn-lg, .buy-btn-sm, .travel, .exile {
     border-radius: 25px;
     width: fit-content;
     height: fit-content;
-    padding: 6px 12px;
     box-shadow: 0 0 1px rgba(128, 128, 128, 0.438);
-    &:hover{
-        background-color: rgb(227, 233, 238);
-    }
 }
 
-.info-display{
-    width: 100%;
-    height: fit-content;
-    .img{
-        width: 100px;
-        height: 100px;
-        border-radius: 25px;  
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
+.classification-option:hover, .travel:hover, .exile:hover {
+    background-color: rgb(227, 233, 238);
 }
 
-.role-list{
+.info-display, .role-list, .inventory-list, .name, .money {
     width: fit-content;
     height: fit-content;
-    column-gap: 5vh;
 }
 
-.role-card{
+.role-card {
     width: 250px;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    row-gap: 5px;
-    .img{
-        height: 240px;   
-        border-radius: 25px;  
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center; 
-    }
-}
-
-.role-info{
     display: flex;
     flex-direction: column;
     row-gap: 5px;
 }
 
-.inventory-list{
-    display: flex;
-    flex-direction: row;
-    column-gap: 5px;
-    justify-content: space-between;
-}
-
-.inventory{
-    .img{
-        width: 70px;
-        height: 70px;
-        border-radius: 10px;  
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-}
-
-.all-item-display{
-    height: fit-content;
-}
-
-.all-item-list{
-    height: fit-content;
-    column-gap: 5vh;
-    row-gap: 5vh;
-    overflow-y: hidden;
-    align-content: flex-start;
-}  
-
-.item{
-    width: 100px;
-    height: 150px;
-    .img{
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;  
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    }
+.role-card .img {
+    height: 240px;
 }
 
 .quantity-input {
@@ -203,155 +95,70 @@
     align-items: center;
 }
 
-.quantity-input button {
+.quantity-input button, .quantity-input input {
     background-color: #f2f2f2;
     border: 1px solid #ddd;
-    padding: 5px 10px;
-    cursor: pointer;
 }
 
 .quantity-input input {
     text-align: center;
-    border: 1px solid #ddd;
     padding: 5px;
     width: 50px;
 }
 
-.main-header{
+.main-header {
     justify-content: space-between;
-    >*{
-        width: fit-content;
-        >*{
-            width: fit-content;
-        }
-    }
-    .h1{
-        font-family: "Google Sans",Roboto,Arial,sans-serif;
-        font-weight: 700;
-        font-optical-sizing: none;
-    }
-    .buy-btn-lg{
-        border-radius: 5px;  
-        min-width: 76px;
-        height: 56px;
-        padding: 0 45px;
-        font-size: 22px;
-        border: none;
-        background-color: rgb(24, 121, 205);
-        color: white;
-        box-shadow: 0 0 1px rgba(128, 128, 128, 0.438);
-        &:hover{
-            background-color: rgb(21, 86, 140);
-        }
-    }
 }
 
-.product-info{
-    margin: 50px 0;
-    .product-image{
-        border-radius: 25px;
-        width: 50%;
-        height: auto;
-}
-
- .info{
-    justify-content: center;
-    align-content: center;
-    width: 50%;
-    height: auto;
-    h1{
-        text-align: right;
-    }
- }
-}
-
-
-.buy-btn-sm{
-    border-radius: 5px;  
+.main-header > *, .main-header > * > * {
     width: fit-content;
-    height: fit-content;
-    padding: 10px 20px;
-    font-size: 16px;
+}
+
+.main-header .h1 {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-weight: 700;
+    font-optical-sizing: none;
+}
+
+.buy-btn-lg, .buy-btn-sm {
+    border-radius: 5px;
     border: none;
     background-color: rgb(24, 121, 205);
     color: white;
     box-shadow: 0 0 1px rgba(128, 128, 128, 0.438);
-    &:hover{
-        background-color: rgb(21, 97, 159);
-    }
 }
 
-.travel{
-    border-radius: 25px;  
-    width: fit-content;
-    height: fit-content;
-    padding: 6px 22px;
-    border: none;
-    box-shadow: 0 0 1px rgba(128, 128, 128, 0.438);
-    &:hover{
-        background-color: rgb(227, 233, 238);
-    }
+.buy-btn-lg:hover, .buy-btn-sm:hover {
+    background-color: rgb(21, 97, 159);
 }
 
-.exile{
-    border-radius: 25px;  
-    width: fit-content;
-    height: fit-content;
-    padding: 6px 22px;
-    border: none;
-    background-color: rgb(255, 202, 202);
-    box-shadow: 0 0 1px rgba(128, 128, 128, 0.438);
-    &:hover{
-        background-color: rgb(221, 179, 179);
-    }
+.product-info .product-image, .product-info .info {
+    width: 50%;
+    height: auto;
 }
 
-.name, .money{
-    width: fit-content;
+.product-info .info h1 {
+    text-align: right;
 }
 
-/*可以用來做點甚麼*/
-aside{
-    position: fixed;
-    top:100px;
-    right: 100px;
-}
-
-
+/* 媒體查詢 */
 @media screen and (max-width: 600px) {
-    header{
+    header {
         display: flex;
         justify-content: center;
         align-items: center;
-        .logo{
-            left: unset;
-        }
     }
-    nav{
+
+    nav {
         display: none;
     }
-    .colorful {
-        margin: 0vh;
-    }
-    .Activity-display {
+
+    .colorful, .Activity-display, .display, .display + .slogan {
         margin: 0;
         height: fit-content;
     }
-    .Activity-list {
-        height: 280px;
-        .img {
-            height: 200px;
-        }
+
+    .Activity-list .img {
+        height: 200px;
     }
-    .full {
-        height: fit-content;
-    }
-    .display{
-        height: fit-content;
-        +.slogan{
-            height: fit-content;
-            margin: 10vh 0;
-        }
-    }
-    
 }
