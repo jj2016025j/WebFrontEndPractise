@@ -31,7 +31,7 @@
             <a href="./store.html">繼續購物</a>
         </div>
         <div class="row">
-            <div class="cart-item row col-md-7">
+            <div class="cart-item row col-md-7" id="shoppingCartList">
                 <img src="https://picsum.photos/1000" alt="商品图片" class="img-fluid col-2">
                 <div class="row col-10">
                     <a href="./productInfo.html" class="text-size-12">商品名稱</a>
@@ -53,7 +53,7 @@
                     <p class="col text-left">稅款:</p> <p class="col text-right"> $20</p>
                 </div>
                 <div class="row">
-                    <p class="col text-left"><b>預估總金額:</b></p> <p class="col text-right"><b> $20</b></p>
+                    <p class="col text-left"><b>預估總金額:</b></p> <p class="col text-right" id="totalPrice"><b> $20</b></p>
                 </div>
                 <a href="./shoppingCarPay.html" class="col-12 bg-primary btn text-white">結帳</a>
 
@@ -67,7 +67,92 @@
     <footer>
 
     </footer>
+    <script>
+        let totalPrice = 0;
 
+        function displayCartItem(product) {
+            const shoppingCartList = document.getElementById('shoppingCartList');
+            const itemElement = createCartItemElement(product);
+            shoppingCartList.appendChild(itemElement);
+
+            // 累加商品价格
+            totalPrice += product.price * 1; // 假设每个商品数量为1
+            updateTotalPrice();
+        }
+
+        function updateTotalPrice() {
+            const totalPriceElement = document.getElementById('totalPrice'); // 假设您有一个显示总价的元素
+            totalPriceElement.textContent = `${totalPrice}`;
+        }
+
+        // 在購物車頁面的JavaScript中
+        document.addEventListener('DOMContentLoaded', () => {
+            const shoppingCartList = JSON.parse(localStorage.getItem('shoppingCartList')) || [];
+            document.getElementById('shoppingCartList').innerHTML="";
+            shoppingCartList.forEach(product => {
+                console.log(product)
+                fetchProductDetails(product);
+            });
+        });
+
+        function fetchProductDetails(productName) {
+            fetch(`./json/data.json`)
+                .then(response => response.json())
+                .then(data => {
+                    const product = data.products.find(p => p.name === productName);
+                    if (product) {
+                        console.log(product)
+                        displayCartItem(product);
+                    }
+                })
+                .catch(error => console.log('Error fetching product details:', error));
+        }
+
+        function displayCartItem(product) {
+            const shoppingCartList = document.getElementById('shoppingCartList');
+            const itemElement = createCartItemElement(product);
+            shoppingCartList.appendChild(itemElement);
+        }
+
+        function createCartItemElement(product) {
+            // 創建包含商品信息的購物車項目
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.className = 'cart-item row col-md-7';
+
+            const img = document.createElement('img');
+            img.src = product.image;
+            img.alt = '商品圖片';
+            img.className = 'img-fluid col-2';
+
+            const itemInfoDiv = document.createElement('div');
+            itemInfoDiv.className = 'row col-10';
+
+            const itemName = document.createElement('a');
+            itemName.href = './productInfo.html';
+            itemName.className = 'text-size-12';
+            itemName.textContent = product.name;
+
+            const itemQuantity = document.createElement('input');
+            itemQuantity.className = 'col-6';
+            itemQuantity.type = 'number';
+            itemQuantity.value = 1;
+            itemQuantity.min = '1';
+
+            const itemPrice = document.createElement('p');
+            itemPrice.className = 'col-6 text-right';
+            itemPrice.textContent = `總價: $${product.price * 1}`;
+
+            itemInfoDiv.appendChild(itemName);
+            itemInfoDiv.appendChild(itemQuantity);
+            itemInfoDiv.appendChild(itemPrice);
+
+            cartItemDiv.appendChild(img);
+            cartItemDiv.appendChild(itemInfoDiv);
+
+            return cartItemDiv;
+        }
+
+    </script>
     <script src="./javascript/joinHeaderFooter.js"></script>
     <script src="./javascript/data.js"></script>
     <!-- 引入Bootstrap JavaScript（可選） -->

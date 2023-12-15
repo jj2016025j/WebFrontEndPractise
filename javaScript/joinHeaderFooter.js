@@ -60,6 +60,7 @@ if (footer) {
 // 略過
 }
 
+//=====================================活動
 const activityDisplay = document.getElementById('Activity-display')
 if (activityDisplay) {
     activityDisplay.innerHTML = `
@@ -76,7 +77,7 @@ if (activityDisplay) {
   // 略過
 }
 
-
+//=====================================熱門商品
 const hotProductDisplay = document.getElementById('hot-product-display')
 if (hotProductDisplay) {
     hotProductDisplay.innerHTML = `
@@ -95,6 +96,7 @@ if (hotProductDisplay) {
   // 略過
 }
 
+//=====================================商品分類
 const productClassificationDisplay = document.getElementById('hot-classification-display')
 if (productClassificationDisplay) {
     productClassificationDisplay.innerHTML = `
@@ -112,6 +114,7 @@ if (productClassificationDisplay) {
   // 略過
 }
 
+//=====================================所有產品
 const allProductDisplay = document.getElementById('all-product-display')
 if (allProductDisplay) {
     allProductDisplay.innerHTML = `

@@ -29,143 +29,145 @@
         "name": "活動名稱 6"
       }
     ],
-    "products": [
-      {
-        "image": "https://picsum.photos/200/300?random=1",
-        "name": "Pixel 8",
-        "price": 24900,
-        "category": "科技"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=2",
-        "name": "Magic Wand",
-        "price": 9800,
-        "category": "魔法"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=3",
-        "name": "Pet Food",
-        "price": 5000,
-        "category": "寵物"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=4",
-        "name": "Smart Watch",
-        "price": 32000,
-        "category": "科技"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=5",
-        "name": "Magic Broom",
-        "price": 8500,
-        "category": "魔法"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=6",
-        "name": "Dog Leash",
-        "price": 2000,
-        "category": "寵物"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=7",
-        "name": "Eco Bag",
-        "price": 1200,
-        "category": "生活用品"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=8",
-        "name": "Yoga Mat",
-        "price": 2200,
-        "category": "健身"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=9",
-        "name": "Cookbook",
-        "price": 3000,
-        "category": "書籍"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=10",
-        "name": "Gaming Mouse",
-        "price": 4500,
-        "category": "科技"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=11",
-        "name": "Bluetooth Speaker",
-        "price": 5500,
-        "category": "科技"
-      },
-      {
-        "image": "https://picsum.photos/200/300?random=12",
-        "name": "Herbal Tea",
-        "price": 1500,
-        "category": "食品"
-      }
-    ],    
-    "salesRecords": [
-      {
-        "product_name": "Pixel 8",
-        "category": "寵物",
-        "saleTime": "2023-03-01T10:00:00",
-        "quantity": 1
-      },
-      {
-        "product_name": "Pixel 8",
-        "category": "寵物",
-        "saleTime": "2023-12-01T15:30:45",
-        "quantity": 1
-      },
-      {
-        "product_name": "Pixel 8",
-        "category": "科技",
-        "saleTime": "2023-03-01T10:00:00",
-        "quantity": 2
-      },
-      {
-        "product_name": "Smart Watch",
-        "category": "科技",
-        "saleTime": "2023-03-02T12:00:00",
-        "quantity": 1
-      },
-      {
-        "product_name": "Magic Wand",
-        "category": "魔法",
-        "saleTime": "2023-03-05T09:30:00",
-        "quantity": 3
-      },
-      {
-        "product_name": "Pet Food",
-        "category": "寵物",
-        "saleTime": "2023-03-06T14:20:30",
-        "quantity": 5
-      },
-      {
-        "product_name": "Eco Bag",
-        "category": "生活用品",
-        "saleTime": "2023-03-10T11:00:00",
-        "quantity": 2
-      },
-      {
-        "product_name": "Yoga Mat",
-        "category": "健身",
-        "saleTime": "2023-03-12T17:45:00",
-        "quantity": 1
-      },
-      {
-        "product_name": "Cookbook",
-        "category": "書籍",
-        "saleTime": "2023-03-15T13:05:00",
-        "quantity": 4
-      },
-      {
-        "product_name": "Gaming Mouse",
-        "category": "科技",
-        "saleTime": "2023-03-18T19:00:00",
-        "quantity": 2
-      }
-    ],    
-    "roles": [
+    
+      "products": [
+        {
+          "image": "https://picsum.photos/200/300?random=1",
+          "name": "Pixel 8",
+          "price": 24900,
+          "category": "科技",
+          "description": "Google 推出的最新旗艦智慧型手機，搭載強大的 Tensor 處理器和先進的攝影功能。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=2",
+          "name": "魔杖",
+          "price": 9800,
+          "category": "魔法",
+          "description": "一個可以施展魔法的魔杖，適合所有魔法愛好者。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=3",
+          "name": "寵物飼料",
+          "price": 5000,
+          "category": "寵物",
+          "description": "營養均衡的寵物飼料，適合各種寵物食用。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=4",
+          "name": "智慧手錶",
+          "price": 32000,
+          "category": "科技",
+          "description": "一款功能強大的智慧手錶，可追蹤運動、接收通知和撥打電話。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=5",
+          "name": "魔法掃帚",
+          "price": 8500,
+          "category": "魔法",
+          "description": "一把可以飛行的魔法掃帚，適合所有魔法愛好者。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=6",
+          "name": "狗繩",
+          "price": 2000,
+          "category": "寵物",
+          "description": "一條耐用的狗繩，可讓您的狗安全地散步。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=7",
+          "name": "環保袋",
+          "price": 1200,
+          "category": "生活用品",
+          "description": "一款可重複使用的環保袋，可減少塑膠袋的使用。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=8",
+          "name": "瑜伽墊",
+          "price": 2200,
+          "category": "健身",
+          "description": "一張舒適的瑜伽墊，可讓您在瑜伽練習中更加自在。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=9",
+          "name": "食譜書",
+          "price": 3000,
+          "category": "書籍",
+          "description": "一本包含各種食譜的食譜書，可讓您輕鬆烹飪美味佳餚。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=10",
+          "name": "電競滑鼠",
+          "price": 4500,
+          "category": "科技",
+          "description": "一款專為電競玩家設計的滑鼠，可提供優異的性能和舒適性。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=11",
+          "name": "藍牙喇叭",
+          "price": 5500,
+          "category": "科技",
+          "description": "一款可隨身攜帶的藍牙喇叭，可讓您隨時隨地享受音樂。"
+        },
+        {
+          "image": "https://picsum.photos/200/300?random=12",
+          "name": "草本茶",
+          "price": 1500,
+          "category": "食品",
+          "description": "一款由天然草本植物製成的茶飲，有助於放鬆身心和改善睡眠。"
+        }
+      ],
+      "salesRecords": [
+        {
+          "product_name": "Pixel 8",
+          "category": "科技",
+          "saleTime": "2023-03-01T10:00:00",
+          "quantity": 1
+        },
+        {
+          "product_name": "智慧手錶",
+          "category": "科技",
+          "saleTime": "2023-03-02T12:00:00",
+          "quantity": 1
+        },
+        {
+          "product_name": "魔杖",
+          "category": "魔法",
+          "saleTime": "2023-03-05T09:30:00",
+          "quantity": 3
+        },
+        {
+          "product_name": "寵物飼料",
+          "category": "寵物",
+          "saleTime": "2023-03-06T14:20:30",
+          "quantity": 5
+        },
+        {
+          "product_name": "環保袋",
+          "category": "生活用品",
+          "saleTime": "2023-03-10T11:00:00",
+          "quantity": 2
+        },
+        {
+          "product_name": "瑜伽墊",
+          "category": "健身",
+          "saleTime": "2023-03-12T17:45:00",
+          "quantity": 1
+        },
+        {
+          "product_name": "食譜書",
+          "category": "書籍",
+          "saleTime": "2023-03-15T13:05:00",
+          "quantity": 4
+        },
+        {
+          "product_name": "電競滑鼠",
+          "category": "科技",
+          "saleTime": "2023-03-18T19:00:00",
+          "quantity": 2
+        }
+      ]
+    ,
+        "roles": [
       {
         "image": "https://picsum.photos/240/240?random=1",
         "name": "探險家艾莉",

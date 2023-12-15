@@ -51,19 +51,19 @@ function updateUI(data){
     
     // 熱門商品
     const hotProductList = createHotProductList(data.products, data.salesRecords);
-    console.log(hotProductList);
+    // console.log(hotProductList);
     updateHotProductList(hotProductList)
     
     //熱門分類
     const categoryBestSellers = getCategoryBestSellers(data.products);
-    console.log("Category Best Sellers:", categoryBestSellers);
+    // console.log("Category Best Sellers:", categoryBestSellers);
     updateProductClassificationList(categoryBestSellers)
     //列出分類
     updateClassificationList(categoryBestSellers)
     
     //所有物品
     const selectedProducts = selectRandomProducts(data.products, 20);
-    console.log("random product:",selectedProducts);
+    // console.log("random product:",selectedProducts);
     updateAllProductList(selectedProducts)
     
     updateRoleList(data.roles)
@@ -116,11 +116,13 @@ function createHotProductList(products, salesRecords) {
       }));
 }
 
+//=====================================熱門商品
 function updateHotProductList(topSellingProducts) {
     if(hotProductList===null)
         return
     hotProductList.innerHTML = "";
     // 遍历每个产品并创建相应的 DOM 元素
+    debugModel("===============準備產出熱門商品===============")
     topSellingProducts.forEach(product => {
         // 创建产品卡片容器
         let productCard = document.createElement('div');
@@ -134,7 +136,9 @@ function updateHotProductList(topSellingProducts) {
         // 创建产品名称元素
         let productName = document.createElement('a');
         productName.className = "product-name";
-        productName.href="./productInfo.html"
+        // 為商品名稱添加點擊事件
+        // 假設這是在循環中創建商品列表的代碼
+        productName.href = `./productInfo.html?productName=${encodeURIComponent(product.name)}`;
         productName.innerHTML = `<b>${product.name}</b>`;
 
         // 创建产品价格元素
@@ -150,6 +154,7 @@ function updateHotProductList(topSellingProducts) {
         // 将产品卡片添加到热门产品列表中
         hotProductList.appendChild(productCard);
     });
+    debugModel("===============產出熱門商品結束===============")
 }
 
 //=====================熱門分類==========================================
@@ -186,7 +191,7 @@ function updateProductClassificationList(products) {
         // 创建商品分类名称元素
         let categoryName = document.createElement('a');
         categoryName.className = "product-classification-name";
-        categoryName.href="./productInfo.html"
+        categoryName.href = `./productInfo.html?productName=${encodeURIComponent(product.name)}`;
         categoryName.innerHTML = `<b>${product.category}</b>`;
 
         // 组合所有元素
@@ -212,7 +217,7 @@ function updateClassificationList(products) {
         // 创建分类选项元素
         let categoryElement = document.createElement('div');
         categoryElement.className = "classification-option";
-        categoryElement.href="./productInfo.html"
+        categoryElement.href = `./productInfo.html?productName=${encodeURIComponent(product.name)}`;
         categoryElement.textContent = product.category;
 
         // 将分类选项添加到分类列表中
@@ -246,7 +251,7 @@ function updateAllProductList(selectedProducts){
         // 创建产品名称元素
         let productName = document.createElement('a');
         productName.className = "product-name";
-        productName.href="./productInfo.html"
+        productName.href = `./productInfo.html?productName=${encodeURIComponent(product.name)}`;
         productName.innerHTML = `<b>${product.name}</b>`;
 
         // 创建产品价格元素
@@ -378,4 +383,12 @@ function updateAllItemList(items){
         // 将整个项目元素添加到列表中
         allItemList.appendChild(itemElement);
     });
+}
+
+// let onDebugModel = true
+let onDebugModel = false
+function debugModel(text){
+    if(onDebugModel){
+        console.log(text)
+    }
 }
