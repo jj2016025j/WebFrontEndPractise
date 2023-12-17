@@ -20,8 +20,8 @@ if (header) {
 const footer = document.getElementsByTagName('footer')[0]
 if (footer) {
     footer.innerHTML = `
-    <div class="d-flex flex-direction-row justify-content-space-around">
-        <div class="d-flex column-gap justify-content-space-around" style="width: 50%;height:30px">
+    <div class="d-flex row flex-direction-row justify-content-space-around">
+        <div class="d-flex justify-content-space-around" style="width: 50%">
             <a href="https://github.com/jj2016025j"><i class="bi bi-github"></i></a>
             <a href="https://www.facebook.com/lee871116/"><i class="bi bi-facebook" size="2x"></i></a>            
             <a href="https://www.instagram.com/lee_871116"><i class="bi bi-instagram"></i></a>           
@@ -32,7 +32,7 @@ if (footer) {
             <a href="linkfly.to/leecs871116"><i class="bi bi-link"></i></a>
             <a href="https://jj2016025j.github.io/WebPractice20230826/"><i class="bi bi-browser-chrome"></i></a>
         </div>
-        <div class="d-flex column-gap justify-content-space-around" style="width: 50%;">
+        <div class="d-flex justify-content-space-around" style="width: 50%;">
             <a href="https://genshin.hoyoverse.com/zh-tw/company/privacy" target="_blank"
             rel="noopener noreferrer">
                 隱私權政策</a>
@@ -47,14 +47,14 @@ if (footer) {
         </div>
     </div>
     <br>
-    <p class="text-align-center">
+    <p>
         本遊戲為免費使用，遊戲內另提供購買虛擬貨幣、物品等付費服務。請注意遊戲時間，避免沉迷。本遊戲部份情節涉及性、暴力。<br />&#34;PlayStation
         Family Mark,&#34; &#34;PS5 logo&#34; and &#34;PS4 logo&#34; are registered trademarks or trademarks of Sony
         Interactive Entertainment Inc.<br />Epic, Epic Games, Epic Games Store, the Epic Games Store logo, and Epic
         Online Services are trademarks and/or registered trademarks of Epic Games. All other trademarks are the
         property of their respective owners.
     </p>
-    <p class="text-align-center">Copyright © 2023 建陞教練的工作室 All Rights Reserved.</p>
+    <p>Copyright © 2023 建陞教練的工作室 All Rights Reserved.</p>
     `;
 } else {
 // 略過

@@ -63,8 +63,6 @@ html, body {
 }
 
 main {
-    padding: 5vh 20vh 10vh;
-    margin-top: 60px;
     width: 100%;
 }
 
@@ -130,7 +128,7 @@ img, .img {
 }
 
 .colorful {
-    margin: 10vh 5vh 15vh;
+    margin: 7vh 0;
     animation: colorful linear 1s infinite;
 }
 
@@ -163,10 +161,6 @@ img, .img {
     z-index: -1;
 }
 
-.d-flex {
-    display: flex;
-}
-
 .flex-direction-column {
     flex-direction: column;
 }
@@ -175,20 +169,12 @@ img, .img {
     flex-direction: row;
 }
 
-.display-center {
-    justify-content: center;
-}
-
 .justify-content-space-around {
     justify-content: space-around;
 }
 
 .justify-content-space-between {
     justify-content: space-between;
-}
-
-.align-items-center {
-    align-items: center;
 }
 
 .flex-wrap-space-between {

@@ -9,7 +9,6 @@
 .display {
     width: 100%;
     min-height: 20vh;
-    height: 70vh;
 }
 
 .slogan, .dropdown-menu {
@@ -31,9 +30,6 @@
     overflow-x: auto;
 }
 
-.Activity-display, .Activity-list {
-    margin: 50px 0;
-}
 
 .img {
     border-radius: 25px;
@@ -153,6 +149,10 @@
         display: none;
     }
 
+    a{
+        width: 100%;
+    }
+
     .colorful, .Activity-display, .display, .display + .slogan {
         margin: 0;
         height: fit-content;
@@ -160,5 +160,10 @@
 
     .Activity-list .img {
         height: 200px;
+    }
+    footer{
+        div{
+            width: 100%
+        }
     }
 }

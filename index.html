@@ -21,32 +21,54 @@
 
     <!-- 內容區塊 --> 
     <main>
-      <section class="display d-flex display-center">
-        <div class="dark">
-          <div class="full d-flex flex-direction-column display-center">
-            <h1 class="note-sans-black">UI 設計師</h1>
-            <p>我熱愛挑戰自己，並不斷追求個人成長和學習。我的經驗涵蓋了設計與前端，
-                並且我喜歡在這些領域中不斷創新和探索。我擁有良好的溝通和團隊合作能力，
-                並能夠在壓力下保持高效率。</p>
-            <a href=./about.html class="button">了解更多</a>
-          </div>
+      <section class="d-flex justify-content-center" style="height: 90vh">
+        <div class="d-flex flex-direction-column justify-content-center ms-5 me-5">
+          <h1 class="note-sans-black"id="typing">UI 設計師</h1>
+          <p>"歡迎來到創意的交匯點！
+            我們是一群熱衷於技術和藝術的專業人士，涵蓋從前端工程師到3D建模師的各個範疇。
+            無論是創造引人入勝的網站體驗、開發先進的後端解決方案、
+            或是打造下一代遊戲和實現視覺震撼，我們都在這裡，準備將您的夢想轉化為現實。"</p>
+          <p><a href=./about.html class="button">了解更多</a></p>
         </div>
       </section>
 
       <!-- slogan -->
-      <section class="display slogan d-flex display-center">
-        <h5 class="text-align-center">我熱愛挑戰自己，
-          並不斷追求個人成長和學習。我的經驗涵蓋了設計與前端，
-          並且我喜歡在這些領域中不斷創新和探索。我擁有良好的溝通和團隊合作能力，
-          並能夠在壓力下保持高效率。</h3>
+      <section class="d-flex flex-wrap justify-content-center align-content-center bg-black" style="height: 20vh">
+        <h5 class="text-white">"從構想到現實 - 我們用技術實現夢想。"</h5>
       </section>
 
-      <!-- 熱門商品 -->
+      <!-- AI -->
+      <!-- 商品 -->
       <div id="hot-product-display"></div>       
     </main>
 
     <footer class="footer">
     </footer>
+    <script> 
+      // 打字特效
+      const texts = ['前端工程師', '後端工程師', '全端工程師', '遊戲開發者', '3D建模師', '人像攝影師'];
+      let count = 0;
+      let index = 0;
+      let currentText = '';
+      let letter = '';
+
+      (function type() {
+        if (count === texts.length) {
+          count = 0;
+        }
+        currentText = texts[count];
+        letter = currentText.slice(0, ++index);
+
+        document.getElementById('typing').textContent = letter;
+        if (letter.length === currentText.length) {
+          count++;
+          index = 0;
+          setTimeout(type, 3000);
+        } else {
+          setTimeout(type, 150);
+        }
+      })();
+    </script>
     <script src="./javascript/joinHeaderFooter.js"></script>
     <script src="./javascript/data.js"></script>
     <!-- 引入Bootstrap JavaScript（可選） -->
