@@ -74,21 +74,26 @@ function updateUI(data){
 const activityList = document.getElementById("activity-list");
 
 function updateActivityList(data) {
-    if(activityList===null)
-        return
-    activityList.innerHTML = "";
-    // 遍历每个活动并创建相应的 DOM 元素
-    data.activities.forEach(activity => {
-        // 创建图片元素
-        let imgElement = document.createElement('img');
-        imgElement.className = "img";
-        imgElement.src = activity.image;
-        imgElement.alt = activity.name;
+    if (activityList === null) {
+        return;
+    }
 
-        // 将图片元素添加到活动列表中
-        activityList.appendChild(imgElement);
+    // 初始化一个空字符串来构建所有活动的 HTML
+    let activitiesHTML = "";
+
+    // 遍历每个活动并创建相应的 DOM 字符串
+    data.activities.forEach(activity => {
+        activitiesHTML += `
+            <div class="product-card d-flex flex-direction-column">
+            <a class="product-name" href="./productInfo.html"><div class="img" style="background-image: url(${activity.image});"></div></a>
+            </div>
+        `;
     });
+
+    // 将构建好的字符串一次性赋值给 activityList 的 innerHTML
+    activityList.innerHTML = activitiesHTML;
 }
+
 //====================熱門商品===========================================
 const hotProductList = document.getElementById("hot-product-list");
 
@@ -118,44 +123,30 @@ function createHotProductList(products, salesRecords) {
 
 //=====================================熱門商品
 function updateHotProductList(topSellingProducts) {
-    if(hotProductList===null)
-        return
-    hotProductList.innerHTML = "";
-    // 遍历每个产品并创建相应的 DOM 元素
-    debugModel("===============準備產出熱門商品===============")
+    if (hotProductList === null) {
+        return;
+    }
+
+    // 初始化一个空字符串来构建所有热门商品的 HTML
+    let hotProductsHTML = "";
+
+    // 遍历每个产品并创建相应的 DOM 字符串
     topSellingProducts.forEach(product => {
-        // 创建产品卡片容器
-        let productCard = document.createElement('div');
-        productCard.className = "product-card d-flex flex-direction-column";
-
-        // 创建图片元素
-        let imgDiv = document.createElement('div');
-        imgDiv.className = "img";
-        imgDiv.style.backgroundImage = `url(${product.image})`;
-
-        // 创建产品名称元素
-        let productName = document.createElement('a');
-        productName.className = "product-name";
-        // 為商品名稱添加點擊事件
-        // 假設這是在循環中創建商品列表的代碼
-        productName.href = `./productInfo.html?productName=${encodeURIComponent(product.name)}`;
-        productName.innerHTML = `<b>${product.name}</b>`;
-
-        // 创建产品价格元素
-        let productPrice = document.createElement('a');
-        productPrice.className = "product-price";
-        productPrice.textContent = `$${product.price}`;
-
-        // 组合所有元素
-        productCard.appendChild(imgDiv);
-        productCard.appendChild(productName);
-        productCard.appendChild(productPrice);
-
-        // 将产品卡片添加到热门产品列表中
-        hotProductList.appendChild(productCard);
+        hotProductsHTML += `
+            <div class="product-card d-flex flex-direction-column">
+                <div class="img" style="background-image: url(${product.image});"></div>
+                <a class="product-name" href="./productInfo.html"><b>${product.name}</b></a>
+                <a class="product-price">$${product.price}</a>
+            </div>
+        `;
     });
-    debugModel("===============產出熱門商品結束===============")
+
+    // 将构建好的字符串一次性赋值给 hotProductList 的 innerHTML
+    hotProductList.innerHTML = hotProductsHTML;
 }
+
+    debugModel("===============產出熱門商品結束===============")
+
 
 //=====================熱門分類==========================================
 const productClassificationList = document.getElementById("product-classification-list");
@@ -191,7 +182,7 @@ function updateProductClassificationList(products) {
         // 创建商品分类名称元素
         let categoryName = document.createElement('a');
         categoryName.className = "product-classification-name";
-        categoryName.href = `./productInfo.html?productName=${encodeURIComponent(product.name)}`;
+        categoryName.href = `./productInfo.html`;
         categoryName.innerHTML = `<b>${product.category}</b>`;
 
         // 组合所有元素
@@ -217,7 +208,7 @@ function updateClassificationList(products) {
         // 创建分类选项元素
         let categoryElement = document.createElement('div');
         categoryElement.className = "classification-option";
-        categoryElement.href = `./productInfo.html?productName=${encodeURIComponent(product.name)}`;
+        categoryElement.href = `./productInfo.html`;
         categoryElement.textContent = product.category;
 
         // 将分类选项添加到分类列表中
@@ -251,8 +242,9 @@ function updateAllProductList(selectedProducts){
         // 创建产品名称元素
         let productName = document.createElement('a');
         productName.className = "product-name";
-        productName.href = `./productInfo.html?productName=${encodeURIComponent(product.name)}`;
+        productName.href = `./productInfo.html`;
         productName.innerHTML = `<b>${product.name}</b>`;
+        productName.productName = product.name
 
         // 创建产品价格元素
         let productPrice = document.createElement('a');

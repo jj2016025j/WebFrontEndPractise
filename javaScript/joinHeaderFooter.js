@@ -2,13 +2,13 @@
 const header = document.querySelector('header')
 if (header) {
     header.innerHTML = `
-        <h1 class="note-sans-black logo">魔術空間</h1>
+        <h1 class="note-sans-black logo">魔法商店</h1>
         <nav>
             <ul>
                 <li><a href=./index.html>HOME</a></li>
                 <li><a href=./store.html>STORE</a></li>
-                <li><a href=./portfolio.html>PORTFOLIO</a></li>
                 <li><a href=./about.html>ABOUT</a></li>
+                <li><a href=./portfolio.html>PORTFOLIO</a></li>
             </ul>  
         </nav>
     `;
@@ -85,8 +85,8 @@ if (hotProductDisplay) {
     <section class="display row overflow-auto product-list">
         <div class="product-list col-12 d-flex py-3" id="hot-product-list">
             <div class="product-card d-flex flex-direction-column">
-                <div class="img" style="background-image: url(../img/3.jpg);"></div>
-                <a class="product-name" href="./productInfo.html"><b>Pixel 8</b></a>
+                <div class="img" style="background-image: url(../img/671.png);"></div>
+                <a class="product-name" href="./productInfo.html" data-product-name="Pixel 8"><b>Pixel 8</b></a>
                 <a class="product-price">$24,900 起</a>
             </div>
         </div>
@@ -104,7 +104,7 @@ if (productClassificationDisplay) {
     <section class="display row overflow-auto product-list">
         <div class="product-list col-12 d-flex py-3" id="product-classification-list">
             <div class="product-card d-flex flex-direction-column">
-                <div class="img" style="background-image: url(../img/3.jpg);"></div>
+                <div class="img" style="background-image: url(../img/671.png);"></div>
                 <a class="product-name" href="./productInfo.html"><b>Pixel 8</b></a>
             </div>
         </div>
@@ -128,7 +128,7 @@ if (allProductDisplay) {
     <section class="display row all-product-list">
         <div class="row all-product-list col-12 py-3" id="all-product-list">
             <div class="product-card d-flex flex-direction-column">
-                <div class="img" style="background-image: url(../img/3.jpg);"></div>
+                <div class="img" style="background-image: url(../img/671.png);"></div>
                 <a class="product-name" href="./productInfo.html"><b>Pixel 8</b></a>
                 <a class="product-price">$24,900 起</a>
             </div>

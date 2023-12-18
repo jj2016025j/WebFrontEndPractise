@@ -19,6 +19,15 @@
 <body>
     <!-- 導航欄 -->
     <header>
+        <h1 class="note-sans-black logo"></h1>
+        <nav>
+            <ul>
+                <li><a href=./index.html>HOME</a></li>
+                <li><a href=./store.html>STORE</a></li>
+                <li><a href=./about.html>ABOUT</a></li>
+                <li><a href=./portfolio.html>PORTFOLIO</a></li>
+            </ul>  
+        </nav>
     </header>
 
     <!-- 內容區塊 -->
@@ -26,16 +35,16 @@
         <div class="container-fluid">
             
             <!-- 當前活動 -->
-            <div id="Activity-display"></div>
+            <div id="Activity-display" class=" ms-5 me-5 mx-auto"></div>
 
             <!-- 熱門商品 -->
-            <div id="hot-product-display"></div>       
+            <div id="hot-product-display" class=" ms-5 me-5 mx-auto"></div>       
 
             <!-- 熱門分類 -->
-            <div id="hot-classification-display"></div>       
+            <div id="hot-classification-display" class=" ms-5 me-5 mx-auto"></div>       
 
             <!-- 所有商品 -->
-            <div id="all-product-display"></div>
+            <div id="all-product-display" class=" ms-5 me-5 mx-auto"></div>
 
         </div>
     </main>
@@ -43,9 +52,34 @@
     <!-- 頁尾 -->
     <footer class="footer">
     </footer>
-
     <script src="./javascript/joinHeaderFooter.js"></script>
     <script src="./javascript/data.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        // 获取所有具有 'product-name' 类的链接
+            const productLinks = document.querySelectorAll('.product-name');
+            console.log(productLinks) 
+
+            // 为每个链接添加点击事件监听器
+            productLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // 阻止链接的默认跳转行为
+
+                    const productName = link.textContent; // 假设链接的文本内容是产品名称
+                    // 或者，如果产品信息以其他方式附加到链接上，可以相应地获取
+
+                    const product = { name: productName }; // 创建一个包含产品信息的对象
+                    onProductClick(product); // 调用 onProductClick 函数
+                });
+            });
+        });
+
+        function onProductClick(product) {
+            localStorage.setItem('currentProduct', JSON.stringify(product));
+            window.location.href = 'productInfo.html'; // 确保这个是正确的页面路径
+        }
+    </script>
     <!-- 引入Bootstrap JavaScript（可選） -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

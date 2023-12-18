@@ -17,82 +17,39 @@
 <body>
   <!-- 導航欄 -->
   <header>
-    <h1 class="note-sans-black logo">魔術空間</h1>
-    <nav>
-        <ul>
-            <li><a href=./index.html>HOME</a></li>
-            <li><a href=./store.html>STORE</a></li>
-            <li><a href=./portfolio.html>PORTFOLIO</a></li>
-            <li><a href=./about.html>ABOUT</a></li>
-        </ul>  
-    </nav>
   </header>
+  <!-- 團隊介紹部分 -->
+  <div class="container team-section mt-5 mb-5 pt-5 pb-5">
+    <h1 class=" pt-5 text-align-center">團隊介紹</h1>
+    <div class="row justify-content-evenly mt-5 pt-5">
+      <div class="col-md-4 team-member row justify-content-center">
+        <img src="https://picsum.photos/300/400?random=1" alt="John Doe" class="img-fluid mb-3">
+        <h3 class="text-align-center">John Doe（首席執行官）</h3>
+        <p>擁有超過20年在技術領域的豐富經驗...</p>
+        <a href="https://www.linkedin.com/in/johndoe" class="btn btn-primary">LinkedIn</a>
+      </div>
+      <div class="col-md-4 team-member row justify-content-center">
+        <img src="https://picsum.photos/300/400?random=2" alt="Jane Smith" class="img-fluid mb-3">
+        <h3 class="text-align-center">Jane Smith（產品經理）</h3>
+        <p>Jane是一位充滿激情的產品經理...</p>
+        <a href="https://twitter.com/janesmith" class="btn btn-primary">Twitter</a>
+      </div>
+    </div>
+  </div>
 
-  <!-- 內容區塊 -->
-  <main>
-      <div class="col-lg-6 rounded">
-        <img src="https://picsum.photos/500/500?random=1" alt="" class="img-fluid rounded">
-      </div>
-    <section class="row">
-      <div class="col-lg-6">
-        <article class="col-12 d-flex flex-direction-column display-center">
-          <h1>科技： <span class="note-sans-black">未來的窗口</span></h1>
-          <p>我們的城市擁有最先進的科技設施。從飛行的汽車到智能機器人，從虛擬實境遊戲到全息投影，
-            每一項創新都在塑造我們的未來。在這裡，科技不僅是一種工具，更是一種生活方式。</p>    
-        </article>
-      </div>
-    </section>
+  <!-- 合作機會和招聘信息 -->
+  <div class="container opportunities-section mt-5 mb-5 pt-5 pb-5 text-white bg-black">
+    <h2 class="mb-4 text-align-center">合作機會和招聘信息</h2>
+    <p>我們一直在尋找創新的合作夥伴...</p>
+    <p>加入我們的團隊！目前我們正在尋找軟件開發者和市場營銷專家...</p>
+  </div>
 
-    <section class="row">
-      <div class="col-lg-6 rounded">
-        <img src="https://picsum.photos/500/500?random=2" alt="" class="img-fluid rounded">
-      </div>
-      <div class="col-lg-6">
-        <article class="col-12 d-flex flex-direction-column display-center">
-          <h1>魔法： <span class="note-sans-black">神秘的力量</span></h1>
-          <p>但在這閃耀的科技背後，隱藏著魔法的神秘力量。古老的魔法與現代科技的結合開啟了無限可能。
-            您可以在這裡學習施法，探索古老的咒語，甚至與神秘生物進行交流。</p>    
-        </article>
-      </div>
-    </section>
-
-    <section class="row">
-      <div class="col-lg-6 rounded">
-        <img src="https://picsum.photos/500/500?random=3" alt="" class="img-fluid rounded">
-      </div>
-      <div class="col-lg-6">
-        <article class="col-12 d-flex flex-direction-column display-center">
-          <h1> <span class="note-sans-black">探索與創新</span></h1>
-          <p>我們鼓勵每位訪客探索這個世界的每一個角落。您將發現獨特的互動體驗，參與創新項目，
-            並與來自世界各地對科技與魔法同樣充滿熱情的人們交流。</p>    
-        </article>
-      </div>
-    </section>
-
-    <section class="row mx-auto">
-      <div class="col-lg-6 rounded">
-        <img src="https://picsum.photos/500/500?random=4" alt="" class="img-fluid rounded">
-      </div>
-      <div class="col-lg-6">
-        <article class="col-12 d-flex flex-direction-column display-center">
-          <h1> <span class="note-sans-black">加入我們</span></h1>
-          <p>在未來魔法之城，每天都是一次全新的冒險。無論您是科技愛好者、魔法學徒，
-            還是僅僅對這個奇妙世界感到好奇，我們都歡迎您的加入。探索這個奇妙的科技與魔法共融的世界，
-            開啟您的幻想之旅。</p>    
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <!-- <aside class="row w-100">
-    <div class="col-6">
-      <div class="list-group" id="list-tab" role="tablist">
-        <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Home</a>
-        <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
-        <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
-        <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
-      </div>
-  </aside> -->
+  <!-- 聯繫方式部分 -->
+  <div class="container contact-section mb-5 pt-5 pb-5">
+    <h2 class="mb-4 text-align-center">聯繫方式</h2>
+    <p>電子郵件：<a href="mailto:jj2016025j@gmail.com">jj2016025j@gmail.com</a></p>
+    <p>社交媒體：<a href="https://www.facebook.com/lee871116/">Facebook</a> | <a href="https://www.instagram.com/lee_871116">Instagram</a> | <a href="https://www.linkedin.com/in/%E5%BB%BA%E9%99%9E-%E6%9D%8E-3145931b2/">LinkedIn</a></p>
+  </div>
 
   <!-- footer -->
   <footer class="footer">

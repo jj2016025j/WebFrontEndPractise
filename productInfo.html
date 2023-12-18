@@ -14,16 +14,16 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/global.css">
 </head>
-<body>
+<body class="d-flex justify-content-center">
     <header>
         
     </header>
-    <main>
-        <div class="main-header row">
-            <h1 class="h1 open-sans" id="product-name">神奇手錶</h1>
-            <div class="row">
-                <p class="open-sans" id="product-price">價格: $199.99</p>
-                <a href="./shoppingCar.html" class="btn buy-btn-lg" id="buy-botton">購買</a>
+    <main class="col-md-10 row justify-content-center mx-auto mt-5 mb-5 pt-5 pb-5">
+        <div class="col row justify-content-between">
+            <h1 class="col h1 open-sans text-left" id="product-name">神奇手錶</h1>
+            <div class="col row justify-content-right">
+                <p class="col open-sans text-right" id="product-price">價格: $199.99</p>
+                <a href="#" class="col btn buy-btn-lg" id="buy-botton">購買</a>
             </div>
         </div>
         <div class="row product-info">
@@ -33,9 +33,9 @@
                 <!-- <button class="buy-btn-sm">購買</button> -->
             </div>
         </div>
-        <div class="display" style="height: 50vh;">
-            <!-- <h1 class="note-sans-black colorful">產品介紹</h1> -->
-        </div>
+        <!-- <div class="display" style="height: 50vh;">
+            <h1 class="note-sans-black colorful">產品介紹</h1>
+        </div> -->
         <!-- 所有商品 -->
         <div id="all-product-display"></div>
     </main>
@@ -45,110 +45,119 @@
     </footer>
 
     <script>
-        //===============生成商品頁面=================
+        //===============初始化页面，生成商品頁面、加入購物車=================
         document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const productName = decodeURIComponent(urlParams.get('productName'));
-            console.log(productName)
-            loadProductDetails(productName);
+            // 从 localStorage 获取当前商品信息
+            const currentProduct = JSON.parse(localStorage.getItem('currentProduct'));
+
+            if (currentProduct) {
+                // 如果成功获取商品信息，加载商品详情
+                loadProductDetails(currentProduct);
+            } else {
+                console.log('未找到商品信息');
+                // 可以重定向到错误页面或显示某些错误消息
+            }
+            document.getElementById('buy-botton').addEventListener('click', addToCart);
         });
 
+        //===============加载产品详情，使用缓存数据=================
         function loadProductDetails(productName) {
-            fetch('./json/data.json')
-                .then(response => response.json())
+            getCachedJsonData('./json/data.json')
                 .then(data => {
                     const product = data.products.find(product => product.name === productName);
-                    console.log(product)
-                    if (product) {
-                        updateProductPage(product);
-                    } else {
-                        // 找不到商品，重定向到404.html頁面
-                        // window.location.href = '404.html';
-                        console.log("找不到商品，重定向到404")
-                    }
+                    product ? updateProductPage(product) : console.log("找不到商品，重定向到404");
                 })
-                .catch(error => {
-                    // console.error('Error loading product details:', error);
-                    console.log(error)
-                    // window.location.href = '404.html';
-                });
+                .catch(handleFetchError);
         }
 
+        // 缓存已加载的 JSON 数据
+        //===============抓取資料=================
+        let jsonDataCache = null;
+
+        function getCachedJsonData(url) {
+            if (jsonDataCache) {
+                return Promise.resolve(jsonDataCache);
+            }
+            return loadJsonData(url).then(data => {
+                jsonDataCache = data;
+                return data;
+            });
+        }
+
+        function loadJsonData(url) {
+            return fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .catch(handleFetchError);
+        }
+
+        function handleFetchError(error) {
+            console.log("加载 JSON 数据时出错:", error);
+            // 根据需要进行错误处理，例如显示错误消息或重定向
+            // 抛出错误，确保调用者知道发生了错误
+            throw error;
+        }
+
+        //===============更新产品页面=================
         function updateProductPage(product) {
             document.getElementById('product-name').innerText = product.name;
             document.getElementById('product-price').innerText = `價格: $${product.price}`;
             document.getElementById('product-image').src = product.image;
             document.getElementById('product-description').innerText = product.description; // 假設您的數據中有描述信息
-            document.getElementById('buy-botton').href = `./shoppingCar.html`; // 假設您的數據中有描述信息
+            // document.getElementById('buy-botton').href = `./shoppingCar.html`; // 假設您的數據中有描述信息
         }
 
-        //==============加入購物車=================
-        document.addEventListener('DOMContentLoaded', () => {
-            const buyButton = document.getElementById('buy-botton');
-            buyButton.addEventListener('click', addToCart);
-        });
-
+        //===============加入購物車和更新 localStorage=================
         function addToCart(event) {
             event.preventDefault();
-
             const productName = document.getElementById('product-name').textContent;
             const productAdded = addProductToShoppingCartList(productName);
-
-            if (productAdded) {
-                alert('商品已添加到购物车');
-            } else {
-                alert('购物车已有此商品');
-            }
-                    
-            // 假设这里是计算小计、运费、税款和总金额的逻辑
-            let subtotal = calculateSubtotal(); // 计算小计
-            let shipping = calculateShipping(); // 计算运费
-            let tax = calculateTax(subtotal); // 计算税款
-            let total = subtotal + shipping + tax; // 计算总金额
-
-            // 将订单摘要信息存储到localStorage
-            const orderSummary = {
-                subtotal: subtotal,
-                shipping: shipping,
-                tax: tax,
-                total: total
-            };
-            localStorage.setItem('orderSummary', JSON.stringify(orderSummary));
-
-            window.location.href = './shoppingCar.html';
+            productAdded ? alert('商品已添加到购物车') : alert('购物车已有此商品');
         }
 
         function addProductToShoppingCartList(productName) {
             let shoppingCartList = JSON.parse(localStorage.getItem('shoppingCartList')) || [];
-            
-            // 检查购物车中是否已存在该商品名称
-            const productExists = shoppingCartList.includes(productName);
-
-            if (!productExists) {
+            if (!shoppingCartList.includes(productName)) {
                 shoppingCartList.push(productName);
-                localStorage.setItem('shoppingCartList', JSON.stringify(shoppingCartList));
-                return true; // 商品成功添加到购物车
+                updateLocalStorage('shoppingCartList', shoppingCartList);
+                updateOrderSummary();
+                return true;
             }
-            return false; // 购物车已有此商品
+            return false;
         }
-        
-        
-        // 示例计算函数（根据您的实际业务逻辑进行调整）
-        function calculateSubtotal() {
-            // 计算小计的逻辑...
-            return 20; // 示例返回值
+
+        function updateLocalStorage(key, value) {
+            localStorage.setItem(key, JSON.stringify(value));
+        }
+
+        function updateOrderSummary() {
+            getCachedJsonData('./json/data.json')
+                .then(data => {
+                    let productsData = data.products;
+                    let shoppingCartList = JSON.parse(localStorage.getItem('shoppingCartList')) || [];
+                    let subtotal = shoppingCartList.reduce((total, cartItemName) => {
+                        let product = productsData.find(product => product.name === cartItemName);
+                        return total + (product ? product.price : 0);
+                    }, 0);
+                    let shipping = calculateShipping();
+                    let tax = calculateTax(subtotal);
+                    let total = subtotal + shipping + tax;
+                    updateLocalStorage('orderSummary', { subtotal, shipping, tax, total });
+                })
+                .catch(handleFetchError);
         }
 
         function calculateShipping() {
-            // 计算运费的逻辑...
-            return 5; // 示例返回值
+            return 60; // 示例返回值
         }
 
         function calculateTax(subtotal) {
-            // 计算税款的逻辑...
             return subtotal * 0.1; // 示例：税率10%
         }
-
     </script>
     <script src="./javascript/joinHeaderFooter.js"></script>
     <script src="./javascript/data.js"></script>

@@ -24,9 +24,9 @@
         }
     </style>
 </head>
-<body style="background-color: #ffffff;">
+<body>
     <header></header>
-    <main class="container-fluid">
+    <main class="container-fluid  mt-5 mb-5 pt-5 pb-5" style="min-height: 80vh;">
         <div class="container-sm text-center">
             <a href="./store.html">繼續購物</a>
         </div>
@@ -56,102 +56,67 @@
                     <p class="col text-left"><b>預估總金額:</b></p> <p class="col text-right" id="totalPrice"><b> $20</b></p>
                 </div>
                 <a href="./shoppingCarPay.html" class="col-12 bg-primary btn text-white">結帳</a>
-
             </div>
-
         </div>
-
-
     </main>
 
     <footer>
-
     </footer>
+
     <script>
-        let totalPrice = 0;
+        // 全局变量存储产品数据
+        let productsDataCache = null;
 
-        function displayCartItem(product) {
-            const shoppingCartList = document.getElementById('shoppingCartList');
-            const itemElement = createCartItemElement(product);
-            shoppingCartList.appendChild(itemElement);
-
-            // 累加商品价格
-            totalPrice += product.price * 1; // 假设每个商品数量为1
-            updateTotalPrice();
-        }
-
-        function updateTotalPrice() {
-            const totalPriceElement = document.getElementById('totalPrice'); // 假设您有一个显示总价的元素
-            totalPriceElement.textContent = `${totalPrice}`;
-        }
-
-        // 在購物車頁面的JavaScript中
+        // 在DOMContentLoaded事件中加载购物车商品
         document.addEventListener('DOMContentLoaded', () => {
-            const shoppingCartList = JSON.parse(localStorage.getItem('shoppingCartList')) || [];
-            document.getElementById('shoppingCartList').innerHTML="";
-            shoppingCartList.forEach(product => {
-                console.log(product)
-                fetchProductDetails(product);
+            fetchProductsData().then(() => {
+                const shoppingCartList = JSON.parse(localStorage.getItem('shoppingCartList')) || [];
+                document.getElementById('shoppingCartList').innerHTML = "";
+                shoppingCartList.forEach(productName => {
+                    const product = productsDataCache.find(p => p.name === productName);
+                    if (product) {
+                        displayCartItem(product, 1); // 假设每个商品数量为1
+                    }
+                });
             });
         });
 
-        function fetchProductDetails(productName) {
-            fetch(`./json/data.json`)
+        // 从JSON文件获取产品数据并缓存
+        function fetchProductsData() {
+            return fetch(`./json/data.json`)
                 .then(response => response.json())
                 .then(data => {
-                    const product = data.products.find(p => p.name === productName);
-                    if (product) {
-                        console.log(product)
-                        displayCartItem(product);
-                    }
+                    productsDataCache = data.products;
                 })
-                .catch(error => console.log('Error fetching product details:', error));
+                .catch(error => console.log('Error fetching products data:', error));
         }
 
-        function displayCartItem(product) {
+        // 显示购物车商品
+        function displayCartItem(product, quantity) {
             const shoppingCartList = document.getElementById('shoppingCartList');
-            const itemElement = createCartItemElement(product);
-            shoppingCartList.appendChild(itemElement);
+            shoppingCartList.insertAdjacentHTML('beforeend', createCartItemHTML(product, quantity));
+            updateTotalPrice(product.price * quantity);
         }
 
-        function createCartItemElement(product) {
-            // 創建包含商品信息的購物車項目
-            const cartItemDiv = document.createElement('div');
-            cartItemDiv.className = 'cart-item row col-md-7';
-
-            const img = document.createElement('img');
-            img.src = product.image;
-            img.alt = '商品圖片';
-            img.className = 'img-fluid col-2';
-
-            const itemInfoDiv = document.createElement('div');
-            itemInfoDiv.className = 'row col-10';
-
-            const itemName = document.createElement('a');
-            itemName.href = './productInfo.html';
-            itemName.className = 'text-size-12';
-            itemName.textContent = product.name;
-
-            const itemQuantity = document.createElement('input');
-            itemQuantity.className = 'col-6';
-            itemQuantity.type = 'number';
-            itemQuantity.value = 1;
-            itemQuantity.min = '1';
-
-            const itemPrice = document.createElement('p');
-            itemPrice.className = 'col-6 text-right';
-            itemPrice.textContent = `總價: $${product.price * 1}`;
-
-            itemInfoDiv.appendChild(itemName);
-            itemInfoDiv.appendChild(itemQuantity);
-            itemInfoDiv.appendChild(itemPrice);
-
-            cartItemDiv.appendChild(img);
-            cartItemDiv.appendChild(itemInfoDiv);
-
-            return cartItemDiv;
+        // 创建购物车项的HTML
+        function createCartItemHTML(product, quantity) {
+            return `
+                <div class="cart-item row col-md-7">
+                    <img src="${product.image}" alt="商品图片" class="img-fluid col-2">
+                    <div class="row col-10">
+                        <a href="./productInfo.html" class="text-size-12">${product.name}</a>
+                        <input class="col-6" type="number" value="${quantity}" min="1">
+                        <p class="col-6 text-right">總價: $${product.price * quantity}</p>
+                    </div>
+                </div>`;
         }
 
+        // 更新总价
+        function updateTotalPrice(additionalPrice) {
+            const totalPriceElement = document.getElementById('totalPrice');
+            let currentTotal = parseInt(totalPriceElement.textContent.split('$')[1]);
+            totalPriceElement.textContent = `總金額: $${currentTotal + additionalPrice}`;
+        }
     </script>
     <script src="./javascript/joinHeaderFooter.js"></script>
     <script src="./javascript/data.js"></script>
