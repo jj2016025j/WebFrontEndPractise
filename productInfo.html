@@ -47,30 +47,25 @@
     <script>
         //===============初始化页面，生成商品頁面、加入購物車=================
         document.addEventListener('DOMContentLoaded', () => {
-            // 从 localStorage 获取当前商品信息
             const currentProduct = JSON.parse(localStorage.getItem('currentProduct'));
-
             if (currentProduct) {
-                // 如果成功获取商品信息，加载商品详情
                 loadProductDetails(currentProduct);
             } else {
                 console.log('未找到商品信息');
-                // 可以重定向到错误页面或显示某些错误消息
             }
             document.getElementById('buy-botton').addEventListener('click', addToCart);
         });
 
         //===============加载产品详情，使用缓存数据=================
-        function loadProductDetails(productName) {
+        function loadProductDetails(product) {
             getCachedJsonData('./json/data.json')
                 .then(data => {
-                    const product = data.products.find(product => product.name === productName);
-                    product ? updateProductPage(product) : console.log("找不到商品，重定向到404");
+                    const foundProduct = data.products.find(p => p.name === product.name);
+                    foundProduct ? updateProductPage(foundProduct) : console.log("找不到商品，重定向到404");
                 })
                 .catch(handleFetchError);
         }
 
-        // 缓存已加载的 JSON 数据
         //===============抓取資料=================
         let jsonDataCache = null;
 
@@ -108,7 +103,7 @@
             document.getElementById('product-price').innerText = `價格: $${product.price}`;
             document.getElementById('product-image').src = product.image;
             document.getElementById('product-description').innerText = product.description; // 假設您的數據中有描述信息
-            // document.getElementById('buy-botton').href = `./shoppingCar.html`; // 假設您的數據中有描述信息
+            document.getElementById('buy-botton').href = `./shoppingCar.html`; // 假設您的數據中有描述信息
         }
 
         //===============加入購物車和更新 localStorage=================
@@ -116,7 +111,7 @@
             event.preventDefault();
             const productName = document.getElementById('product-name').textContent;
             const productAdded = addProductToShoppingCartList(productName);
-            productAdded ? alert('商品已添加到购物车') : alert('购物车已有此商品');
+            productAdded ? console.log('商品已添加到购物车') : console.log('购物车已有此商品');
         }
 
         function addProductToShoppingCartList(productName) {

@@ -52,33 +52,28 @@
     <!-- 頁尾 -->
     <footer class="footer">
     </footer>
+
     <script src="./javascript/joinHeaderFooter.js"></script>
     <script src="./javascript/data.js"></script>
 
     <script>
+        // updateHotProductList 函数保持不变
+
         document.addEventListener('DOMContentLoaded', () => {
-        // 获取所有具有 'product-name' 类的链接
-            const productLinks = document.querySelectorAll('.product-name');
-            console.log(productLinks) 
+            // 绑定事件监听器到包含产品链接的父元素
+            const productList = document.getElementById('hot-product-display').concat(document.getElementById('all-product-display'));
+            productList.addEventListener('click', (event) => {
+                const link = event.target.closest('.product-name');
+                if (!link) return; // 如果点击的不是产品链接，退出
 
-            // 为每个链接添加点击事件监听器
-            productLinks.forEach(link => {
-                link.addEventListener('click', (event) => {
-                    event.preventDefault(); // 阻止链接的默认跳转行为
-
-                    const productName = link.textContent; // 假设链接的文本内容是产品名称
-                    // 或者，如果产品信息以其他方式附加到链接上，可以相应地获取
-
-                    const product = { name: productName }; // 创建一个包含产品信息的对象
-                    onProductClick(product); // 调用 onProductClick 函数
-                });
+                event.preventDefault(); // 阻止链接的默认跳转行为
+                const productName = link.textContent; // 获取产品名称
+                const product = { name: productName }; // 创建一个包含产品信息的对象
+                localStorage.setItem('currentProduct', JSON.stringify(product));
+                // window.location.href = 'productInfo.html'; // 跳转到产品信息页面
             });
         });
 
-        function onProductClick(product) {
-            localStorage.setItem('currentProduct', JSON.stringify(product));
-            window.location.href = 'productInfo.html'; // 确保这个是正确的页面路径
-        }
     </script>
     <!-- 引入Bootstrap JavaScript（可選） -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

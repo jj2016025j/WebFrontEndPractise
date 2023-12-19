@@ -135,7 +135,7 @@ function updateHotProductList(topSellingProducts) {
         hotProductsHTML += `
             <div class="product-card d-flex flex-direction-column">
                 <div class="img" style="background-image: url(${product.image});"></div>
-                <a class="product-name" href="./productInfo.html"><b>${product.name}</b></a>
+                <a class="product-name" href="#"><b>${product.name}</b></a>
                 <a class="product-price">$${product.price}</a>
             </div>
         `;
@@ -145,7 +145,7 @@ function updateHotProductList(topSellingProducts) {
     hotProductList.innerHTML = hotProductsHTML;
 }
 
-    debugModel("===============產出熱門商品結束===============")
+    // debugModel("===============產出熱門商品結束===============")
 
 
 //=====================熱門分類==========================================
@@ -378,9 +378,9 @@ function updateAllItemList(items){
 }
 
 // let onDebugModel = true
-let onDebugModel = false
-function debugModel(text){
-    if(onDebugModel){
-        console.log(text)
-    }
-}
+// let onDebugModel = false
+// function debugModel(text){
+//     if(onDebugModel){
+//         console.log(text)
+//     }
+// }
