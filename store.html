@@ -61,17 +61,22 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             // 绑定事件监听器到包含产品链接的父元素
-            const productList = document.getElementById('hot-product-display').concat(document.getElementById('all-product-display'));
-            productList.addEventListener('click', (event) => {
-                const link = event.target.closest('.product-name');
-                if (!link) return; // 如果点击的不是产品链接，退出
+            const hotProductList = document.getElementById('hot-product-display');
+            const allProductList = document.getElementById('all-product-display');
+            const productList = [hotProductList, allProductList];
 
-                event.preventDefault(); // 阻止链接的默认跳转行为
-                const productName = link.textContent; // 获取产品名称
-                const product = { name: productName }; // 创建一个包含产品信息的对象
-                localStorage.setItem('currentProduct', JSON.stringify(product));
-                // window.location.href = 'productInfo.html'; // 跳转到产品信息页面
-            });
+            productList.forEach(element => {
+                element.addEventListener('click', (event) => {
+                    const link = event.target.closest('.product-name');
+                    if (!link) return; // 如果点击的不是产品链接，退出
+
+                    event.preventDefault(); // 阻止链接的默认跳转行为
+                    const productName = link.textContent; // 获取产品名称
+                    const product = { name: productName }; // 创建一个包含产品信息的对象
+                    localStorage.setItem('currentProduct', JSON.stringify(product));
+                    window.location.href = 'productInfo.html'; // 跳转到产品信息页面
+                });
+            })
         });
 
     </script>

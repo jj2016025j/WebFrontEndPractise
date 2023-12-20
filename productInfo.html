@@ -45,6 +45,22 @@
     </footer>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 绑定事件监听器到包含产品链接的父元素
+            const allProductList = document.getElementById('all-product-display');
+
+            allProductList.addEventListener('click', (event) => {
+                const link = event.target.closest('.product-name');
+                if (!link) return; // 如果点击的不是产品链接，退出
+
+                event.preventDefault(); // 阻止链接的默认跳转行为
+                const productName = link.textContent; // 获取产品名称
+                const product = { name: productName }; // 创建一个包含产品信息的对象
+                localStorage.setItem('currentProduct', JSON.stringify(product));
+                window.location.href = 'productInfo.html'; // 跳转到产品信息页面
+            });
+        });
+
         //===============初始化页面，生成商品頁面、加入購物車=================
         document.addEventListener('DOMContentLoaded', () => {
             const currentProduct = JSON.parse(localStorage.getItem('currentProduct'));
@@ -112,6 +128,7 @@
             const productName = document.getElementById('product-name').textContent;
             const productAdded = addProductToShoppingCartList(productName);
             productAdded ? console.log('商品已添加到购物车') : console.log('购物车已有此商品');
+            window.location.href = 'shoppingCar.html';
         }
 
         function addProductToShoppingCartList(productName) {
