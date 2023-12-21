@@ -26,35 +26,38 @@
 </head>
 <body>
     <header></header>
-    <main class="container-fluid  mt-5 mb-5 pt-5 pb-5" style="min-height: 80vh;">
-        <div class="container-sm text-center">
+    <main class="container-fluid mt-5 mb-5 pt-5 pb-5" style="min-height: 80vh;">
+        <div class="container-sm text-center mt-5 mb-5">
             <a href="./store.html">繼續購物</a>
         </div>
         <div class="row">                       
-            <div class="cart-item row col-md-7" id="shoppingCartList">
-                <button id="selectAll">全选</button>
-                <button id="clearSelection">清除选择</button>
-                <button id="performAction">对选定项进行操作</button>
-                <img src="https://picsum.photos/1000" alt="商品图片" class="img-fluid col-2">
-                <div class="row col-10">
-                    <a href="./productInfo.html" class="text-size-12">商品名稱</a>
-                    <input class="col-6" type="number" value="1" min="1">
-                    <p class="col-6 text-right">總價: $10</p>
+            <div class="cart-item row col-8">
+                <div class="col-12 d-flex justify-content-end" style="height: 30px;">
+                    <button class id="selectAll">全選</button>
+                    <button id="clearSelection">取消選取</button>
+                    <button id="performAction">移除</button>
                 </div>
-                <!-- 使用类名而不是 id -->
-                <div class="cart-item row col-md-7 product">
+                <div class="cart-item row col-12" id="shoppingCartList">
                     <img src="https://picsum.photos/1000" alt="商品图片" class="img-fluid col-2">
                     <div class="row col-10">
-                        <a href="./productInfo.html" class="text-size-12">${product.name}</a>
+                        <a href="./productInfo.html" class="text-size-12">商品名稱</a>
                         <input class="col-6" type="number" value="1" min="1">
                         <p class="col-6 text-right">總價: $10</p>
                     </div>
+                    <!-- 使用类名而不是 id -->
+                    <div class="cart-item row col-md-7 product">
+                        <img src="https://picsum.photos/1000" alt="商品图片" class="img-fluid col-2">
+                        <div class="row col-10">
+                            <a href="./productInfo.html" class="text-size-12">${product.name}</a>
+                            <input class="col-6" type="number" value="1" min="1">
+                            <p class="col-6 text-right">總價: $10</p>
+                        </div>
+                    </div>
                 </div>
-
             </div>
             <!-- 可以添加更多的 cart-item div来展示其他商品 -->
 
-            <div class="col-md-5 bg-white">
+            <div class="col-md-4 bg-white">
                 <h3 class="text-center">訂單摘要</h3>
                 <div class="row">
                     <p class="col text-left">小計:</p> <p class="col text-right" id="subtotalElement"> $20</p>
@@ -84,11 +87,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             fetchProductsData().then(() => {
                 const shoppingCartList = JSON.parse(localStorage.getItem('shoppingCartList')) || [];
-                document.getElementById('shoppingCartList').innerHTML = `
-                    <button class id="selectAll">全選</button>
-                    <button id="clearSelection">取消選取</button>
-                    <button id="performAction">移除</button>
-                `;
+                document.getElementById('shoppingCartList').innerHTML = ``;
                 shoppingCartList.forEach(productName => {
                     const product = productsDataCache.find(p => p.name === productName);
                     if (product) {
@@ -112,14 +111,19 @@
         function displayCartItem(product, quantity) {
             const shoppingCartList = document.getElementById('shoppingCartList');
             shoppingCartList.insertAdjacentHTML('beforeend', createCartItemHTML(product, quantity));
-            updateTotalPrice(product.price * quantity);
+
+            document.querySelectorAll('product').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                });
+            });
             updateOrderSummary()
         }
 
         // 创建购物车项的HTML
         function createCartItemHTML(product, quantity) {
             return `
-                <div class="cart-item row col-md-7 product">
+                <div class="cart-item row col-md-7 product active">
                     <img src="${product.image}" alt="商品图片" class="img-fluid col-2">
                     <div class="row col-10">
                         <a href="./productInfo.html" class="text-size-12">${product.name}</a>
@@ -127,13 +131,6 @@
                         <p class="col-6 text-right">總價: $${product.price * quantity}</p>
                     </div>
                 </div>`;
-        }
-
-        // 更新总价
-        function updateTotalPrice(additionalPrice) {
-            const totalPriceElement = document.getElementById('totalPrice');
-            let currentTotal = parseInt(totalPriceElement.textContent.split('$')[1]);
-            totalPriceElement.textContent = `總金額: $${currentTotal + additionalPrice}`;
         }
 
         function updateOrderSummary() {
@@ -151,43 +148,25 @@
             totalElement.textContent = `$${orderSummary.total}`;
         }
 
-        function toggleActive(element) {
-        if (element.classList.contains('active')) {
-            element.classList.remove('active');
-        } else {
-            element.classList.add('active');
-        }
-        }
+        // document.getElementById('selectAll').addEventListener('click', function() {
+        //     document.querySelectorAll('.item').forEach(item => {
+        //         item.classList.add('selected');
+        //     });
+        // });
 
-        // 點擊元素時觸發
-        document.getElementById('product').addEventListener('click', toggleActive);
-        
-        document.querySelectorAll('.item').forEach(item => {
-            item.addEventListener('click', function() {
-                this.classList.toggle('selected');
-            });
-        });
-
-        document.getElementById('selectAll').addEventListener('click', function() {
-            document.querySelectorAll('.item').forEach(item => {
-                item.classList.add('selected');
-            });
-        });
-
-        document.getElementById('clearSelection').addEventListener('click', function() {
-            document.querySelectorAll('.item').forEach(item => {
-                item.classList.remove('selected');
-            });
-        });
-
+        // document.getElementById('clearSelection').addEventListener('click', function() {
+        //     document.querySelectorAll('.item').forEach(item => {
+        //         item.classList.remove('selected');
+        //     });
+        // });
+            
         document.getElementById('performAction').addEventListener('click', function() {
-            const selectedItems = document.querySelectorAll('.item.selected');
-            selectedItems.forEach(item => {
-                console.log('操作项：', item.getAttribute('data-id'));
-                // 在这里添加操作逻辑
-            });
+            const selectedItems = document.getElementById('shoppingCartList');
+            selectedItems.innerHTML=''
+            localStorage.setItem("shoppingCartList", JSON.stringify({}));
+            localStorage.setItem("orderSummary", JSON.stringify({subtotal:0,shipping:0,tax:0,total:0}));
+             updateOrderSummary()
         });
-
     </script>
     <script src="./javascript/joinHeaderFooter.js"></script>
     <script src="./javascript/data.js"></script>

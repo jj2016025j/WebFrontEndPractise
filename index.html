@@ -14,30 +14,45 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/global.css">
 </head>
-<body>
+<style>
+  body {
+    padding: 0;
+    margin: 0;
+  }
+</style>
+<body class="text-white bg-black g-0">
     <!-- 導航欄 -->
-    <header>
-      <h1 class="note-sans-black logo"></h1>
-      <nav>
+    <header class="text-white" id="navbar">
+      <!-- <h1 class="note-sans-black logo ">魔法商店</h1>
+      <nav class="bg-opacity-50">
           <ul>
               <li><a href=./index.html>HOME</a></li>
               <li><a href=./store.html>STORE</a></li>
               <li><a href=./about.html>ABOUT</a></li>
               <li><a href=./portfolio.html>PORTFOLIO</a></li>
           </ul>  
-      </nav>
+      </nav> -->
     </header>
 
     <!-- 內容區塊 --> 
-    <main>
-      <section class="d-flex justify-content-center" style="height: 95vh">
-        <div class="d-flex flex-direction-column justify-content-center ms-5 me-5 ps-5 pe-5">
-          <h1 class="note-sans-black"id="typing">UI 設計師</h1>
-          <p class="mt-3">"歡迎來到創意的交匯點！
-            我們是一群熱衷於技術和藝術的專業人士，涵蓋從前端工程師到3D建模師的各個範疇。
-            無論是創造引人入勝的網站體驗、開發先進的後端解決方案、
-            或是打造下一代遊戲和實現視覺震撼，我們都在這裡，準備將您的夢想轉化為現實。"</p>
-          <p class="mt-5"><a href=./about.html class="button" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">了解更多</a></p>
+    <main class="row justify-content-evenly g-0" style="overflow: hidden;">
+      <section class="d-flex justify-content-center text-white image-container pt-5" 
+      style="height: 100vh; background-image: url('img/chalo-gallardo-TQUkqeh2NLY-unsplash.jpg'); 
+      background-repeat: no-repeat; background-size: cover; background-position: center; position: relative; background-attachment: fixed;">
+      <!--  -->
+
+        <div class="d-flex justify-content-center image-overlay" style="position: absolute; top: 0; left: 0; 
+        width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);">
+
+          <div class="d-flex flex-column justify-content-center ms-5 me-5 ps-5 pe-5">
+            <br>
+            <h1 class="note-sans-black fs-1 mt-5 pt-5"id="typing">UI 設計師</h1>
+            <p class="mt-3 fs-6">"歡迎來到創意的交匯點！
+              我們是一群熱衷於技術和藝術的專業人士，涵蓋從前端工程師到3D建模師的各個範疇。
+              無論是創造引人入勝的網站體驗、開發先進的後端解決方案、
+              或是打造下一代遊戲和實現視覺震撼，我們都在這裡，準備將您的夢想轉化為現實。"</p>
+            <p class="mt-5"><a href=./about.html class="button text-dark" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">了解更多</a></p>
+          </div>
         </div>
       </section>
 
@@ -47,67 +62,32 @@
       </section>
 
       <!-- AI -->
-      <div class="ai"></div>
+      <section class="ai"></section>
 
-      <section class="container row justify-content-evenly align-content-evenly row-gap mx-auto mt-5 mb-5">
-        <div class="col-lg-6 row justify-content-evenly rounded order-1">
-          <img src="https://picsum.photos/500/500?random=1" alt="" class="img-fluid rounded">
-        </div>
-        <div class="col-lg-6 row justify-content-evenly align-content-center order-2">
-          <article class="col-lg-12 row justify-content-evenly align-content-center">
-            <h1><span class="note-sans-black">神秘的力量</span></h1>
-            <p>"但在這閃耀的科技背後，隱藏著魔法的神秘力量。古老的魔法與現代科技的結合開啟了無限可能。
-              您可以在這裡學習施法，探索古老的咒語，甚至與神秘生物進行交流。"</p>    
-          </article>
+      <section class="container col-10 row justify-content-evenly align-content-evenly">
+        <!-- style=" height: 100vh; background-image: url('img/photo-1702868670879-07c99e07b88f.avif'); 
+        background-repeat: no-repeat; background-size: cover; background-position: center;"> -->
+        <div class="d-flex justify-content-center image-overlay">
+           <!-- style="position: absolute; top: 0; left: 0; 
+          width: 100%; background: rgba(0, 0, 0, 0.5);"> -->
+          <div class="col-md-4 d-flex flex-column row-gap">
+            <img src="https://picsum.photos/400/300?random=1" alt="" class="img-fluid">
+            <img src="https://picsum.photos/300/500?random=1" alt="" class="img-fluid">
+            <img src="https://picsum.photos/500/400?random=1" alt="" class="img-fluid">
+          </div>
+          <div class="col-md-4 d-flex flex-column row-gap">
+            <img src="https://picsum.photos/300/500?random=2" alt="" class="img-fluid">
+            <img src="https://picsum.photos/500/400?random=2" alt="" class="img-fluid">
+            <img src="https://picsum.photos/400/300?random=2" alt="" class="img-fluid">
+          </div>
+          <div class="col-md-4 d-flex flex-column row-gap">
+            <img src="https://picsum.photos/400/300?random=3" alt="" class="img-fluid">
+            <img src="https://picsum.photos/500/400?random=3" alt="" class="img-fluid">
+            <img src="https://picsum.photos/300/500?random=3" alt="" class="img-fluid">
+          </div>
         </div>
       </section>
-
-      <section class="container row justify-content-evenly align-content-evenly row-gap mx-auto mt-5 mb-5">
-        <div class="col-lg-6 row justify-content-evenly rounded order-1 order-lg-2">
-          <img src="https://picsum.photos/500/500?random=2" alt="" class="img-fluid rounded">
-        </div>
-        <div class="col-lg-6 row justify-content-evenly align-content-center order-2 order-lg-1">
-          <article class="col-lg-12 row justify-content-evenly align-content-center">
-            <h1> <span class="note-sans-black">探索與創新</span></h1>
-            <p>"我們鼓勵每位訪客探索這個世界的每一個角落。您將發現獨特的互動體驗，
-              參與創新項目，並與來自世界各地對科技與魔法同樣充滿熱情的人們交流。"</p>             
-            </article>
-        </div>
-
-      </section>
-      
-      <section class="container row justify-content-evenly align-content-evenly row-gap mx-auto mt-5 mb-5">
-        <div class="col-lg-6 row justify-content-evenly rounded order-1">
-          <img src="https://picsum.photos/500/500?random=3" alt="" class="img-fluid rounded">
-        </div>
-        <div class="col-lg-6 row justify-content-evenly align-content-center order-2">
-          <article class="col-lg-12 row justify-content-evenly align-content-center">
-            <h1> <span class="note-sans-black">奇幻冒險</span></h1>
-            <p>"踏入一個充滿奇幻與冒險的世界。在這裡，每一次旅程都充滿了未知的驚喜和挑戰，
-              帶領您走進一個又一個神秘的故事。"</p>  
-          </article>
-        </div>
-      </section>
-
-      <section class="container row justify-content-evenly align-content-evenly row-gap mx-auto mt-5 mb-5">
-        <div class="col-lg-6 row justify-content-evenly rounded order-1 order-lg-2">
-          <img src="https://picsum.photos/500/500?random=4" alt="" class="img-fluid rounded">
-        </div>
-        <div class="col-lg-6 row justify-content-evenly align-content-center order-2 order-lg-1">
-          <article class="col-lg-12 row justify-content-evenly align-content-center">
-            <h1> <span class="note-sans-black">加入我們</span></h1>
-            <p>"在未來魔法之城，每天都是一次全新的冒險。無論您是科技愛好者、
-              魔法學徒，還是僅僅對這個奇妙世界感到好奇，我們都歡迎您的加入。
-              探索這個奇妙的科技與魔法共融的世界，開啟您的幻想之旅。"</p>
-            <a href="about.html" class="btn btn-primary">立即加入</a>  
-          </article>
-        </div>
-      </section>
-      
-      <!-- 商品 -->
-      <div id="hot-product-display" class=" ms-5 me-5 mx-auto"></div>       
-  </main>
-
+    </main>
 
     <footer class="footer">
     </footer>
@@ -135,6 +115,8 @@
           setTimeout(type, 150);
         }
       })();
+
+
     </script>
     <script src="./javascript/joinHeaderFooter.js"></script>
     <script src="./javascript/data.js"></script>

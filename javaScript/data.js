@@ -84,7 +84,7 @@ function updateActivityList(data) {
     // 遍历每个活动并创建相应的 DOM 字符串
     data.activities.forEach(activity => {
         activitiesHTML += `
-            <div class="product-card d-flex flex-direction-column">
+            <div class="product-card d-flex flex-column">
             <a class="product-name" href="./productInfo.html"><div class="img" style="background-image: url(${activity.image});"></div></a>
             </div>
         `;
@@ -133,7 +133,7 @@ function updateHotProductList(topSellingProducts) {
     // 遍历每个产品并创建相应的 DOM 字符串
     topSellingProducts.forEach(product => {
         hotProductsHTML += `
-            <div class="product-card d-flex flex-direction-column">
+            <div class="product-card d-flex flex-column">
                 <div class="img" style="background-image: url(${product.image});"></div>
                 <a class="product-name" href="#"><b>${product.name}</b></a>
                 <a class="product-price">$${product.price}</a>
@@ -172,7 +172,7 @@ function updateProductClassificationList(products) {
     products.forEach(product => {
         // 创建商品分类卡片容器
         let categoryCard = document.createElement('div');
-        categoryCard.className = "product-card d-flex flex-direction-column";
+        categoryCard.className = "product-card d-flex flex-column";
 
         // 创建图片元素
         let imgDiv = document.createElement('div');
@@ -232,7 +232,7 @@ function updateAllProductList(selectedProducts){
     selectedProducts.forEach(product => {
         // 创建产品卡片容器
         let productCard = document.createElement('div');
-        productCard.className = "product-card d-flex flex-direction-column";
+        productCard.className = "product-card d-flex flex-column shadow";
 
         // 创建图片元素
         let imgDiv = document.createElement('div');
@@ -348,7 +348,7 @@ function updateAllItemList(items){
     items.forEach(item => {
         // 创建每个项目的容器
         let itemElement = document.createElement('div');
-        itemElement.className = "item d-flex flex-direction-column";
+        itemElement.className = "item d-flex flex-column";
 
         // 创建图片元素
         let imgDiv = document.createElement('div');
