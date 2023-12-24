@@ -163,7 +163,7 @@
         document.getElementById('performAction').addEventListener('click', function() {
             const selectedItems = document.getElementById('shoppingCartList');
             selectedItems.innerHTML=''
-            localStorage.setItem("shoppingCartList", JSON.stringify({}));
+            localStorage.setItem("shoppingCartList", JSON.stringify([]));
             localStorage.setItem("orderSummary", JSON.stringify({subtotal:0,shipping:0,tax:0,total:0}));
              updateOrderSummary()
         });

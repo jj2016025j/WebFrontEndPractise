@@ -28,12 +28,17 @@
     </header>
     <div class="row justify-content-center align-content-center" style="height: 100vh;">
         <H1 class="text-center note-sans-black">完成購買</H1>
-        <h5 class="text-center">稍後自動跳轉至首頁</h5><!-- 10秒 -->
+        <h5 class="text-center">5秒後自動跳轉至首頁</h5><!-- 10秒 -->
         <p class="text-center mt-5">
             <a href="./index.html">手動跳轉至首頁</a>
         </p>
     </div>
     <footer></footer>
+    <script>
+        setTimeout(function() {
+            window.location.href = './index.html'; // 將URL替換為您的首頁地址
+        }, 5000); // 5000毫秒等於5秒
+    </script>
     <script src="./javascript/joinHeaderFooter.js"></script>
     <script src="./javascript/data.js"></script>
     <!-- 引入Bootstrap JavaScript（可選） -->

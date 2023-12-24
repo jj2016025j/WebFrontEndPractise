@@ -8,69 +8,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
+        <main class="d-flex justify-content-center align-content-center" style="width: 100%; min-height: 100vh;">
+          <div class="container-lg mt-5 pt-5 mb-5 pb-5 mx-auto border" style="max-width: 450px; max-height: 400px; padding: 48px 40px 36px;">
+              <h1 class="mt-2 mb-5 text-center">註冊</h1>
+              <form action="/action_page.php" id="loginForm">
+
+                  <div class="mb-3 mt-3">
+                      <input type="email" class="form-control" minlength="8" maxlength="30" pattern="[a-zA-Z0-9_.@]+" id="email" placeholder="輸入您的信箱" name="email" required >
+                  </div>
+                  <div class="mb-3">
+                      <input type="password" class="form-control" minlength="8" maxlength="20" pattern="[a-zA-Z0-9_]+" id="pwd" placeholder="輸入您的密碼" name="pswd" required >
+                  </div>
+                  <div class="mb-3">
+                    <input type="password" class="form-control" minlength="8" maxlength="20" pattern="[a-zA-Z0-9_]+" id="pwd" placeholder="輸入您的密碼" name="pswd" required >
+                  </div>
+                  <button type="submit" class="container-fluid btn btn-success mt-3">註冊</button>
+  
+              </form>
+
         </div>
-      </nav>
-    <div class="container mt-3">
-        <form action="/action_page.php">
-            <div class="mb-3 mt-3">
-            <label for="email" class="form-label">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-            </div>
-            <div class="mb-3">
-            <label for="pwd" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-            </div>
-            <div class="form-check mb-3">
-            <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember"> Remember me
-            </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <form action="/action_page.php">
-            <div class="mb-3 mt-3">
-              <label for="comment">Comments:</label>
-              <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <input type="text" class="form-control" placeholder="Normal input">
-        <input type="text" class="form-control" placeholder="Disabled input" disabled>
-        <input type="text" class="form-control" placeholder="Readonly input" readonly>
+      </main>
+
     </div>
 </body>
 </html>

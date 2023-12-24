@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 @app.route('/login', methods=['POST'])
 def login():
+    print(request)
     # 提取表單數據
     username = request.form['username']
     password = request.form['password']
@@ -16,6 +17,7 @@ def login():
 @app.route('/register', methods=['POST'])
 def register():
     # 提取註冊表單數據
+    print(request)    
     username = request.form['username']
     password = request.form['password']
 
