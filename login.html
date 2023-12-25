@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,88 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
     <main class="d-flex justify-content-center align-content-center" style="width: 100%; min-height: 100vh;">
-        <div class="container-lg mt-5 pt-5 mb-5 pb-5 mx-auto border login" style="max-width: 450px; max-height: 400px; padding: 48px 40px 36px;">
+        <div class="container-lg mt-5 pt-5 mb-5 pb-5 mx-auto border login"
+            style="max-width: 450px; max-height: 450px; padding: 48px 40px 36px;">
             <h1 class="mt-2 mb-5 text-center">登入</h1>
-            <form action="/action_page.php" id="loginForm">
-
+            <form method="post" id="loginForm">
+                <input type="hidden" name="action" value="login">
                 <div class="mb-3 mt-3">
-                    <input type="email" class="form-control" minlength="8" maxlength="30" pattern="[a-zA-Z0-9_.@]+" id="email" placeholder="輸入您的信箱" name="email" required >
+                    <input type="text" class="form-control" minlength="8" maxlength="30" pattern="[a-zA-Z0-9_.@]+"
+                        id="username" placeholder="輸入您的信箱" name="username" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" minlength="8" maxlength="20" pattern="[a-zA-Z0-9_]+" id="pwd" placeholder="輸入您的密碼" name="pswd" required >
+                    <input type="password" class="form-control" minlength="8" maxlength="20" pattern="[a-zA-Z0-9_]+"
+                        placeholder="輸入您的密碼" name="password" id="password" required>
                 </div>
                 <div class="form-check mb-3">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="remember"> 記得我
+                        <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe"> 記得我
                     </label>
                 </div>
                 <button type="submit" class="container-fluid btn btn-success mt-3">登入</button>
-
+                <a href="signup.html" class="container-fluid btn btn-success mt-3">前往註冊</a>
             </form>
-      </div>
+        </div>
     </main>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 检查 localStorage 中是否有用户信息
+            const rememberedUser = JSON.parse(localStorage.getItem('rememberedUser'));
+
+            // 如果用户信息不为空，则更新页面内容
+            if (rememberedUser) {
+                document.getElementById('username').value = rememberedUser.username;
+                document.getElementById('password').value = rememberedUser.password;
+                document.getElementById('password').checked = rememberedUser.rememberedMe;
+                console.log(rememberedUser)
+            }
+        });
+
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var rememberMe = document.getElementById('rememberMe').checked;
+            event.preventDefault();
+            console.log(login(username, password, rememberMe))
+            return true;
+        });
+
+        // 登录函数
+        function login(username, password, rememberMe) {
+            // 从 localStorage 获取用户数据
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // 查找用户
+            const user = users.find(user => user.username === username);
+
+            // 检查用户名是否存在
+            if (!user) {
+                return '無此用戶';
+            }
+
+            // 检查密码是否正确
+            if (user.password !== password) {
+                return '密碼錯誤';
+            }
+
+            // 处理记住我选项
+            if (rememberMe) {
+                localStorage.setItem('rememberedUser', JSON.stringify({ username, password, rememberMe }));
+            } else {
+                localStorage.removeItem('rememberedUser');
+            }
+            
+            // 设置 currentUser
+            localStorage.setItem('currentUser', username);
+
+            // 登录成功，跳转到指定页面
+            window.location.href = './portfolio.html'; // 替换为实际的页面路径
+            return '登入成功';
+        }
 
         function checkViewportWidth() {
             const element = document.querySelector('.login');
@@ -43,33 +102,37 @@
             }
         }
 
+        // console.log(login('user1', 'password123'));    // 應該返回 'Login successful'
+        // console.log(login('user1', 'wrongpassword'));  // 應該返回 'Password incorrect'
+
         // 初始檢查
         checkViewportWidth();
 
         // 監聽視口大小變化
         window.addEventListener('resize', checkViewportWidth);
 
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // document.getElementById('loginForm').addEventListener('submit', function (e) {
+        //     e.preventDefault();
 
-            const username = document.getElementById('email').value;
-            const password = document.getElementById('pwd').value;
+        //     const username = document.getElementById('email').value;
+        //     const password = document.getElementById('password').value;
 
-            fetch('/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        });
+        //     fetch('/login', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify({ username, password }),
+        //     })
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             console.log('Success:', data);
+        //         })
+        //         .catch((error) => {
+        //             console.error('Error:', error);
+        //         });
+        // });
     </script>
 </body>
+
 </html>

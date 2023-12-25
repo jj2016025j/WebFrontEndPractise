@@ -12,7 +12,7 @@ window.addEventListener('scroll', function() {
 const header = document.querySelector('header')
 if (header) {
     header.innerHTML = `
-        <h1 class="note-sans-black logo ">J的魔法商店</h1>
+        <h1 class="note-sans-black logo">魔法空間</h1>
         <nav class="bg-opacity-50">
             <ul>
                 <li><a href=./index.html>HOME</a></li>
