@@ -69,13 +69,19 @@
         // 添加新用戶到陣列
         users.push({ username: username, password: password });
 
+        // 设置 currentUser
+        localStorage.setItem('currentUser', username);
+
         // 更新 localStorage 中的用戶數據
         localStorage.setItem('users', JSON.stringify(users));
+
+        // 登录成功，跳转到指定页面
+        window.location.href = './portfolio.html'; // 替换为实际的页面路径
 
         return '註冊完成';
       }
     }
-    
+
     // 測試註冊和登入
     // console.log(register('user1', 'password123')); // 應該返回 'Registration successful'
     // console.log(register('user1', 'password123')); // 應該返回 'Username already exists'

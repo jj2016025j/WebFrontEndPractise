@@ -28,17 +28,22 @@
     <main class="container-fluid row flex-wrap justify-content-center align-content-center mx-auto mt-5 mb-5 ps-5 pe-5"
         style="min-height: 80vh;">
         <!-- 主要展示-->
-        <div class="container col-xl-4 col-md-8 col-sm-10 border d-flex flex-column justify-content-center align-content-center text-center" style="min-height: 80%;">
+        <div id="container"
+            class="col-md-6 container col-xl-4 col-md-8 col-sm-10 border d-flex flex-column justify-content-center align-content-center text-center"
+            style="min-height: 80%;">
             <h3 class="mt-5">尚未登入</h3>
             <a href="login.html" class="mt-2 mb-5 btn-primary">去登入</a>
         </div>
-        <div class="container col-xl-4 col-md-8 col-sm-10 border d-flex flex-column justify-content-center align-content-center text-center" style="min-height: 80%;">
-            <h3 id="username">尚未登录</h3>
-            <p id="email">信箱</p>
-            <p id="currency">法币</p>
-        </div>        
-    </main>
+        <div class=" col-md-6">
+            <div id="chatbox" class="mb-3"></div>
+            <form id="chatForm" class="form-inline">
+                <input type="text" id="input" class="form-control mr-2" style="width: 90%;" placeholder="請輸入訊息..."
+                    autocomplete="off">
+                <button type="submit" class="btn btn-primary">發送</button>
+            </form>
 
+        </div>
+    </main>
 
 
     <!-- 頁尾 -->
@@ -46,28 +51,96 @@
     </footer>
 
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // 从 localStorage 获取当前用户
-    const currentUser = localStorage.getItem('currentUser');
+        //訪問openai
+        let OPENAI_API = {}
+        fetch('./json/config.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                OPENAI_API = jsonData
+                console.log(OPENAI_API.OPENAI_API.OPENAI_API_KEY); // 访问产品名
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+            });
 
-    // 从 localStorage 获取所有用户数据
-    const users = JSON.parse(localStorage.getItem('Users')) || [];
+        document.getElementById('chatForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+            let inputField = document.getElementById('input');
+            let message = inputField.value;
+            inputField.value = '';
 
-    // 查找当前用户的详细信息
-    const userDetails = users.find(user => user.username === currentUser);
+            // 显示用户信息
+            document.getElementById('chatbox').innerHTML += `<div>訪客: ${message}</div>`;
 
-    // 更新页面内容
-    if (userDetails) {
-        document.getElementById('username').textContent = userDetails.username;
-        document.getElementById('email').textContent = userDetails.email || '信箱: 無';
-        document.getElementById('currency').textContent = userDetails.currency || '法币: 0';
-    } else {
-        // 如果没有找到用户，显示默认值
-        document.getElementById('username').textContent = '用户名: 錯誤';
-        document.getElementById('email').textContent = '信箱: 錯誤';
-        document.getElementById('currency').textContent = '法币: 錯誤';
-    }
-});
+            // message = [{ "role": "user", "content": "Say this is a test!" }]
+
+            // 调用 OpenAI API
+            let chat_with_chatgpt = false
+            if (chat_with_chatgpt) {
+                fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${data.OPENAI_API_KEY}` // 用实际的 API 密钥替换
+                    },
+                    body: JSON.stringify({
+                        model: "gpt-3.5-turbo",
+                        messages: [{ "role": "user", "content": `${message}` }],
+                        temperature: 0.7,
+                        max_tokens: 1
+                    })
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // 提取 GPT 响应
+                        let gptResponse = data.choices[0].message.content.trim();
+                        document.getElementById('chatbox').innerHTML += `<div>GPT: ${gptResponse}</div>`;
+                    })
+                    .catch(error => console.error('Error:', error));
+            };
+        })
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            update()
+            document.getElementById('logout')?.addEventListener('click', function (event) {
+                const currentUser = localStorage.removeItem('currentUser');
+                update()
+            })
+        });
+        function update() {
+            // 从 localStorage 获取当前用户
+            const currentUser = localStorage.getItem('currentUser');
+            // 从 localStorage 获取所有用户数据
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            // 查找当前用户的详细信息
+            const userDetails = users.find(user => user.username === currentUser);
+            container = document.getElementById('container')
+            // 更新页面内容
+            if (userDetails) {
+                // 如果找到用户数据，则显示用户信息
+                container.innerHTML = `
+                    <p id="username">${userDetails.username}</p>
+                    <p id="email" class="mt-2">信箱: ${userDetails.email || '無'}</p>
+                    <p id="currency">魔法幣: ${userDetails.currency || '0'}</p>
+                    <a href="" id="logout">登出</a>
+                `;
+            } else {
+                // 如果没有找到用户数据，则显示“尚未登录”信息
+                container.innerHTML = `
+                    <h3 class="mt-5">尚未登入</h3>
+                    <a href="login.html" class="mt-2 mb-5 btn btn-primary">去登入</a>
+                `;
+            }
+        }
+
 
     </script>
     <script src="./javascript/joinHeaderFooter.js"></script>
