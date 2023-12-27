@@ -1,5 +1,4 @@
-
-
+// 這好像是別的專案的js
 // 用於追蹤是否所有物品都被選取的標誌
 let selectionButton = document.getElementById('SelectionButton');
 let allSelected = false;
