@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品介紹</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- 引入Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;900&family=Open+Sans:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+    <!-- 引入手刻 -->
+    <link rel="stylesheet" href="../static/css/global.css">
+</head>
+
+<body class="row justify-content-center">
+    <header id="navbar">
+
+    </header>
+    <main class="col-md-10 row justify-content-center mx-auto mt-5 mb-5 pt-5 pb-5">
+        <div class="col row justify-content-between">
+            <h1 class="col h1 open-sans text-left" id="product-name">神奇手錶</h1>
+            <div class="col row justify-content-right">
+                <p class="col open-sans text-right" id="product-price">價格: $199.99</p>
+                <a href="#" class="col btn buy-btn-lg" id="buy-botton">購買</a>
+            </div>
+        </div>
+        <div class="row product-info">
+            <img src="https://picsum.photos/400/400" alt="商品图片" class="col-6 product-image" id="product-image">
+            <div class="col-6 row justify-content-center align-content-center">
+                <h1 class="open-sans" id="product-description">這款手錶不僅時尚且功能強大，是您日常生活的完美伴侶。</h1>
+            </div>
+        </div>
+        <!-- <div class="display" style="height: 50vh;">
+            <h1 class="note-sans-black colorful">產品介紹</h1>
+        </div> -->
+            <!-- 所有商品 -->
+            <h1 class="note-sans-black colorful ms-5 me-5 mt-5 mb-5">所有商品</h1>
+            <!-- 父分類 -->
+            <div id="classification-list" class="row gap-1 ms-5 me-5 mb-3"></div>
+            <!-- 子分類 -->
+            <div id="sub-classification-list" class="row gap-1 ms-5 me-5 mb-5"></div>
+            <div id="all-product-list" class="row gap-5 ms-5 me-5"></div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 绑定事件监听器到包含产品链接的父元素
+            const allProductList = document.getElementById('all-product-list');
+
+            allProductList.addEventListener('click', (event) => {
+                const link = event.target.closest('.product-name');
+                if (!link) return; // 如果点击的不是产品链接，退出
+
+                event.preventDefault(); // 阻止链接的默认跳转行为
+                const productName = link.textContent; // 获取产品名称
+                const product = { name: productName }; // 创建一个包含产品信息的对象
+                localStorage.setItem('currentProduct', JSON.stringify(product));
+                window.location.href = 'productInfo.html'; // 跳转到产品信息页面
+            });
+        });
+
+        //===============初始化页面，生成商品頁面、加入購物車=================
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentProduct = JSON.parse(localStorage.getItem('currentProduct'));
+            if (currentProduct) {
+                loadProductDetails(currentProduct);
+            } else {
+                console.log('無商品信息');
+            }
+            document.getElementById('buy-botton').addEventListener('click', addToCart);
+        });
+
+        //===============加载产品详情，使用缓存数据=================
+        function loadProductDetails(product) {
+            getCachedJsonData('../json/ProductInformationSheet.json')
+                .then(data => {
+                    const foundProduct = data.products.find(p => p.name === product.name);
+                    foundProduct ? updateProductPage(foundProduct) : console.log("找不到商品，重定向到404");
+                })
+                .catch(handleFetchError);
+        }
+
+        //===============抓取資料=================
+        let jsonDataCache = null;
+
+        function getCachedJsonData(url) {
+            if (jsonDataCache) {
+                return Promise.resolve(jsonDataCache);
+            }
+            return loadJsonData(url).then(data => {
+                jsonDataCache = data;
+                return data;
+            });
+        }
+
+        function loadJsonData(url) {
+            return fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .catch(handleFetchError);
+        }
+
+        function handleFetchError(error) {
+            console.log("加载 JSON 数据时出错:", error);
+            // 根据需要进行错误处理，例如显示错误消息或重定向
+            // 抛出错误，确保调用者知道发生了错误
+            throw error;
+        }
+
+        //===============更新产品页面=================
+        function updateProductPage(product) {
+            document.getElementById('product-name').innerText = product.name;
+            document.getElementById('product-price').innerText = `價格: $${product.price}`;
+            document.getElementById('product-image').src = product.image;
+            document.getElementById('product-description').innerText = product.description; // 假設您的數據中有描述信息
+            document.getElementById('buy-botton').href = `shoppingCar.html`; // 假設您的數據中有描述信息
+        }
+
+        //===============加入購物車和更新 localStorage=================
+        function addToCart(event) {
+            event.preventDefault();
+            const productName = document.getElementById('product-name').textContent;
+            const productAdded = addProductToShoppingCartList(productName);
+            productAdded ? console.log('商品已添加到购物车') : console.log('购物车已有此商品');
+            window.location.href = 'shoppingCar.html';
+        }
+
+        function addProductToShoppingCartList(productName) {
+            let shoppingCartList = JSON.parse(localStorage.getItem('shoppingCartList')) || [];
+            if (!shoppingCartList.includes(productName)) {
+                shoppingCartList.push(productName);
+                updateLocalStorage('shoppingCartList', shoppingCartList);
+                updateOrderSummary();
+                return true;
+            }
+            return false;
+        }
+
+        function updateLocalStorage(key, value) {
+            localStorage.setItem(key, JSON.stringify(value));
+        }
+
+        function updateOrderSummary() {
+            getCachedJsonData('../json/data.json')
+                .then(data => {
+                    let productsData = data.products;
+                    let shoppingCartList = JSON.parse(localStorage.getItem('shoppingCartList')) || [];
+                    let subtotal = shoppingCartList.reduce((total, cartItemName) => {
+                        let product = productsData.find(product => product.name === cartItemName);
+                        return total + (product ? product.price : 0);
+                    }, 0);
+                    let shipping = calculateShipping();
+                    let tax = calculateTax(subtotal);
+                    let total = subtotal + shipping + tax;
+                    updateLocalStorage('orderSummary', { subtotal, shipping, tax, total });
+                })
+                .catch(handleFetchError);
+        }
+
+        function calculateShipping() {
+            return 60; // 示例返回值
+        }
+
+        function calculateTax(subtotal) {
+            return subtotal * 0.1; // 示例：税率10%
+        }
+    </script>
+    <script type="module" src="../static/javaScript/main.js"></script>
+    <!-- 引入Bootstrap JavaScript（可選） -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
