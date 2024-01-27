@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,8 @@
         rel="stylesheet">
     <!-- 引入手刻 -->
     <link rel="stylesheet" href="../static/css/global.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8099482531873423"
+        crossorigin="anonymous"></script>
 </head>
 
 <body class="row justify-content-center">
@@ -38,13 +41,13 @@
         <!-- <div class="display" style="height: 50vh;">
             <h1 class="note-sans-black colorful">產品介紹</h1>
         </div> -->
-            <!-- 所有商品 -->
-            <h1 class="note-sans-black colorful ms-5 me-5 mt-5 mb-5">所有商品</h1>
-            <!-- 父分類 -->
-            <div id="classification-list" class="row gap-1 ms-5 me-5 mb-3"></div>
-            <!-- 子分類 -->
-            <div id="sub-classification-list" class="row gap-1 ms-5 me-5 mb-5"></div>
-            <div id="all-product-list" class="row gap-5 ms-5 me-5"></div>
+        <!-- 所有商品 -->
+        <h1 class="note-sans-black colorful ms-5 me-5 mt-5 mb-5">所有商品</h1>
+        <!-- 父分類 -->
+        <div id="classification-list" class="row gap-1 ms-5 me-5 mb-3"></div>
+        <!-- 子分類 -->
+        <div id="sub-classification-list" class="row gap-1 ms-5 me-5 mb-5"></div>
+        <div id="all-product-list" class="row gap-5 ms-5 me-5"></div>
     </main>
 
     <footer>
@@ -81,7 +84,7 @@
 
         //===============加载产品详情，使用缓存数据=================
         function loadProductDetails(product) {
-            getCachedJsonData('../json/ProductInformationSheet.json')
+            getCachedJsonData('../static/json/ProductInformationSheet.json')
                 .then(data => {
                     const foundProduct = data.products.find(p => p.name === product.name);
                     foundProduct ? updateProductPage(foundProduct) : console.log("找不到商品，重定向到404");
@@ -154,7 +157,7 @@
         }
 
         function updateOrderSummary() {
-            getCachedJsonData('../json/data.json')
+            getCachedJsonData('../static/json/data.json')
                 .then(data => {
                     let productsData = data.products;
                     let shoppingCartList = JSON.parse(localStorage.getItem('shoppingCartList')) || [];

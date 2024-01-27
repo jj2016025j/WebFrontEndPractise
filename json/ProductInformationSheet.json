@@ -4,7 +4,7 @@
             "id": "PRD1001",
             "name": "Mystic Hoodie",
             "description": "一件風格神秘的連帽衫，飾有靈獸圖案，結合現代與奇幻的設計。",
-            "image": ["../img/piperPerriMeme_v20.png"],
+            "image": ["../static/img/piperPerriMeme_v20.png"],
             "price": 350,
             "reviews": [
                 {
@@ -38,7 +38,7 @@
             "id": "PRD1010",
             "name": "Bronze Griffin Sculpture",
             "description": "一尊銅質獅鷲雕塑，展示了這個傳說中生物的威嚴，它有著獅子的身體和老鷹的頭部與翅膀。",
-            "image": ["../img/URL_TO_THE_BRONZE_GRIFFIN_SCULPTURE_IMAGE.png"],
+            "image": ["../static/img/URL_TO_THE_BRONZE_GRIFFIN_SCULPTURE_IMAGE.png"],
             "price": 620,
             "reviews": [
                 {
@@ -55,7 +55,7 @@
             "id": "PRD1020",
             "name": "龍之眼吊墜",
             "description": "一款迷人的龍之眼形狀吊墜，由拋光的黑曜石製成，中心鑲嵌著一顆璀璨的綠色祖母綠。",
-            "image": ["../img/DragonsEyePendant.png"],
+            "image": ["../static/img/DragonsEyePendant.png"],
             "price": 250,
             "reviews": [
                 {
@@ -72,7 +72,7 @@
             "id": "PRD1021",
             "name": "神秘卷軸",
             "description": "一卷用皮繩捆綁的古老卷軸，上面飾有發出柔和、迷人光芒的神秘符號。",
-            "image": ["../img/magic scroll.png"],
+            "image": ["../static/img/magic scroll.png"],
             "price": 450,
             "reviews": [
                 {
@@ -89,7 +89,7 @@
             "id": "PRD1022",
             "name": "元素奧秘之書",
             "description": "一本古老的魔法手稿，皮革封面並有金屬扣環，書名為 '元素奧秘之書'。書本打開，顯示出滿是神秘符號和元素法術插圖的頁面。",
-            "image": ["../img/magicalartifact.png"],
+            "image": ["../static/img/magicalartifact.png"],
             "price": 1300,
             "reviews": [
                 {
@@ -262,9 +262,9 @@
             "id": "PRD4010",
             "name": "元素魔法 - 火元素",
             "description": "包括爆炎術和火球術等火属性魔法。",
-            "image": ["../img/fire01.jpg"],
+            "image": ["../static/img/fire01.jpg"],
             "price": 2800,
-            "reviews": ["../img/fire02.jpg","../img/fire03.jpg"],
+            "reviews": ["../static/img/fire02.jpg","../static/img/fire03.jpg"],
             "productIntroduction": "元素魔法 - 火元素让您掌握强大的火焰力量，可用于多种目的，如攻击和照明。",
             "size": "适用于火元素控制者"
         },

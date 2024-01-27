@@ -131,20 +131,6 @@
 
 /* 媒體查詢 */
 @media screen and (max-width: 600px) {
-    header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    nav {
-        display: none;
-    }
-
-    a{
-        width: 100%;
-    }
-
     .colorful, .Activity-display, .display, .display + .slogan {
         margin: 0;
         height: fit-content;

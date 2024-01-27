@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>魔法商店 | 購物車</title>
     <!-- 引入Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- 引入Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;900&family=Open+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;900&family=Open+Sans:ital,wght@1,700&display=swap"
+        rel="stylesheet">
     <!-- 引入手刻 -->
     <link rel="stylesheet" href="../static/css/global.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8099482531873423"
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header id="navbar">
 
@@ -33,24 +40,28 @@
         <div class="col-md-6 bg-white">
             <h3 class="text-center">訂單摘要</h3>
             <div class="row">
-                <p class="col text-left">小計:</p> <p class="col text-right" id="summary-subtotal"> $20</p>
+                <p class="col text-left">小計:</p>
+                <p class="col text-right" id="summary-subtotal"> $20</p>
             </div>
             <div class="row">
-                <p class="col text-left">運費:</p> <p class="col text-right" id="summary-shipping"> $20</p>
+                <p class="col text-left">運費:</p>
+                <p class="col text-right" id="summary-shipping"> $20</p>
             </div>
             <div class="row">
-                <p class="col text-left">稅款:</p> <p class="col text-right" id="summary-tax"> $20</p>
+                <p class="col text-left">稅款:</p>
+                <p class="col text-right" id="summary-tax"> $20</p>
             </div>
             <div class="row">
-                <p class="col text-left"><b>預估總金額:</b></p> <p class="col text-right" id="summary-total"><b> $20</b></p>
+                <p class="col text-left"><b>預估總金額:</b></p>
+                <p class="col text-right" id="summary-total"><b> $20</b></p>
             </div>
             <a href="payFinish.html" class="btn col-12 bg-primary text-white" id="buyButton">確認購買</a>
-<!-- 失敗則不跳轉網頁 -->
+            <!-- 失敗則不跳轉網頁 -->
         </div>
     </main>
     <footer>
     </footer>
-    
+
     <script>
         const orderSummary = JSON.parse(localStorage.getItem('orderSummary'));
 
@@ -67,47 +78,47 @@
             allowedPaymentMethods: [{
                 type: 'CARD',
                 parameters: {
-                allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-                allowedCardNetworks: ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"]
+                    allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+                    allowedCardNetworks: ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"]
                 },
                 tokenizationSpecification: {
-                type: 'PAYMENT_GATEWAY',
-                // Check with your payment gateway on the parameters to pass.
-                // @see {@link https://developers.google.com/pay/api/web/reference/request-objects#gateway}
-                parameters: {
-                    'gateway': 'example',
-                    'gatewayMerchantId': 'exampleGatewayMerchantId'
-                }
+                    type: 'PAYMENT_GATEWAY',
+                    // Check with your payment gateway on the parameters to pass.
+                    // @see {@link https://developers.google.com/pay/api/web/reference/request-objects#gateway}
+                    parameters: {
+                        'gateway': 'example',
+                        'gatewayMerchantId': 'exampleGatewayMerchantId'
+                    }
                 }
             }]
         };
         const methodData = [
-            {supportedMethods: 'https://google.com/pay', data: googlePaymentDataRequest},
-            {supportedMethods: 'basic-card'}
+            { supportedMethods: 'https://google.com/pay', data: googlePaymentDataRequest },
+            { supportedMethods: 'basic-card' }
         ];
 
         const allowedCardNetworks = ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"];
         const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
-        
+
         if (window.PaymentRequest) {
-        const request = createPaymentRequest();
-        
-        request.canMakePayment()
-            .then(function(result) {
-                if (result) {
-                // Display PaymentRequest dialog on interaction with the existing checkout button
-                document.getElementById('buyButton')
-                    .addEventListener('click', onBuyClicked);
-                }
-            })
-            .catch(function(err) {
-                showErrorForDebugging(
-                    'canMakePayment() error! ' + err.name + ' error: ' + err.message);
-            });
+            const request = createPaymentRequest();
+
+            request.canMakePayment()
+                .then(function (result) {
+                    if (result) {
+                        // Display PaymentRequest dialog on interaction with the existing checkout button
+                        document.getElementById('buyButton')
+                            .addEventListener('click', onBuyClicked);
+                    }
+                })
+                .catch(function (err) {
+                    showErrorForDebugging(
+                        'canMakePayment() error! ' + err.name + ' error: ' + err.message);
+                });
         } else {
-        showErrorForDebugging('PaymentRequest API not available.');
+            showErrorForDebugging('PaymentRequest API not available.');
         }
-        
+
         /**
          * Show a PaymentRequest dialog after a user clicks the checkout button
          */
@@ -115,17 +126,17 @@
             event.preventDefault()
             createPaymentRequest()
                 .show()
-                .then(function(response) {
+                .then(function (response) {
                     // Dismiss payment dialog.
                     response.complete('success');
                     handlePaymentResponse(response);
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                     showErrorForDebugging(
                         'show() error! ' + err.name + ' error: ' + err.message);
                 });
         }
-        
+
         /**
          * Define your unique Google Pay API configuration
          *
@@ -137,9 +148,9 @@
                 apiVersion: 2,
                 apiVersionMinor: 0,
                 merchantInfo: {
-                // A merchant ID is available after approval by Google.
-                // 'merchantId':'12345678901234567890',
-                merchantName: 'Example Merchant'
+                    // A merchant ID is available after approval by Google.
+                    // 'merchantId':'12345678901234567890',
+                    merchantName: 'Example Merchant'
                 },
                 allowedPaymentMethods: [{
                     type: 'CARD',
@@ -152,14 +163,14 @@
                         // Check with your payment gateway on the parameters to pass.
                         // @see {@link https://developers.google.com/pay/api/web/reference/request-objects#gateway}
                         parameters: {
-                        'gateway': 'example',
-                        'gatewayMerchantId': 'exampleGatewayMerchantId'
+                            'gateway': 'example',
+                            'gatewayMerchantId': 'exampleGatewayMerchantId'
                         }
                     }
                 }]
             };
         }
-        
+
         /**
          * Create a PaymentRequest
          *
@@ -175,23 +186,23 @@
             methodData.push({
                 supportedMethods: 'basic-card',
                 data: {
-                supportedNetworks:
-                    Array.from(allowedCardNetworks, (network) => network.toLowerCase())
+                    supportedNetworks:
+                        Array.from(allowedCardNetworks, (network) => network.toLowerCase())
                 }
             });
-            
+
             const details = {
-                total: {label: 'Test Purchase', amount: {currency: 'TWD', value: orderSummary.total.toFixed(2)}}
+                total: { label: 'Test Purchase', amount: { currency: 'TWD', value: orderSummary.total.toFixed(2) } }
             };
-            
+
             const options = {
                 requestPayerEmail: true,
                 requestPayerName: true
             };
-            
+
             return new PaymentRequest(methodData, details, options);
         }
-        
+
         /**
          * Process a PaymentResponse
          *
@@ -205,9 +216,9 @@
             //     .insertAdjacentElement('afterend', formattedResponse);
             console.log("success")
             alert("付款失敗")
-window.location.href="payFinish.html"
+            window.location.href = "payFinish.html"
         }
-        
+
         /**
          * Display an error message for debugging
          *
@@ -234,10 +245,11 @@ window.location.href="payFinish.html"
             }
         });
     </script>
-  <script type="module" src="../static/javaScript/main.js"></script>
+    <script type="module" src="../static/javaScript/main.js"></script>
     <!-- 引入Bootstrap JavaScript（可選） -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>

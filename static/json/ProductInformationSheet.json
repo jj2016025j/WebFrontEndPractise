@@ -1,0 +1,463 @@
+{
+    "products": [
+        {
+            "id": "PRD1001",
+            "name": "Mystic Hoodie",
+            "description": "一件風格神秘的連帽衫，飾有靈獸圖案，結合現代與奇幻的設計。",
+            "image": ["../static/img/piperPerriMeme_v20.png"],
+            "price": 350,
+            "reviews": [
+                {
+                    "userID": "user502",
+                    "username": "fashion_wizard",
+                    "content": "這件連帽衫不僅設計獨特，而且穿著舒適，非常適合日常穿搭。",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "這件神秘連帽衫由頂級面料製成，融合了奇幻元素與日常時尚，讓你成為眾人矚目的焦點。",
+            "size": "尺寸：S, M, L, XL"
+        },        
+        {
+            "id": "PRD1020",
+            "name": "基礎魔杖",
+            "description": "精緻的基礎魔杖，適合用於角色扮演和裝飾。",
+            "image": ["https://picsum.photos/200/300?random=5"],
+            "price": 800,
+            "reviews": [
+                {
+                    "userID": "user301",
+                    "username": "wizardry_lover",
+                    "content": "這魔杖的細節令人驚歎，感覺就像真的魔法師一樣！",
+                    "rating": 4
+                }
+            ],
+            "productIntroduction": "這款模擬魔杖不僅外型逼真，而且手感出色，是角色扮演愛好者的理想選擇。",
+            "size": "長度：35cm"
+        },
+        {
+            "id": "PRD1010",
+            "name": "Bronze Griffin Sculpture",
+            "description": "一尊銅質獅鷲雕塑，展示了這個傳說中生物的威嚴，它有著獅子的身體和老鷹的頭部與翅膀。",
+            "image": ["../static/img/URL_TO_THE_BRONZE_GRIFFIN_SCULPTURE_IMAGE.png"],
+            "price": 620,
+            "reviews": [
+                {
+                    "userID": "user1102",
+                    "username": "legend_collector",
+                    "content": "這獅鷲雕塑細節令人驚歎，每一個角度都透露出它的高貴與古老，是我的收藏中的珍品。",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "這獅鷲雕塑以其精緻的細節和銅質材料的古老感而聞名，是神話傳說中生物的完美呈現。",
+            "size": "尺寸：高30cm x 寬20cm x 深15cm"
+        },        
+        {
+            "id": "PRD1020",
+            "name": "龍之眼吊墜",
+            "description": "一款迷人的龍之眼形狀吊墜，由拋光的黑曜石製成，中心鑲嵌著一顆璀璨的綠色祖母綠。",
+            "image": ["../static/img/DragonsEyePendant.png"],
+            "price": 250,
+            "reviews": [
+                {
+                    "userID": "user925",
+                    "username": "神秘尋求者",
+                    "content": "龍之眼吊墜不僅是一件驚豔的飾品，似乎還與我的魔力產生了共鳴。真是一件迷人的配飾！",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "在魔法森林的深處鑄造，龍之眼吊墜被認為能增強佩戴者的魔法親和力。其黑曜石表面和閃耀的祖母綠被說能抵禦黑暗魔法。",
+            "size": "均碼"
+        },        
+        {
+            "id": "PRD1021",
+            "name": "神秘卷軸",
+            "description": "一卷用皮繩捆綁的古老卷軸，上面飾有發出柔和、迷人光芒的神秘符號。",
+            "image": ["../static/img/magic scroll.png"],
+            "price": 450,
+            "reviews": [
+                {
+                    "userID": "user709",
+                    "username": "神秘愛好者",
+                    "content": "這神秘卷軸比我想像中的還要迷人。它是我的收藏中的核心！",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "這神秘卷軸來自一位被遺忘法師的古老圖書館。據說它包含著等待有緣人揭開的秘密。",
+            "size": "卷軸尺寸：長30cm x 直徑8cm"
+        },      
+        {
+            "id": "PRD1022",
+            "name": "元素奧秘之書",
+            "description": "一本古老的魔法手稿，皮革封面並有金屬扣環，書名為 '元素奧秘之書'。書本打開，顯示出滿是神秘符號和元素法術插圖的頁面。",
+            "image": ["../static/img/magicalartifact.png"],
+            "price": 1300,
+            "reviews": [
+                {
+                    "userID": "user2048",
+                    "username": "arcane_scholar",
+                    "content": "這本元素奧秘之書包含了強大的魔法力量，每一頁都充滿了古老的智慧和能量。",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "這本古書是所有法師寶庫中的珍寶，它記載了控制元素力量的秘密和古老咒語。",
+            "size": "尺寸：25cm x 35cm x 5cm"
+        },          
+        {
+            "id": "PRD1030",
+            "name": "龍形收藏模型",
+            "description": "精緻的龍形收藏模型，展示奇幻生物的雄偉形態。",
+            "image": ["https://picsum.photos/200/300?random=6"],
+            "price": 2500,
+            "reviews": [
+                {
+                    "userID": "user401",
+                    "username": "dragon_collector",
+                    "content": "這龍模型的細節和質量都非常高，是我收藏中的珍品！",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "龍形收藏模型以其精美的工藝和逼真的細節著稱，是任何奇幻愛好者的必備收藏品。",
+            "size": "尺寸：60cm x 30cm x 45cm"
+        },
+        {
+            "id": "PRD2001",
+            "name": "多維空間儲物裝置",
+            "description": "具有擴展內部空間的先進儲存裝置。",
+            "image": ["https://picsum.photos/200/300?random=17"],
+            "price": 5000,
+            "reviews": [
+                {
+                    "userID": "user1501",
+                    "username": "space_saver",
+                    "content": "這個多維空間儲物裝置真是節省空間的神器！",
+                    "rating": 4
+                }
+            ],
+            "productIntroduction": "這款多維空間儲物裝置利用先進的科技，大幅擴展內部儲存空間，非常適合空間有限的環境。",
+            "size": "尺寸：20cm x 20cm x 20cm"
+        },
+        {
+            "id": "PRD2002",
+            "name": "瞬移裝置",
+            "description": "允許使用者瞬間移動至短距離內的創新裝置。",
+            "image": ["https://picsum.photos/200/300?random=18"],
+            "price": 8000,
+            "reviews": [
+                {
+                    "userID": "user1601",
+                    "username": "teleporter",
+                    "content": "瞬移裝置真的很方便，瞬間就能到達目的地！",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "瞬移裝置採用最新的運輸技術，能夠快速且安全地將使用者傳送到指定位置。",
+            "size": "攜帶型，尺寸：10cm x 10cm x 5cm"
+        },
+        {
+            "id": "PRD2010",
+            "name": "遙控幻影投影機",
+            "description": "創造逼真全息影像的裝置，適用於娛樂或教育。",
+            "image": ["https://picsum.photos/200/300?random=19"],
+            "price": 3000,
+            "reviews": [
+                {
+                    "userID": "user1701",
+                    "username": "hologram_fan",
+                    "content": "遙控幻影投影機的影像真的太逼真了，讓我的演示更加生動！",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "這款遙控幻影投影機使用尖端技術創造逼真的全息影像，非常適合教育和娛樂用途。",
+            "size": "尺寸：30cm x 25cm x 25cm"
+        },
+        {
+            "id": "PRD2020",
+            "name": "智慧型魔法護符",
+            "description": "透過智能手機應用程序進行設置的護身符。",
+            "image": ["https://picsum.photos/200/300?random=21"],
+            "price": 1200,
+            "reviews": [
+                {
+                    "userID": "user1901",
+                    "username": "amulet_user",
+                    "content": "這個智慧型魔法護符非常好用，而且設置簡單！",
+                    "rating": 4
+                }
+            ],
+            "productIntroduction": "智慧型魔法護符將古老的護身符傳統與現代智慧技術相結合，提供個人保護與安全。",
+            "size": "直徑5cm"
+        },
+        {
+            "id": "PRD2021",
+            "name": "自適應迷彩裝",
+            "description": "根據環境變化顏色的智能服裝。",
+            "image": ["https://picsum.photos/200/300?random=22"],
+            "price": 2500,
+            "reviews": [
+                {
+                    "userID": "user2001",
+                    "username": "camo_enthusiast",
+                    "content": "自適應迷彩裝在戶外活動中非常實用，且很時尚！",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "自適應迷彩裝利用最新的色彩變化技術，自動適應周圍環境，提供卓越的隱蔽性。",
+            "size": "各種尺寸可選"
+        },
+        {
+            "id": "PRD2030",
+            "name": "能量水晶充電器",
+            "description": "利用能量水晶為裝置充電。",
+            "image": ["https://picsum.photos/200/300?random=23"],
+            "price": 1800,
+            "reviews": [
+                {
+                    "userID": "user2101",
+                    "username": "crystal_charger",
+                    "content": "能量水晶充電器不僅充電速度快，還很環保！",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "能量水晶充電器使用特殊的水晶能量技術，為您的設備提供快速且環保的充電方式。",
+            "size": "尺寸：15cm x 15cm x 10cm"
+        },
+        {
+            "id": "PRD1020",
+            "name": "智能魔法飾品",
+            "description": "可與智慧家居系統同步，執行簡單任務的裝飾品。",
+            "image": ["https://picsum.photos/200/300?random=24"],
+            "price": 2200,
+            "reviews": [
+                {
+                    "userID": "user2201",
+                    "username": "smart_jewelry",
+                    "content": "智能魔法飾品不僅美觀，還能和我家的智慧設備完美融合！",
+                    "rating": 4
+                }
+            ],
+            "productIntroduction": "智能魔法飾品將優雅的設計與智能家居技術結合，讓您的生活更加方便與智能。",
+            "size": "各種尺寸可選"
+        },
+        {
+            "id": "PRD4001",
+            "name": "擬態魔法 - 变形术",
+            "description": "使使用者或物体变换形态或外观的魔法。",
+            "image": ["https://picsum.photos/200/300?random=1"],
+            "price": 2500,
+            "reviews": [],
+            "productIntroduction": "擬態魔法 - 变形术让您能够快速改变自己或物体的外观，实现身份伪装或装饰效果。",
+            "size": "适用于各种尺寸"
+        },
+        {
+            "id": "PRD4002",
+            "name": "擬態魔法 - 隐形术",
+            "description": "使使用者或物体变得看不见的魔法。",
+            "image": ["https://picsum.photos/200/300?random=2"],
+            "price": 1800,
+            "reviews": [],
+            "productIntroduction": "擬態魔法 - 隐形术让您能够在需要时消失不见，保持隐蔽和安全。",
+            "size": "适用于个人和物品"
+        },
+        {
+            "id": "PRD4010",
+            "name": "元素魔法 - 火元素",
+            "description": "包括爆炎術和火球術等火属性魔法。",
+            "image": ["../static/img/fire01.jpg"],
+            "price": 2800,
+            "reviews": ["../static/img/fire02.jpg","../static/img/fire03.jpg"],
+            "productIntroduction": "元素魔法 - 火元素让您掌握强大的火焰力量，可用于多种目的，如攻击和照明。",
+            "size": "适用于火元素控制者"
+        },
+        {
+            "id": "PRD4011",
+            "name": "元素魔法 - 水元素",
+            "description": "包括凝水術和水箭術等水属性魔法。",
+            "image": ["https://picsum.photos/200/300?random=4"],
+            "price": 2600,
+            "reviews": [],
+            "productIntroduction": "元素魔法 - 水元素让您掌握水的力量，用于操控水流或攻击敌人。",
+            "size": "适用于水元素控制者"
+        },
+        {
+            "id": "PRD4012",
+            "name": "元素魔法 - 雷元素",
+            "description": "包括电击術和金属磁化術等雷属性魔法。",
+            "image": ["https://picsum.photos/200/300?random=5"],
+            "price": 2700,
+            "reviews": [],
+            "productIntroduction": "元素魔法 - 雷元素让您操控电能，用于攻击或磁化物体。",
+            "size": "适用于雷元素控制者"
+        },
+        {
+            "id": "PRD4013",
+            "name": "元素魔法 - 地元素",
+            "description": "包括土牆術和尖刺術等地属性魔法。",
+            "image": ["https://picsum.photos/200/300?random=6"],
+            "price": 2500,
+            "reviews": [],
+            "productIntroduction": "元素魔法 - 地元素让您掌握大地之力，用于防御或攻击。",
+            "size": "适用于地元素控制者"
+        },
+        {
+            "id": "PRD4020",
+            "name": "治癒術",
+            "description": "用于治疗伤口和疾病的魔法。",
+            "image": ["https://picsum.photos/200/300?random=7"],
+            "price": 1500,
+            "reviews": [],
+            "productIntroduction": "治癒術能够迅速恢复受伤者的健康。",
+            "size": "适用于医疗需求"
+        },
+        {
+            "id": "PRD4070",
+            "name": "防禦魔法",
+            "description": "生成保护罩或屏障，抵御攻击的魔法。",
+            "image": ["https://picsum.photos/200/300?random=8"],
+            "price": 2000,
+            "reviews": [],
+            "productIntroduction": "防禦魔法可以提供强大的防护，保护您免受敌人的伤害。",
+            "size": "适用于自我防御"
+        },
+        {
+            "id": "PRD4030",
+            "name": "契約魔法 - 召喚魔法精靈",
+            "description": "与特定属性的精灵建立契约的魔法。",
+            "image": ["https://picsum.photos/200/300?random=9"],
+            "price": 3000,
+            "reviews": [],
+            "productIntroduction": "契約魔法 - 召喚魔法精靈可以获得强大的魔法助力。",
+            "size": "适用于魔法师"
+        },
+        {
+            "id": "PRD4031",
+            "name": "契約魔法 - 魔物契約",
+            "description": "与魔物建立联系，共享感知能力的魔法。",
+            "image": ["https://picsum.photos/200/300?random=10"],
+            "price": 3200,
+            "reviews": [],
+            "productIntroduction": "契約魔法 - 魔物契約让您能够与神秘的魔物建立联系，分享它们的感知能力。",
+            "size": "适用于冒险者"
+        },
+        {
+            "id": "PRD4040",
+            "name": "幻覺魔法",
+            "description": "在短时间内妨碍目标感知的魔法。",
+            "image": ["https://picsum.photos/200/300?random=11"],
+            "price": 1800,
+            "reviews": [],
+            "productIntroduction": "幻覺魔法可以使目标产生虚假的感知，迷惑敌人。",
+            "size": "适用于战术欺骗"
+        },
+        {
+            "id": "PRD4041",
+            "name": "塑形魔法",
+            "description": "暂时将元素变化为物品外观或改变元素物质的魔法。",
+            "image": ["https://picsum.photos/200/300?random=12"],
+            "price": 2100,
+            "reviews": [],
+            "productIntroduction": "塑形魔法可以将元素暂时改变为所需的形态或外观。",
+            "size": "适用于创意应用"
+        },
+        {
+            "id": "PRD4050",
+            "name": "禁忌魔法 - 預知魔法",
+            "description": "强大但危险的预知未来的魔法。",
+            "image": ["https://picsum.photos/200/300?random=13"],
+            "price": 4000,
+            "reviews": [],
+            "productIntroduction": "禁止魔法 - 預知魔法能够揭示未来的秘密，但使用需谨慎。",
+            "size": "适用于预知者"
+        },
+        {
+            "id": "PRD4051",
+            "name": "禁止魔法 - 因果魔法",
+            "description": "操控因果关系的危险魔法。",
+            "image": ["https://picsum.photos/200/300?random=14"],
+            "price": 4200,
+            "reviews": [],
+            "productIntroduction": "禁止魔法 - 因果魔法可以改变事件的发展，但可能导致不可预测的后果。",
+            "size": "适用于探索者"
+        },
+        {
+            "id": "PRD4052",
+            "name": "禁止魔法 - 時間魔法",
+            "description": "掌握时间流动的危险魔法。",
+            "image": ["https://picsum.photos/200/300?random=15"],
+            "price": 5000,
+            "reviews": [],
+            "productIntroduction": "禁止魔法 - 時間魔法可以加速或减缓时间，但需要小心使用。",
+            "size": "适用于时间掌控者"
+        },
+        {
+            "id": "PRD4053",
+            "name": "禁止魔法 - 空間魔法",
+            "description": "操控空间的危险魔法。",
+            "image": ["https://picsum.photos/200/300?random=16"],
+            "price": 4800,
+            "reviews": [],
+            "productIntroduction": "禁止魔法 - 空間魔法可以改变空间结构，但可能导致空间混乱。",
+            "size": "适用于空间旅行者"
+        },
+        {
+            "id": "PRD4060",
+            "name": "特殊魔法 - 自動清潔術",
+            "description": "自动清理指定区域或物体的魔法。",
+            "image": ["https://picsum.photos/200/300?random=17"],
+            "price": 2200,
+            "reviews": [],
+            "productIntroduction": "特殊魔法 - 自動清潔術让您无需劳累，轻松保持清洁。",
+            "size": "适用于居家清洁"
+        },
+        {
+            "id": "PRD3020",
+            "name": "智能幻影寵物",
+            "description": "創造各種虛擬寵物幻影，可以與用戶進行互動的高科技裝置。",
+            "image": ["https://picsum.photos/200/300?random=12"],
+            "price": 2000,
+            "reviews": [
+                {
+                    "userID": "user606",
+                    "username": "virtual_pet_fan",
+                    "content": "智能幻影寵物是一個很棒的家庭娛樂裝置，我的孩子們喜歡它！",
+                    "rating": 2
+                }
+            ],
+            "productIntroduction": "智能幻影寵物結合了現代科技與互動娛樂，為您帶來全新的寵物體驗。",
+            "size": "裝置尺寸：15cm x 10cm x 10cm"
+        },
+        {
+            "id": "PRD3021",
+            "name": "機械伴侶動物",
+            "description": "能模仿真實動物行為的仿生機器人寵物。",
+            "image": ["https://picsum.photos/200/300?random=45"],
+            "price": 3000,
+            "reviews": [
+                {
+                    "userID": "user789",
+                    "username": "robot_lover",
+                    "content": "機械伴侶動物非常可愛，我很喜歡它！",
+                    "rating": 5
+                }
+            ],
+            "productIntroduction": "機械伴侶動物可以陪伴您度過漫長的夜晚，給您帶來陪伴和溫暖。",
+            "size": "體長約 20 厘米"
+        },
+        {
+            "id": "PRD3030",
+            "name": "夢境守護者",
+            "description": "夜間發光，守護主人夢境的神秘寵物。",
+            "image": ["https://picsum.photos/200/300?random=78"],
+            "price": 4000,
+            "reviews": [
+                {
+                    "userID": "user123",
+                    "username": "dream_guardian_fan",
+                    "content": "夢境守護者非常神奇，我很喜歡它！",
+                    "rating": 4
+                }
+            ],
+            "productIntroduction": "夢境守護者可以幫助您驅趕噩夢，讓您擁有一個甜蜜的夢境。",
+            "size": "體長約 30 厘米"
+        }
+    ]
+}

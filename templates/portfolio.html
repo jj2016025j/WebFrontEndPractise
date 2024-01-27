@@ -16,9 +16,11 @@
         rel="stylesheet">
     <!-- 引入手刻 -->
     <link rel="stylesheet" href="../static/css/global.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8099482531873423"
+        crossorigin="anonymous"></script>
 </head>
 
-<body class="text-white bg-black">
+<body class="bg-white">
     <!-- 導航欄 -->
     <header id="navbar">
     </header>
@@ -32,22 +34,20 @@
             style="min-height: 80%;">
             <h3 class="mt-5">尚未登入</h3>
             <a href="login.html" class="mt-2 mb-5 btn-primary">去登入</a>
-        </div>
-        <div class=" col-md-6">
-            <div id="chatbox" class="mb-3"></div>
-            <form id="chatForm" class="form-inline">
-                <input type="text" id="input" class="form-control mr-2" style="width: 90%;" placeholder="請輸入訊息..."
-                    autocomplete="off">
-                <button type="submit" class="btn btn-primary">發送</button>
-            </form>
-
+            <div class=" mt-3" id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                data-login_uri="https://your.domain/your_login_endpoint" data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
+                data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left">
+            </div>
         </div>
     </main>
 
     <!-- 頁尾 -->
-    <footer class="footer">
+    <footer>
     </footer>
     <script type="module" src="../static/javaScript/main.js"></script>
+
     <!-- 引入Bootstrap JavaScript（可選） -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

@@ -1,16 +1,19 @@
+console.log("test");
 //main.js
 import {
-    fetchJson, createHotProductList, selectRandomProducts,
+    fetchJson, selectRandomProducts,
     getCategoriesList, getSubcategories, findProducts, findProductsInfo
-} from './backend.js';
+} from './backEnd.js';
 import {
     createUI, initializeEventListeners,
-    updateUserInfo, updateList
-} from './FrontSide.js';
+    updateUserInfo, updateList, showMessage
+} from './frontSide.js';
 
-document.addEventListener('DOMContentLoaded', async() => {
+document.addEventListener('DOMContentLoaded', async () => {
     await Initialization()
     initializeEventListeners()
+    loadRememberedUser();
+
 })
 
 let ProductInfo
@@ -26,9 +29,9 @@ async function Initialization() {
     try {
         // 使用 async/await 等待所有 fetch 请求完成
         const [ProductInfo2, ProductInfo3, ProductInfo4] = await Promise.all([
-            fetchJson('../json/ProductInformationSheet.json'),
-            fetchJson('../json/ProductClassificationTable.json'),
-            fetchJson('../json/salesRecord.json')
+            fetchJson('../static/json/ProductInformationSheet.json'),
+            fetchJson('../static/json/ProductClassificationTable.json'),
+            fetchJson('../static/json/salesRecord.json')
         ]);
 
         ProductInfo = ProductInfo2;
@@ -92,6 +95,76 @@ function categoriesAddEventListener(className) {
         });
     });
 }
+
+document.getElementById("loginForm")?.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const rememberMe = document.getElementById('rememberMe').checked;
+    console.log(login(username, password, rememberMe));
+});
+
+document.getElementById("registerForm")?.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const confirm_password = document.getElementById('confirm_password').value;
+    if (password !== confirm_password) {
+        showMessage('warning', '兩次輸入的密碼不相同');
+        return false;
+    }
+    console.log(register(username, password));
+});
+
+function loadRememberedUser() {
+    const rememberedUser = JSON.parse(localStorage.getItem('rememberedUser'));
+    if (rememberedUser&&document.getElementById('username')&&document.getElementById('password')&&document.getElementById('rememberMe')) {
+        document.getElementById('username').value = rememberedUser.username;
+        document.getElementById('password').value = rememberedUser.password;
+        document.getElementById('rememberMe').checked = rememberedUser.rememberedMe;
+    }
+}
+
+function login(username, password, rememberMe) {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(user => user.username === username);
+
+    if (!user) {
+        showMessage('warning', '找不到用戶。');
+        return '無此用戶';
+    }
+    if (user.password !== password) {
+        showMessage('danger', '密碼錯誤。');
+        return '密碼錯誤';
+    }
+    if (rememberMe) {
+        localStorage.setItem('rememberedUser', JSON.stringify({ username, password, rememberMe }));
+    } else {
+        localStorage.removeItem('rememberedUser');
+    }
+
+    localStorage.setItem('currentUser', username);
+    showMessage('success', '您已成功登入。');
+    return '登入成功';
+}
+
+function register(username, password) {
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    if (!Array.isArray(users)) users = [];
+
+    const userExists = users.some(user => user.username === username);
+    if (userExists) {
+        showMessage('info', '該用戶已註冊。');
+        return '已註冊過';
+    } else {
+        users.push({ username, password });
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('currentUser', username);
+        window.location.href = 'portfolio.html';
+        return '註冊完成';
+    }
+}
+
 
 function finalTest() {
 }

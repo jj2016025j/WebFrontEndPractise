@@ -6,15 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>test</title>
   <!-- 引入Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-  <!-- <script src="https://accounts.google.com/gsi/client" async></script>
+  <nav class="navbar navbar-expand-sm open-sans bg-opacity-50">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">
+        <h1 class="note-sans-black logo text-center">艾格魯的店</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./store.html">STORE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./portfolio.html">PORTFOLIO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">ABOUT</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">TOOL</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./gpt.html">GPT</a></li>
+              <li><a class="dropdown-item" href="#">API整合(敬請期待)</a></li>
+              <li><a class="dropdown-item" href="#">圖像辨識(敬請期待)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <script src="https://accounts.google.com/gsi/client" async></script>
   <div id="g_id_onload"
       data-client_id="YOUR_GOOGLE_CLIENT_ID"
       data-login_uri="https://your.domain/your_login_endpoint"
@@ -27,7 +64,7 @@
       data-text="sign_in_with"
       data-shape="rectangular"
       data-logo_alignment="left">
-  </div> -->
+  </div>
 
   <!-- ================================================================================ -->
   <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -106,7 +143,7 @@
 
   <!-- <nav class="navbar navbar-expand-md sticky-top">
         <a class="navbar-brand" href="./index.html">
-            <img src="../img/107270.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+            <img src="../static/img/107270.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
             <h1 class="note-sans-black logo d-inline-block align-text-top border border-success shadow">魔術空間</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

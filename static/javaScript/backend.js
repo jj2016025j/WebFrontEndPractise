@@ -98,7 +98,7 @@ function findProducts(data, parentCategory = null, subCategory = null) {
     return products;
 }
 
-function findProductsInfo(jsonData, productIds ) {
+function findProductsInfo(jsonData, productIds) {
     let productsInfo = [];
 
     jsonData.products.forEach(product => {
@@ -119,7 +119,7 @@ async function fetchJson(url) {
 }
 
 //test
-fetchJson('../json/ProductClassificationTable.json')
+fetchJson('../static/json/ProductClassificationTable.json')
     .then(jsonData => {
         // console.log(getCategoriesList(jsonData))
     }).catch(error => {
@@ -130,3 +130,26 @@ export {
     fetchJson, createHotProductList, getCategoryBestSellers, selectRandomProducts,
     getCategoriesList, getSubcategories, findProducts, findProductsInfo
 }
+
+
+// document.getElementById('loginForm').addEventListener('submit', function (e) {
+//     e.preventDefault();
+
+//     const username = document.getElementById('email').value;
+//     const password = document.getElementById('password').value;
+
+//     fetch('/login', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ username, password }),
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log('Success:', data);
+//         })
+//         .catch((error) => {
+//             console.error('Error:', error);
+//         });
+// });
