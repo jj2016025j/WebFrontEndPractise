@@ -1,0 +1,87 @@
+body {
+    background-image: url('example_img_girl.jpg');
+    background-repeat: no-repeat;
+    /* 固定圖片 */
+    background-attachment: fixed;
+    /* 覆蓋元素且比例不變 */
+    background-size: cover;
+    background-size: 100% 100%;
+
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+
+    border-radius: 10px;
+}
+
+th,
+td {
+    background-color: #96D4D4;
+}
+
+th,
+td {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 40px;
+}
+
+/* 表格間距 */
+table {
+    border-spacing: 30px;
+}
+
+td:nth-child(even),
+th:nth-child(odd) {
+    background-color: #D6EEEE;
+}
+
+/* for     border: 1px solid black;
+dotted     
+dashed     
+solid     
+double     
+groove     
+ridge     
+inset     
+outset     
+none     
+hidden      */
+
+div {
+    width: 300px;
+    /* 居中對齊 */
+    margin: auto;
+    /*  */
+    overflow: auto;
+    /*  */
+    float: left;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.mycontainer {
+    display: flex;
+}
+
+div {
+    width: 30%;
+    display: inline-block;
+}
+
+@media screen and (max-width: 800px) {
+    .left,
+    .main,
+    .right {
+        width: 100%;
+        /* The width is 100%, when the viewport is 800px or smaller */
+    }
+}

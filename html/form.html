@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- autocomplete submit後自動儲存值 -->
+    <!--  novalidate 不驗證表單資料 -->
+    <form action="" target="_blank" method="dialog" autocomplete="on" novalidate aria-relevant="all" accept-charset="">
+        <label for="cars">Choose a car:</label>
+        <select id="cars" name="cars" size="4" multiple>
+            <option value="volvo">Volvo</option>
+            <option value="fiat" selected>Fiat</option>
+        </select>
+        <!-- <input type="button" value=""> -->
+        <input type="checkbox" name="" id="">
+        <input type="date" name="" id="">
+        <input type="datetime" name="" id="">
+        <input type="datetime-local" name="" id="">
+        <input type="email" name="" id="" readonly required r>
+        <input type="file" name="" id="">
+        <input type="hidden" name="">
+        <input type="image" src="" alt="">
+        <input type="month" name="" id="">
+        <!-- <input type="number" name="" id=""> -->
+        <input type="password" name="" id="">
+        <!-- <input type="range" name="" id=""> -->
+        <input type="reset" value="">
+        <!-- <input type="radio" name="" id=""> -->
+        <input type="search" name="" id="">
+        <!-- <input type="submit" value="submit"> -->
+        <input type="tel" name="" id="">
+        <input type="text" name="" id="" min="" max="" maxlength="">
+        <input type="time" name="" id="">
+        <input type="url" name="" id="">
+        <input type="week" name="" id="">
+
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">HTML</label><br>
+
+        <textarea name="message" id="" cols="30" rows="10"></textarea>
+        <button type="button" onclick="alert('Hello World!')">Click Me!</button>
+
+        <fieldset>
+            <legend>Personalia:</legend>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="John"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="Doe"><br><br>
+            <input type="submit" value="Submit">
+        </fieldset>
+
+        <!-- datalist有選項給input用 有輸入也有選項 -->
+        <input list="browsers" name="browser">
+        <datalist id="browsers">
+            <option value="Edge">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+    </form>
+
+    <form>
+        <label for="datemax">Enter a date before 1980-01-01:</label>
+        <input type="date" id="datemax" name="datemax" max="1979-12-31"><br><br>
+        <label for="datemin">Enter a date after 2000-01-01:</label>
+        <input type="date" id="datemin" name="datemin" min="2000-01-02">
+    </form>
+
+    <form>
+        <label for="quantity">Quantity (between 1 and 5):</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="5">
+        <!-- 更改編碼方式 -->
+        <input type="submit" formenctype="multipart/form-data" value="Submit as Multipart/form-data">
+        <!-- formtarget網頁打開方式 -->
+        <input type="submit" formtarget="_blank" value="Submit to a new window/tab">
+    </form>
+
+    <form action="/action_page.php" oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        0
+        <input type="range" id="a" name="a" value="50">
+        100 +
+        <input type="number" id="b" name="b" value="50">
+        =
+        <output name="x" for="a b"></output>
+        <br><br>
+        <input type="submit">
+        <!-- formaction 可以訪問跟action不同路徑 -->
+        <input type="submit" formaction="/action_page2.php" value="Submit as Admin">
+    </form>
+
+    <form action="">
+        <input type="text" name="" id="" maxlength="20" disabled readonly size="">
+
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" autofocus><br>
+
+        <!-- 必須有輸入 -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <!-- 變動值 step -->
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="0" max="100" step="10" value="30">
+
+        <!-- 可上傳多個 multiple -->
+        <label for="files">Select files:</label>
+        <input type="file" id="files" name="files" multiple>
+
+        <!-- 限制 數量 限制 數量 -->
+        <!-- [0-9]{3}-[0-9]{2}-[0-9]{3} -->
+        <label for="phone">Enter your phone number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+
+        <label for="vol">Volume (between 0 and 50):</label>
+        <input type="range" id="vol" name="vol" min="0" max="50">
+    </form>
+    <form action="" method="post"></form>
+    <form action="" method="get"></form>
+
+    <!-- formnovalidate novalidate 會避開驗證 -->
+    <form action="/action_page.php">
+        <label for="email">Enter your email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <input type="submit" value="Submit">
+        <input type="submit" formnovalidate="formnovalidate" value="Submit without validation">
+    </form>
+    <form action="/action_page.php" novalidate>
+        <label for="email">Enter your email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

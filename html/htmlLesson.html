@@ -7,23 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        h1 {
-            color: blue;
-            font-family: verdana;
-            font-size: 300%;
-        }
-
-        p {
-            color: red;
-            font-family: courier;
-            font-size: 160%;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- 各種屬性 -->
+    <!-- 
+        <header> - Defines a header for a document or a section
+        <article>	Defines independent, self-contained content
+        <aside>	Defines content aside from the page content
+        <details>	Defines additional details that the user can view or hide
+        <figcaption>	Defines a caption for a <figure> element
+        <figure>	Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+        <footer>	Defines a footer for a document or section
+        <header>	Specifies a header for a document or section
+        <main>	Specifies the main content of a document
+        <mark>	Defines marked/highlighted text
+        <nav>	Defines navigation links
+        <section>	Defines a section in a document
+        <summary>	Defines a visible heading for a <details> element
+        <time>	Defines a date/time 
+    -->
+
+    <!-- img屬性 -->
     <img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142">
     <!-- 換列 -->
     <br>
@@ -60,6 +64,7 @@
     <p>This is <sup>superscripted</sup> text.</p>
     <!-- 加上引號 有必要嗎WWW -->
     <p>WWF's goal is to: <q>Build a future where people live in harmony with nature.</q></p>
+
     <!-- HTML<blockquote>元素定義了從另一個來源引用的部分。 -->
     <!-- The HTML <blockquote> element defines a section that is quoted from another source. -->
     <blockquote cite="http://www.worldwildlife.org/who/index.html">
@@ -81,32 +86,24 @@
     <p><cite>The Scream</cite> by Edvard Munch. Painted in 1893.</p>
 
     <bdo dir="rtl">This line will be written from right to left</bdo>
-    <!-- 紅綠藍 -->
-    <h1 style="background-color:rgba(255, 99, 71, 1);">rgba(255, 99, 71, 1)</h1>
-    <!-- 色彩 飽和 亮度 -->
-    <h1 style="background-color:hsla(9, 100%, 64%, 0.2);">hsla(9, 100%, 64%, 0.2)</h1>
-    <!-- 該target屬性可以具有以下值之一：
+    <!-- 只是字體不一樣而已 -->
+    <code>
+        x = 5;
+        y = 6;
+        z = x + y;
+        </code>
+    <p>Save the document by pressing <kbd>Ctrl + S</kbd></p>
+    <p><samp>File not found.<br>Press F1 to continue</samp></p>
+    <p>The area of a triangle is: 1/2 x <var>b</var> x <var>h</var>, where <var>b</var> is the base, and <var>h</var> is
+        the vertical height.</p>
 
-        _self- 預設. 在單擊時的相同視窗/選項卡中開啟文檔
-        _blank- 在新視窗或選項卡中開啟文檔
-        _parent- 在父框架中開啟文檔
-        _top- 在整個視窗中開啟文檔 -->
-    <a href="https://www.w3schools.com/" target="_blank">Visit W3Schools!</a>
-    <a href="mailto:someone@example.com">Send email</a>
-    <button onclick="document.location='default.asp'">HTML Tutorial</button>
+    <!-- Here are the block-level elements in HTML:
+    <address><article><aside><blockquote><canvas><dd><div><dl><dt><fieldset><figcaption><figure><footer><form><h1>-<h6><header><hr><li><main><nav><noscript><ol><p><pre><section><table><tfoot><ul><video> -->
+    <!-- Here are the inline elements in HTML:
+    <a><abbr><acronym><b><bdo><big><br><button><cite><code><dfn><em><i><img><input><kbd><label><map><object><output><q><samp><script><select><small><span><strong><sub><sup><textarea><time><tt><var>
+    Note: An inline element cannot contain a block-level element! -->
 
-    <!-- 所以說class也可以囉?? -->
-    <h2 id="C4">Chapter 4</h2>
-    <a href="#C4">Jump to Chapter 4</a>
-    <a href="html_demo.html#C4">Jump to Chapter 4</a>
-    <!-- 常見影像格式 .apng .gif .ico, .cur .jpg, .jpeg, 
-        .jfif, .pjpeg, .pjp .png .svg -->
 
-    <img> Defines an image
-    <map> Defines an image map
-        <area> Defines a clickable area inside an image map
-        <picture> Defines a container for multiple image resources
-            https://www.w3schools.com/html/html_images_imagemap.asp
 </body>
 
 </html>

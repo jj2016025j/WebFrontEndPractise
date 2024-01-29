@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Unordered HTML List 無序 -->
+    <ul style="list-style-type:disc;">
+        <!-- <ul style="list-style-type:circle;"> -->
+        <!-- <ul style="list-style-type:square;"> -->
+        <!-- <ul style="list-style-type:none;"> -->
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+
+    <!-- Ordered HTML List 有序 -->
+    <!-- type="1"
+        type="A"
+        type="a"
+        type="I"
+        type="i" -->
+    <ol type="I" start="50">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ol>
+
+    <!-- HTML Description Lists -->
+    <dl>
+        <dt>Coffee</dt>
+        <dd>- black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>- white cold drink</dd>
+    </dl>
+    <!-- css跳過 -->
+    <!-- There is only a very limited selection of CSS properties that are allowed to be used in the colgroup:
+        僅允許在 colgroup 中使用的 CSS 屬性非常有限：
+        width property
+        visibility property
+        background properties
+        border properties -->
+    <table>
+        <colgroup>
+            <col span="3">
+            <col span="2" style="background-color: #D6EEEE">
+            <!-- 隱藏 -->
+            <col span="3" style="visibility: collapse">
+        </colgroup>
+        <tr>
+            <!-- 橫向 -->
+            <th colspan="2">Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <!-- 縱向 -->
+            <th rowspan="2">Phone</th>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>43</td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>57</td>
+        </tr>
+    </table>
+    <!-- <caption>	Defines a table caption
+            <colgroup>	Specifies a group of one or more columns in a table for formatting
+            <col>	Specifies column properties for each column within a <colgroup> element
+            <thead>	Groups the header content in a table
+            <tbody>	Groups the body content in a table
+            <tfoot>	Groups the footer content in a table -->
+
+</body>
+
+</html>
