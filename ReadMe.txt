@@ -1,7 +1,6 @@
 llm下載用https://lmstudio.ai/
 下載
 模型是這個
-
 TheBloke
 /
 CodeLlama-7B-Instruct-GGUF
@@ -14,7 +13,7 @@ Preset
 !!!跨域要打開!!! !!!跨域要打開!!!
 !!!跨域要打開!!! !!!跨域要打開!!!
 !!!跨域要打開!!! !!!跨域要打開!!!
-
+下面這個選項
 Cross-Origin-Resource-Sharing (CORS)ⓘ
 
 
@@ -45,3 +44,31 @@ ngrok.yml //這個看你
 [![image](img/index.PNG)](img/index.PNG)
 [網址名稱](網址)
 [Google 搜索](https://www.google.com/search)
+
+
+
+
+//node.js架設伺服器
+//移動位置到node資料夾
+cd node
+
+//快速設置環境
+npm init -f
+
+//安裝模塊
+npm install express
+npm install node-fetch
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "jquery": "^3.7.1",
+    "public-ip": "^6.0.1",
+    "querystring": "^0.2.1"
+	請確認 node_modules 資料夾裡頭有 express 子資料夾
+
+//在裡面的script加上
+"dev":"nodemon app.js",
+
+//啟動script裡面的dev呼叫nodemon app.js
+npm run dev

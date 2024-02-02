@@ -20,6 +20,13 @@ function getNetIPAddress() {
         });
     });
 }
+// 使用 getNetIPAddress
+// getNetIPAddress().then(ip => {
+//     console.log("我的公網 IP 地址是:                http://" + ip);
+// }).catch(err => {
+//     console.log("錯誤: " + err.message);
+// });
+
 const os = require('os');
 
 function getLocalIPAddress() {

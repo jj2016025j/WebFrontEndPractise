@@ -34,5 +34,7 @@ app.get('/get-completion', async (req, res) => {
     }
 });
 
+//如果預設的port無法使用則使用3000
+//從環境變數取得端口號
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
