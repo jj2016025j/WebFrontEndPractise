@@ -1,0 +1,70 @@
+对于一个 GET 请求，用于查询用户 ID 为 123 的用户信息：
+
+http
+Copy code
+GET /users/123/profile?expand=posts
+Host: yourapp.com
+Accept: application/json
+在 Express 中对应的 req 对象可能包含如下信息：
+
+json
+Copy code
+{
+  "method": "GET",
+  "url": "/users/123/profile",
+  "params": {
+    "userId": "123"
+  },
+  "query": {
+    "expand": "posts"
+  },
+  "headers": {
+    "accept": "application/json"
+  }
+}
+对于一个 POST 请求，用于更新用户 ID 为 123 的用户信息：
+
+http
+Copy code
+POST /users/123/profile
+Host: yourapp.com
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Jane Doe",
+  "email": "jane.doe@example.com"
+}
+在 Express 中对应的 req 对象可能包含如下信息：
+
+json
+Copy code
+{
+  "method": "POST",
+  "url": "/users/123/profile",
+  "params": {
+    "userId": "123"
+  },
+  "body": {
+    "name": "Jane Doe",
+    "email": "jane.doe@example.com"
+  },
+  "headers": {
+    "content-type": "application/json",
+    "accept": "application/json"
+  }
+}
+
+const err = new Error("Email format is invalid");
+err.status = 400; // Bad Request
+err.type = "ValidationError";
+在错误处理中间件中，err 对象可能会包含如下信息：
+
+json
+Copy code
+{
+  "message": "Email format is invalid",
+  "status": 400,
+  "type": "ValidationError",
+  "stack": "<stack trace>"
+}

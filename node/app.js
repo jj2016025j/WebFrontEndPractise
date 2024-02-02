@@ -38,3 +38,4 @@ app.use(function (req, res, next) {
 // 將Web伺服器的靜態檔案路徑置於 use 資料夾
 app.use(express.static("image"));
 app.set('view engine', 'ejs');
+
