@@ -1,0 +1,288 @@
+名詞解釋
+
+///////////////////////////////////
+EJS（Embedded JavaScript Templating）：
+是一種模板引擎，用於在服務器端生成 HTML 頁面。
+允許在 HTML 中嵌入 JavaScript 代碼。
+適用於簡單的服務器端渲染場景。
+
+///////////////////////////////////
+path    用來組合路徑
+//////////////////////////////////
+path.join(string, string) :string
+
+__dirname 是一個 Node.js 中的全局變量，它指向當前執行腳本所在的目錄。
+
+中間件（Middleware）：
+中間件是 Express 應用中用於處理請求和響應的函數。
+它可以執行代碼、修改請求和響應對象、結束請求-響應循環、調用下一個中間件。
+中間件的順序很重要，因為它們按順序執行。
+
+常見的用法是:
+app.use(Middleware)
+
+
+
+session 中間件配置：
+用於在 Express 應用中管理用戶會話。
+secret 用於簽名 session ID，增加安全性。
+resave 和 saveUninitialized 控制 session 的保存行為。
+cookie 配置，如 maxAge，控制 cookie 的有效期。
+
+常見的用法是:
+app.use(Middleware)
+
+
+
+//套件安裝
+npm install -g nodemon
+npm install nodemon
+npm install cors
+npm install body-parser
+npm install express
+npm install express-session
+npm install ejs
+npm install http-errors
+npm install path
+npm install cookie-parser
+npm install morgan
+npm install querystring
+npm install public-ip
+npm install jquery
+
+
+// 以 Express 建立 Web 伺服器
+var express = require("express");
+var app = express();
+
+////////////////////////////////////////////////////////////
+//npm install body-parser 好像已經整合進去不需要另外導入這個模組了
+const bodyParser = require("body-parser")
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+// 解析 application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+// 解析 application/json
+app.use(express.json());
+
+bodyParser 中間件：
+bodyParser.json() 用於解析 JSON 格式的請求體。
+收到json格式轉為js對象
+
+bodyParser.urlencoded({extended: false}) 
+用於解析 URL 編碼的請求體，常見於處理表單數據。
+
+表單被提交到服務器時
+數據會被編碼成類似 "key1=value1&key2=value2" 的格式
+urlencoded會將他轉為js對象
+
+// 以 body-parser 模組協助 Express 解析表單與JSON資料
+var bodyParser = require('body-parser');
+app.use( bodyParser.json() );//{"key1":"value1","key2":"value2"} => {key1:value1,key2:value2}
+app.use( bodyParser.urlencoded({extended: false}) );//key1=value1&key2=value2 => {key1:value1,key2:value2}
+////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////
+//預設端口 process.env.PORT
+//開放端口號(port)並執行callback
+app.listen(port, function () {})
+
+常見用法
+var port = process.env.PORT || 3000;
+app.listen(port, function (err) {})
+////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////
+// Web 伺服器的靜態檔案置於 static 資料夾
+app.use( express.static( "static" ) );
+////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////
+// 允許跨域使用本服務
+var cors = require("cors");
+app.use(cors());
+////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////
+//表單傳送的資料會被放在request.body裡面
+//url內含的變數，如"/hello/:text"內的text 會被放在request.params裡面
+////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////
+// 模擬程式三秒鐘延遲
+var stop = new Date().getTime();
+while(new Date().getTime() < stop + 3000) {
+    ;
+}	
+////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
+// 以 express-session 管理狀態資訊
+var session = require('express-session');
+app.use(session({
+    secret: 'secretKey',
+    resave: false,
+    saveUninitialized: true
+}));
+////////////////////////////////////////////////////////////
+
+
+
+
+////////////////////////////////////////////////////////////
+//這部分先不管
+// 指定 esj 為 Express 的畫面處理引擎
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.set('views', __dirname + '/view');
+////////////////////////////////////////////////////////////
+
+
+
+
+
+////////////////////////////////////////////////////////////
+//導入和呼叫
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+////////////////////////////////////////////////////////////
+
+設定路由器路徑
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+//get傳送變數方法
+app.get("/:controllerName/:actionName", function (request, response) {
+    var controllerName = request.params.controllerName;
+    var actionName = request.params.actionName;
+    doControllerAction(controllerName, actionName, request, response);
+});
+
+
+//不知道的東西
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+//只有ajax有跨域問題
+//解決跨域禁止
+app.get("/", function (req, res) {
+    res.headers("Access-Control-Allow-Origin","*")
+    res.send("你好")
+});
+
+//jsonp
+app.get("/", function (req, res) {
+    var funcname = req.query.callback;
+    res.send("你好")
+});
+
+//html裡面
+    <script>
+        function f(data) {
+            alert(data)
+        }
+    </script>
+    <script src="http://localhost/callback=func"></script>
+
+
+
+req（请求对象）
+req 对象包含请求的详细信息，如请求头、请求路径、查询字符串、体（body）等。
+
+GET 请求示例：
+json
+Copy code
+{
+  "method": "GET",
+  "url": "/api/data",
+  "headers": {
+    "host": "example.com",
+    "accept": "application/json"
+  },
+  "query": {
+    "search": "keyword"
+  }
+}
+POST 请求示例：
+json
+Copy code
+{
+  "method": "POST",
+  "url": "/api/data",
+  "headers": {
+    "host": "example.com",
+    "content-type": "application/json",
+    "accept": "application/json"
+  },
+  "body": {
+    "name": "John Doe",
+    "age": 30
+  }
+}
+{
+  "method": "POST",
+  "url": "/register",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "username": "user123",
+    "password": "password123"
+  },
+  "params": {},
+  "query": {}
+}
+
+由于 res 对象表示一个响应，它的内容并不直接对应于 JSON 数据。但是，您可以控制要发送的响应内容，例如：
+
+json
+Copy code
+{
+  "status": 404,
+  "contentType": "application/json",
+  "body": {
+    "error": "Resource not found"
+  }
+}
+
+
+err 对象通常包含有关错误的信息，如错误消息、堆栈跟踪以及任何自定义错误属性。错误对象的具体内容取决于触发错误的原因。
+
+{
+  "message": "Not Found",
+  "status": 404,
+  "stack": "Error: Not Found\n    at app.use (/path/to/server.js:25:13)\n    ..."
+}
+
+{
+  "error": {
+    "message": "Username already exists",
+    "stack": "Error: Username already exists\n    at /path/to/controller.js:34:13\n    ..."
+  }
+}
