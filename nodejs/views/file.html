@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        title
+    </title>
+</head>
+
+<body>
+    <form action="/file" method="post" enctype="multipart/form-data">
+        <input type="file" name="myfile">
+        <input type="submit" value="上傳檔案">
+    </form>
+    <hr>
+    <form action="/post" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="text" name="text">
+        <input type="submit" value="上傳資料">
+    </form>
+    <hr>
+    <form action="/postdata" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="text" name="text">
+        <input type="submit" value="上傳資料">
+    </form>
+
+</body>
+
+</html>

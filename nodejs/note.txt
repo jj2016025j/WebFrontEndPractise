@@ -49,6 +49,8 @@ npm install morgan
 npm install querystring
 npm install public-ip
 npm install jquery
+npm isntall multer
+npm install mysql
 
 
 // 以 Express 建立 Web 伺服器
@@ -60,6 +62,7 @@ var app = express();
 const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
 // 解析 application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 // 解析 application/json
@@ -286,3 +289,33 @@ err 对象通常包含有关错误的信息，如错误消息、堆栈跟踪以�
     "stack": "Error: Username already exists\n    at /path/to/controller.js:34:13\n    ..."
   }
 }
+
+//檔案管理
+const multer = require("multer")
+const upload = multer({dest:'upload/'})
+app.get("/file",upload.single('myfile'), (req, res) => {
+    res.sendFile(__dirname + "/index.ejs")
+})
+upload.fields
+upload.array
+
+//send會一次做完write+end的步驟 send跟end都只能使用一次 
+//使用完後會退出 write能使用很多次
+res.send() = res.write*? + res.end
+
+//路徑 中間件
+app.use('/',modul)
+
+
+express-session 配置選項介紹
+
+- secret: 用來簽名 session ID 的 cookie。此值應該為一個隨機字符串，以確保應用的安全性。
+- name: 定義在客戶端 cookie 中保存 session ID 的欄位名稱，預設為 connect.sid。
+- resave: 控制每次請求結束時，是否強制儲存 session，即使它在請求期間沒有被修改。通常設置為 false。
+- saveUninitialized: 控制是否儲存未初始化的 session 到儲存中。對於需要遵守某些隱私法規的應用，應設置為 false。
+- store: 定義 session 數據的儲存方式。在生產環境中，推薦使用如 Redis、MongoDB 的 session 儲存機制。
+- cookie: 用於設定客戶端儲存 session ID 的 cookie 的具體配置選項，包括：
+  - path: cookie 在客戶端的路徑，預設為 '/'（表示應用的所有路徑）。
+  - httpOnly: 設定為 true 可增強應用的安全性，防止客戶端腳本訪問 cookie。
+  - secure: 設定為 true 時，cookie 僅在 HTTPS 連接中傳輸。
+  - maxAge: 定義 cookie 的過期時間，單位為毫秒。過期後，cookie 無效，客戶端需重新創建 session。

@@ -10,7 +10,16 @@
 <body>
     <!-- autocomplete submit後自動儲存值 -->
     <!--  novalidate 不驗證表單資料 -->
-    <form action="" target="_blank" method="dialog" autocomplete="on" novalidate aria-relevant="all" accept-charset="">
+
+    <!-- 表單資料格式 -->
+    enctype:{multipart/form-data
+        application/x-www-form-urlencoded
+        text/plain}
+    <form action="" target="_blank" method="dialog" 
+    enctype="application/x-www-form-urlencoded" 
+    autocomplete="on" novalidate aria-relevant="all" 
+    accept-charset="" accept=".png,.gif">
+    <!-- accept="images/*" -->
         <label for="cars">Choose a car:</label>
         <select id="cars" name="cars" size="4" multiple>
             <option value="volvo">Volvo</option>
