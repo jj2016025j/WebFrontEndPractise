@@ -43,6 +43,19 @@ app.use(express.json());
 // 設定模板引擎為 ejs
 app.set('view engine', 'ejs')
 
+// 指定 esj 為 Express 的畫面處理引擎
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.set('views', __dirname + '/view');
+
+// 以 express-session 管理狀態資訊 有重複 簡化版
+var session = require('express-session');
+app.use(session({
+    secret: 'secretKey',
+    resave: false,
+    saveUninitialized: true
+}));
+
 app.post("/post", (req, res) => {
     res.send("收到資料 = " + JSON.stringify(req.body))
 })

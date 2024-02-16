@@ -1,15 +1,16 @@
-const mysql = require('mysql');
-
-// 建立資料庫連接
-const connection = mysql.createConnection({
-  host: 'localhost', // 資料庫伺服器地址
-  user: 'root', // 資料庫用戶名
-  password: '', // 資料庫密碼
-  // database: 'mysql' // 要操作的数据库名 庫名不一定要
-  charset: 'utf8mb4' // 確保使用 utf8mb4
-});
-
 const dbOperations = {
+  // 建立資料庫連接
+  createConnection: function (host = 'localhost', user = 'root', password = '', database = null, charset = 'utf8mb4') {
+    const mysql = require('mysql');
+    const connection = mysql.createConnection({
+      host: host, // 資料庫伺服器地址
+      user: user, // 資料庫用戶名
+      password: password, // 資料庫密碼
+      // database: database // 要操作的数据库名 庫名不一定要
+      charset: charset // 確保使用 utf8mb4
+    });
+  },
+
   // 連接到資料庫
   connectToDatabase: function () {
     connection.connect(err => {
