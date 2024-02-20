@@ -1,0 +1,286 @@
+Lab: 使用 Google Puppeteer 寫作爬蟲程式
+
+
+
+
+1.  安裝 Puppeteer
+
+
+1.1 滑鼠右鍵本資料夾 | Open in Integrated Terminal
+
+
+1.2 輸入下列指令:
+npm install puppeteer
+
+<Note>
+https://github.com/puppeteer/puppeteer
+
+
+
+
+2.  啟動 Puppeteer 瀏覽網站
+
+
+2.1 在本資料夾建立新的 JavaScript 檔案，
+    檔名: lab.js
+    內容如下:
+
+const puppeteer = require('puppeteer');
+
+async function main () {
+    const browser = await puppeteer.launch({headless: false});
+}
+
+main();
+
+
+2.2 在終端機視窗，輸入:「node lab.js」執行程式。
+
+    <Note>
+    順利的話，會啟動 Google 瀏覽器
+
+
+2.3 修改 lab.js 的內容，如下:
+
+const puppeteer = require('puppeteer');
+
+async function main () {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.goto('https://example.com');
+}
+
+main();
+
+
+2.4 在終端機視窗，輸入:「node lab.js」執行程式。
+
+    <Note>
+    順利的話，會啟動 Google 瀏覽器，出現新頁並連接到 https://example.com
+
+
+2.5 修改 lab.js 的內容，如下:
+
+const puppeteer = require('puppeteer');
+
+async function main () {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.goto('https://example.com');
+    await page.screenshot({path: 'example.png'});
+    await browser.close();
+}
+
+main();
+
+
+2.6 在終端機視窗，輸入:「node lab.js」執行程式。
+
+    <Note>
+    順利的話，本資料夾會多出一個螢幕截圖: example.png
+
+
+2.7 請試一下，將下列程式改成 true:
+    const browser = await puppeteer.launch({headless: false});
+
+
+
+
+3.  模擬鍵盤操作
+
+
+3.1 啟動瀏覽器，連接到 https://en.wikipedia.org/wiki/Wiki
+    在網頁上方的搜尋框輸入 earth
+
+    <Note> 網頁上方的搜尋框，name = "search"
+
+
+3.2 修改 lab.js，新內容如下:
+
+const puppeteer = require('puppeteer');
+
+async function main () {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1366, height: 768});
+    await page.goto('https://en.wikipedia.org/wiki/Wiki', {waitUntil: 'networkidle2'});
+    await page.focus("input[name='search']");
+    await page.keyboard.type('earth');
+}
+
+main();
+
+
+3.3 在終端機視窗，輸入:「node lab.js」執行程式。
+
+    <Note>
+    順利的話，會連接到維基百科，
+    並且在右上角的搜尋框自動輸入: earth
+
+
+3.4 修改 lab.js，新內容如下:
+    (await page.keyboard.type('earth'); 之後，多了一行。)
+
+const puppeteer = require('puppeteer');
+
+async function main () {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1366, height: 768});
+    await page.goto('https://en.wikipedia.org/wiki/Wiki', {waitUntil: 'networkidle2'});
+    await page.focus("input[name='search']");
+    await page.keyboard.type('earth');
+    await page.keyboard.press('\n');
+}
+
+main();
+
+    <Note> 參考資料:
+    https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#keyboardpresskey-options
+
+
+3.5 在終端機視窗，輸入:「node lab.js」執行程式。
+
+
+
+3.6 修改 lab.js，新內容如下:
+    (加入了延遲函式)
+
+const puppeteer = require('puppeteer');
+
+function delay(time) {
+    return new Promise(function(resolve) { 
+        setTimeout(resolve, time)
+    });
+}
+
+async function main () {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1366, height: 768});
+    await page.goto('https://en.wikipedia.org/wiki/Wiki', {waitUntil: 'networkidle2'});
+    await page.focus("input[name='search']");
+    await page.keyboard.type('earth');
+    await delay(1000);
+    await page.keyboard.press('\n');
+}
+
+main();
+
+
+3.7 在終端機視窗，輸入:「node lab.js」執行程式。
+
+
+3.8 修改 lab.js，新內容如下:
+    (換個寫法，不使用延遲函式，模擬滑鼠點一下)
+
+const puppeteer = require('puppeteer');
+
+// function delay(time) {
+//     return new Promise(function(resolve) { 
+//         setTimeout(resolve, time)
+//     });
+// }
+
+async function main () {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1366, height: 768});
+    await page.goto('https://en.wikipedia.org/wiki/Wiki', {waitUntil: 'networkidle2'});
+    await page.focus("input[name='search']");
+    await page.keyboard.type('earth');
+    //await delay(1000);
+    //await page.keyboard.press('\n');
+    (await page.$("#searchform button")).click();
+}
+
+main();
+
+
+3.9 在終端機視窗，輸入:「node lab.js」執行程式。
+
+
+
+
+4. 擷取網頁內容
+
+
+4.1 修改 lab.js，新內容如下:
+
+const puppeteer = require('puppeteer');
+
+async function main () {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.goto('https://www.taipower.com.tw/TC/news2.aspx?mid=225', {waitUntil: 'networkidle2'});
+
+}
+
+main();
+
+
+4.2 在終端機視窗，輸入:「node lab.js」執行程式。
+
+
+4.3 修改 lab.js，新內容如下:
+
+const puppeteer = require('puppeteer');
+
+async function main () {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.goto('https://www.taipower.com.tw/TC/news2.aspx?mid=225', {waitUntil: 'networkidle2'});
+
+    var dataList = await page.evaluate( () => {
+        let result = [];
+        result.push({x: 100, y:200});
+        result.push({x: 300, y:400});
+        return result;
+    })
+    await browser.close();
+
+    console.log(dataList);
+
+}
+
+main();
+
+
+4.4 在終端機視窗，輸入:「node lab.js」執行程式。
+
+
+4.5 修改 lab.js，新內容如下:
+
+const puppeteer = require('puppeteer');
+
+async function main () {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.goto('https://www.taipower.com.tw/TC/news2.aspx?mid=225', {waitUntil: 'networkidle2'});
+
+    await page.addScriptTag({url: 'https://code.jquery.com/jquery-3.2.1.min.js'})
+
+    var dataList = await page.evaluate( () => {
+        let result = [];
+        const $ = window.$;
+        let liList = $("#news_box3 > div.box_list > ul > li");
+        liList.each(function (index, element) {
+            var newsItem = {
+                newsUrl: $(element).find("a").prop("href"),
+                newsTitle: $(element).find("a div h3").text(),
+                newsTime: $(element).find("a div span").text()
+            };
+            result.push(newsItem);
+        })
+        return result;
+    })
+    await browser.close();
+
+    console.log(dataList);
+}
+
+main();
+
+
+4.6 在終端機視窗，輸入:「node lab.js」執行程式。
+

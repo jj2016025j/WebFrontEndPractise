@@ -1,3 +1,0 @@
-nano package.json
-npm init -y
-npm install nodemon --save-dev

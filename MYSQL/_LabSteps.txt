@@ -1,0 +1,228 @@
+Lab: 以 Node.js 建構 Web API
+
+
+1.  執行下列 SQL Script 以建立本次練習所需的資料庫。
+
+
+create database labDB default character set utf8;
+use labDB;
+create table news
+(
+  newsId int auto_increment not null primary key,
+  ymd char(10),
+  title varchar(50)
+);
+insert into news (ymd, title) values 
+  ('2017-05-01', 'News A'),
+  ('2017-05-02', 'News B'),
+  ('2017-05-03', 'News C'),
+  ('2017-05-04', 'News D'),
+  ('2017-05-05', 'News E');
+select * from news;
+
+
+
+
+2.  滑鼠右鍵 Lab_WebAPI 資料夾 | Open in Terminal，
+	輸入下列指令以安裝/更新本程式所需的模組:
+
+npm install express
+npm install body-parser
+npm install express-session
+npm install ejs
+npm install mysql
+exit
+
+
+
+
+3.  檢視目前程式進度
+
+
+3.1 點兩下 app.js 開啟檔案，檢視其中的程式與註解
+
+
+3.2 滑鼠右鍵 Lab_WebAPI 資料夾 | Open in Terminal，
+	輸入 node app.js 以執行程式。
+
+
+3.3 在瀏覽器連接 http://localhost
+
+    <Note>
+    public/index.html 的表單畫面與程式皆已完成，
+    就等我們伺服端的 Web API 完工，即可運作。
+
+
+
+
+4.  實作 Web API 的資料查詢功能
+
+
+4.1 修改 app.js，在檔案結尾處，附加下列程式:
+	<Note> 請記得修改 password 屬性
+
+// 建立資料庫連線
+
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+	host : '127.0.0.1',
+	user : 'root',
+	password : '',
+	database : 'labDB'
+});
+
+connection.connect(function(err) {
+	// if (err) throw err;
+	if (err) {
+		console.log(JSON.stringify(err));
+		return;
+	}
+});
+
+
+4.2 繼續附加下列程式:
+
+app.get("/home/news", function (request, response) {
+
+	connection.query('select * from news', 
+		'',
+		function(err, rows) {
+			if (err)	{
+				console.log(JSON.stringify(err));
+				return;
+			}
+			
+			response.send(JSON.stringify(rows));
+		}
+	);
+    
+})
+
+
+4.3 在終端機視窗，Ctrl + C 結束，
+	重新 node app.js 啟動 Web Server，再以瀏覽器連接:
+	http://localhost/home/news
+    
+    <Note> 一切順利的話，應該會看到下列 JSON 資料:
+    [
+      {"newsId":1,"ymd":"2017-05-01","title":"News A"},
+      {"newsId":2,"ymd":"2017-05-02","title":"News B"},
+      {"newsId":3,"ymd":"2017-05-03","title":"News C"},
+      {"newsId":4,"ymd":"2017-05-04","title":"News D"},
+      {"newsId":5,"ymd":"2017-05-05","title":"News E"}
+    ]
+
+
+4.4 在瀏覽器連接 http://localhost/
+    
+
+    <Note> 網頁內容不再是 First, Second, Third
+    而是 Web API 界接出來的資料庫內容
+
+
+(Optional)
+4.5 檢視 public/index.html 的程式。
+
+
+
+
+5.  實作 Web API 的資料新增功能
+
+
+5.1 修改 app.js，在檔案結尾處，附加下列程式:
+
+app.post("/home/news", function (request, response) {
+
+	connection.query(
+		"insert into news set title = ?, ymd = ? ", 
+			[
+				request.body.title, 
+				request.body.ymd
+			]);
+	response.send("row inserted.");
+    
+})
+
+
+5.2 在終端機視窗，Ctrl + C 結束，
+	重新 node app.js 啟動 Web Server，再以瀏覽器連接:
+	http://localhost
+
+    
+5.3 點按「+」按鈕，填入表單資料
+
+
+(Optional)
+5.4 檢視 public/index.html 的程式。
+
+
+
+
+6.  實作 Web API 的資料修改功能
+
+
+6.1 修改 app.js，在檔案結尾處，附加下列程式:
+
+app.put("/home/news", function (request, response) {
+
+	connection.query(
+		"update news set title = ?, ymd = ? where newsId = " 
+		    + request.body.newsId, 
+			[
+				request.body.title, 
+				request.body.ymd
+			]);
+	response.send("row updated.");
+    
+})
+
+
+6.2 在終端機視窗，Ctrl + C 結束，
+	重新 node app.js 啟動 Web Server，再以瀏覽器連接:
+	http://localhost
+
+    
+6.3 點按任何一筆資料的「修改」按鈕(筆)，在表單填入資料
+
+
+(Optional)
+6.4 檢視 public/index.html 的程式。
+
+
+
+
+7.  實作 Web API 的資料刪除功能
+
+
+7.1 修改 app.js，在檔案結尾處，附加下列程式:
+
+app.delete("/home/news", function (request, response) {
+
+	connection.query(
+		"delete from news where newsId = " + request.body.newsId,
+			[]
+		);
+	response.send("row deleted.");
+    
+})
+
+
+7.2 在終端機視窗，Ctrl + C 結束，
+	重新 node app.js 啟動 Web Server，再以瀏覽器連接:
+	http://localhost
+
+    
+7.3 點按任何一筆資料的「刪除」按鈕，測試刪除功能
+
+
+(Optional)
+7.4 檢視 public/index.html 的程式。
+
+
+
+
+(Optional)
+8.	檢視完成版程式
+	- Solution_Lab 資料夾為本練習的完成版
+	- Solution_Framework 資料夾為 Web API 架構的另一示範
+
