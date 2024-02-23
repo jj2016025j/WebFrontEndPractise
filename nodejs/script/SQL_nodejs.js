@@ -1,3 +1,6 @@
+var express = require("express")
+const router = express.Router()
+
 const dbOperations = {
   // 建立資料庫連接
   createConnection: function (host = 'localhost', user = 'root', password = '', database = null, charset = 'utf8mb4') {
@@ -170,4 +173,24 @@ const dbOperations = {
   }
 };
 
-module.exports = dbOperations;
+// 展示
+router.get("/test/index", function (req, res) {
+  // 展示;select
+})
+
+// 新增
+router.get("/test/add", function (req, res) {
+  // 新增;insert
+})
+
+// 修改
+router.get("/test/edit", function (req, res) {
+  // 修改;update
+})
+
+// 刪除
+router.get("/test/delete", function (req, res) {
+  // 刪除;delete
+})
+
+module.exports = dbOperations, router;

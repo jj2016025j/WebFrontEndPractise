@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
+<script>
+    let map;
+    let marker;
+
+    async function initMap() {
+        // The location of Uluru
+        const position = { lat: 24.150917280063602, lng: 120.650622747162 };
+        // Request needed libraries.
+        //@ts-ignore
+        const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+        // The map, centered at Uluru
+        map = new Map(document.getElementById("map"), {
+            zoom: 4,
+            center: position,
+            mapId: "DEMO_MAP_ID",
+        });
+
+        const lineCoordinates = [
+            { lat: 24.150917280063602, lng: 120.650622747162 },
+            { lat: 43.03416701904525, lng: 142.64749865947067 }
+        ]
+
+        const polyline = new google.maps.Polyline({
+            path: lineCoordinates,
+            strokeColor: '#ff0000',
+            strokeOpacity: 0.7,
+            strokeWeight: 2
+        })
+        polyline.setMap(map)
+
+        // The marker, positioned at Uluru
+        marker = new AdvancedMarkerView({
+            map: map,
+            position: position,
+            title: "資展國際",
+        });
+
+        //24.15107391598325, 120.6543778397342
+        /*
+        new AdvancedMarkerView({
+            map: map,
+            position: { lat: 24.15107391598325, lng: 120.6543778397342 },
+            title: "公益路",
+        });
+        */
+    }
+
+    window.onload = function () {
+        initMap();
+        bn.onclick = () => {
+            let position = { lat: 43.03416701904525, lng: 142.64749865947067 }
+            marker.position = position
+            map.panTo(position)
+        }
+    }
+</script>
+
+<body>
+    <div id="map"></div>
+    <button id="bn">click</button>
+
+    <!-- prettier-ignore -->
+    <script>(g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); vard = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g)e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
+    ({ key: "AIzaSyD63Qcdsl1cxCZ1g-bjJcm0y83rlvXNzzU", v: "beta" });</script>
+
+</body>
+
+</html>

@@ -1,3 +1,4 @@
+// 不確定能不能用
 const dbOperations = require('script/nodejs_mysql.js');
 // 連接到資料庫
 dbOperations.connectToDatabase();

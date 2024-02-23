@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.onload = () => {
+            bn_setcookie.onclick = () => {
+                var d = new Date()
+                d.setTime(d.getTime() + 10000) // 10秒
+                document.cookie = "username=David; expires=" + d.toGMTString()
+                document.cookie = "age=30; expires=" + d.toGMTString()
+            }
+            bn_getcookie.onclick = () => {
+                var cookie = document.cookie
+                alert(cookie)
+            }
+        }
+    </script>
+    <button id="bn_setcookie">bn_setcookie</button>
+    <button id="bn_getcookie">bn_getcookie</button>
+
+    <button onclick="localStorage.setItem('name', 'Kirk')">save</button>
+    <button onclick="alert(localStorage.getItem('name'))">load</button>
+    <button onclick="localStorage.clear()">clear all</button>
+
+    <button onclick="sessionStorage.setItem('name', 'Sonia')">save</button>
+    <button onclick="alert(sessionStorage.getItem('name'))">load</button>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+文字
+json
+binary 不是文字 可能是圖片音樂
+
+<body>
+    <script>
+        window.onload = () => {
+            query.onclick = (event) => {
+                event.preventDefult();
+                let formData = new FormData(myform)
+                // formData.append("uid",uid.value)
+                fetch("http://localhost:3000/post/json", {
+                    method: "post",
+                    body: formData
+                })
+                    .then(response => response.json()) // 解析JSON數據
+                    .then(data => {
+                        console.log(data);
+                        document.getElementById('result').innerText = JSON.stringify(data);
+                    })
+            }
+            
+            loadImage.onclick = () => {
+                fetch("../../img/image.jpg")
+                    .then((response) => {
+                        response.blob()
+                    })
+                    .then((data) => {
+                        let url = URL.createObjectURL(data)
+                        myimg.src = url
+                    })
+            }
+
+            bninsert.onclick = (event)=>{
+                event.preventDefult()
+                let formData = new formData(insertform)
+                letdata = JSON.stringify({
+                    uid:formData.get('uid'),
+                    cname:formData.get('cname')
+                })
+                console.log(data)
+                navigator.sendBeacon('URL', data)
+            }
+        }
+
+    </script>
+    <form action="" id="myform">
+        <input type="text" name="uid" id="uid">
+        <button id="query">getquery</button>
+    </form>
+    <img src="" alt="" id="myimg">
+    <button id="loadImage">loadImage</button>
+    <button id="getquery">getquery</button>
+    <button id="postquery">postquery</button>
+    <div id="result"></div>
+</body>
+
+</html>
