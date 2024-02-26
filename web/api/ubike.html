@@ -1,0 +1,136 @@
+查找
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="./style.css" /> -->
+    <style>
+        /*
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map.
+ */
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+
+        /*
+ * Optional: Makes the sample page fill the window.
+ */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <!-- <script>
+        (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+            key: "AIzaSyDYB-Aj8ar-KxEVtB2lXi2XJZm8yXzwpzY",
+        });
+    </script> -->
+
+    <!-- <script type="module" src="./index.js"></script> -->
+    <script>
+        let map;
+
+        // 用生成地圖
+        async function initMap() {
+            // The location of Uluru
+            const position = { lat: 24.2, lng: 120.7 };
+            // Request needed libraries.
+            //@ts-ignore
+            const { Map } = await google.maps.importLibrary("maps");
+            const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+            // The map, centered at Uluru
+            map = new Map(document.getElementById("map"), {
+                center: position,
+                zoom: 12,
+                mapId: "DEMO_MAP_ID",
+            });
+
+            // The marker, positioned at Uluru
+            // Default marker with title text (no PinView).
+            // Adjust the scale.
+            const pinViewScaled = new google.maps.marker.PinView({
+                scale: 1.5,
+            });
+            const markerViewScaled = new AdvancedMarkerView({
+                map,
+                position: position,
+                content: pinViewScaled.element,
+                title: '標記在這',
+            });
+        }
+
+        // 爬資料並放上標記
+        async function loadbempData() {
+            const color = function (bemp) {
+                if (bemp < 5) return 'red'
+                if (bemp < 10) return 'orange'
+                if (bemp < 20) return 'yellow'
+                if (bemp < 100) return 'green'
+            }
+            // 參考資料 https://opendata.taichung.gov.tw/search/6e38eb56-0e9a-4b9e-806d-23cd35d44d6b
+            const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+            fetch('https://datacenter.taichung.gov.tw/swagger/OpenData/86dfad5c-540c-4479-bb7d-d7439d34eeb1')
+                .then(function (response) {
+                    return response.json()
+                })
+                .then(function (jsonObj) {
+                    jsonObj['retVal'].forEach(function (retVal) {
+                        let lat = parseFloat(retVal.lat)
+                        let lng = parseFloat(retVal.lng)
+                        let bemp = parseInt(retVal.bemp)
+
+                        const pinView = new google.maps.marker.PinView({
+                            background: color(bemp),
+                            glyph: retVal.bemp.toString(),
+                            scale: 0.8,
+                        });
+
+                        let marker = new AdvancedMarkerView({
+                            map: map,
+                            position: { lat: lat, lng: lng },
+                            content: pinView.element,
+                        });
+                        console.log(marker);
+
+                    })
+                })
+        }
+
+        // 呼叫API
+        window.onload = function () {
+            initMap();
+            loadbempData()
+
+            bn.onclick = () => {
+                loadbempData()
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="map"></div>
+    <button id="bn">click</button>
+    <!-- prettier-ignore -->
+    <script>
+            (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
+            ({ key: "AIzaSyDYB-Aj8ar-KxEVtB2lXi2XJZm8yXzwpzY", v: "beta" });
+        // Add other bootstrap parameters as needed, using camel case.
+        // Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
+        // 導入API
+    </script>
+
+</body>
+
+</html>

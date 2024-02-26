@@ -33,7 +33,7 @@ const dbOperations = {
     });
   },
 
-  // -- 轉換數據庫
+  // -- 轉換數據庫編碼
   alterDatabaseCharset: function (databaseName, charset = 'utf8mb4', collate = 'utf8mb4_unicode_ci') {
     connection.query(`ALTER DATABASE ${databaseName} CHARACTER SET = ${charset} COLLATE = ${collate}`, err => {
       if (err) throw err;
@@ -80,11 +80,13 @@ const dbOperations = {
   //   (?, ?, ?, ?, ?),
   //   (?, ?, ?, ?, ?),
   //   (?, ?, ?, ?, ?)`,
-  //   ['漢堡', '經典美式牛肉漢堡，配生菜、番茄、起司和特製醬料', 99.00, '主餐', 'http://example.com/burger.jpg',
-  //     '薯條', '酥脆金黃的薯條，外酥內軟', 30.00, '小吃', 'http://example.com/fries.jpg',
-  //     '可樂', '冰涼的可樂，解渴首選', 20.00, '飲料', 'http://example.com/cola.jpg',
-  //     '壽司盛合', '新鮮的壽司組合，包括鮭魚、吞拿魚和黃瓜卷', 180.00, '主餐', 'http://example.com/sushi.jpg',
-  //     '綠茶', '香醇的日式綠茶', 25.00, '飲料', 'http://example.com/greentea.jpg'],
+  // [
+  //     '漢堡', '經典美式牛肉漢堡，配生菜、番茄、起司和特製醬料', 99.00, '主餐', 'http://example.com/burger.jpg',
+  // '薯條', '酥脆金黃的薯條，外酥內軟', 30.00, '小吃', 'http://example.com/fries.jpg',
+  // '可樂', '冰涼的可樂，解渴首選', 20.00, '飲料', 'http://example.com/cola.jpg',
+  // '壽司盛合', '新鮮的壽司組合，包括鮭魚、吞拿魚和黃瓜卷', 180.00, '主餐', 'http://example.com/sushi.jpg',
+  // '綠茶', '香醇的日式綠茶', 25.00, '飲料', 'http://example.com/greentea.jpg'
+  //   ],
   //   (err, results) => {
   //     if (err) throw err;
   //     console.log('插入資料成功，插入的記錄數：', results.affectedRows);
