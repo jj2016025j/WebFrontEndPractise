@@ -1,19 +1,9 @@
+// 晚點來改 
 var express = require("express")
 const router = express.Router()
 
-// 目前這個成功
-router.get("/html", (req, res) => {
-    // res.sendFile(__dirname + "/views/file.ejs")
-    res.sendFile(__dirname + "/views/file.html")
-})
-
-//會變成下載
-router.get("/ejs", (req, res) => {
-    res.sendFile(__dirname + "/views/file.ejs")
-})
-
 router.get("/", (req, res) => {
-    res.render(__dirname + "/views/file.ejs")
+    res.render("index")
 })
 
 // server error

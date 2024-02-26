@@ -1,4 +1,4 @@
-// 這個可以用POSTMAN解決
+// 這個可以用POSTMAN解決 無測試
 const fetch = require('node-fetch');
 
 const response = await fetch('http://localhost:1234/v1/chat/completions', {
@@ -25,3 +25,16 @@ if (!response.ok) {
 const data = await response.json();
 res.send(data.choices[0].message.content);
 
+// fetch('/login', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       username: 'user1',
+//       password: 'password123'
+//     })
+//   })
+
+// curl -X POST http://localhost:3000/post -d "param1=value1&param2=value2" -H "Content-Type: application/x-www-form-urlencoded"
+// curl -X POST http://localhost:3000/post -d '{"param1":"value1", "param2":"value2"}' -H "Content-Type: application/json"

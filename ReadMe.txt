@@ -1,3 +1,5 @@
+使用nodemon請記得在有該模組的路徑下使用
+
 llm下載用https://lmstudio.ai/
 下載
 模型是這個

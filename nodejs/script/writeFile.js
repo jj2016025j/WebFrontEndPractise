@@ -1,3 +1,5 @@
+// 各種寫入檔案的方法
+
 // 檔案管理
 var fs = require("fs");
 console.log("Starting...");

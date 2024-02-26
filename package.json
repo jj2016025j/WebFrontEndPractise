@@ -1,0 +1,12 @@
+{
+  "name": "webpractice",
+  "version": "1.0.0",
+  "description": "llm下載用https://lmstudio.ai/\r 下載\r 模型是這個\r TheBloke\r /\r CodeLlama-7B-Instruct-GGUF\r /\r codellama-7b-instruct.Q4_K_S.gguf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

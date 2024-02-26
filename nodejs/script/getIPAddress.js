@@ -1,3 +1,7 @@
+// OK
+
+// 能找出公網的地址但是無法使用 等較久需要用promise
+// http://58.99.96.109
 const http = require('http');
 
 function getNetIPAddress() {
@@ -20,15 +24,16 @@ function getNetIPAddress() {
         });
     });
 }
-// 使用 getNetIPAddress
-// getNetIPAddress().then(ip => {
-//     console.log("我的公網 IP 地址是:                http://" + ip);
-// }).catch(err => {
-//     console.log("錯誤: " + err.message);
-// });
+
+getNetIPAddress().then(ip => {
+    console.log("我的公網 IP 地址是:                http://" + ip);
+}).catch(err => {
+    console.log("錯誤: " + err.message);
+});
 
 const os = require('os');
-
+// 能回傳區網IP OK
+// http://192.168.1.243:3000
 function getLocalIPAddress() {
     const networkInterfaces = os.networkInterfaces();
     for (const interfaceName in networkInterfaces) {
