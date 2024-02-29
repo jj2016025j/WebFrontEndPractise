@@ -1,9 +1,8 @@
 const ThermalPrinter = require("node-thermal-printer").printer;
 const PrinterTypes = require("node-thermal-printer").types;
 
-console.log("start");
 let printer = new ThermalPrinter({
-    type: PrinterTypes.GENERIC,  // 打印机类型
+    type: PrinterTypes.TANCA,  // 打印机类型
     // EPSON
     // STAR
     // BIXOLON
@@ -11,30 +10,39 @@ let printer = new ThermalPrinter({
     // CUSTOM
     // SEWOO
     // GENERIC
-    interface: 'printer:Microsoft Print To PDF',  // 打印机名称，确保替换为实际的打印机名称
-    // AnyDesk v4 Printer Driver
-    // AnyDesk Printer
-    // Microsoft Print To PDF
-    // OneNote (Desktop)
-    // Send to Microsoft OneNote 16 Driver
+    interface: 'USB010',  // 本來只有USB001可以不知道為甚麼後面其他也可以了，USB004以上不行
     // driver: require('printer')  // 使用 'printer' 驱动，需要安装 'printer' 模块
 });
-// const printer = new ThermalPrinter({
-//     type: PrinterTypes.EPSON,  // 选择打印机类型
-//     interface: 'tcp://192.168.1.100',  // 对于网络打印机，使用打印机的 IP 地址
-//   });
-console.log("set");
-
+// console.log("set",printer);
 
 (async function () {
-    const isConnected = await printer.isPrinterConnected();  // 检查打印机连接状态
+    const isConnected = await printer.isPrinterConnected();
     console.log("Printer connected:", isConnected);
 
-    printer.println("Hello, World!");  // 添加打印内容
-    try {
-        const execute = await printer.execute();  // 执行打印任务
-        console.log("Print success.");
-    } catch (error) {
-        console.error("Print failed:", error);
+    if (isConnected) {
+        // 打印文本
+        printer.println("Hello, World!");
+
+        // 打印加粗文本
+        printer.bold(true);
+        printer.println("Bold text");
+        printer.bold(false);
+
+        // 打印二维码
+        // printer.qrCode("https://www.example.com");
+
+        // 尝试其他打印命令...
+
+        // 切割纸张
+        printer.cut();
+
+        try {
+            const execute = await printer.execute();
+            console.log("Print success.", execute);
+        } catch (error) {
+            console.error("Print failed:", error);
+        }
+    } else {
+        console.log("Printer not connected");
     }
 })();
