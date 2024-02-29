@@ -10,10 +10,10 @@ let printer = new ThermalPrinter({
     // CUSTOM
     // SEWOO
     // GENERIC
-    interface: 'USB010',  // 本來只有USB001可以不知道為甚麼後面其他也可以了，USB004以上不行
+    interface: 'USB001',  // 本來只有USB001可以不知道為甚麼後面其他也可以了，USB004以上不行
     // driver: require('printer')  // 使用 'printer' 驱动，需要安装 'printer' 模块
 });
-// console.log("set",printer);
+console.log("set",printer.ThermalPrinter);
 
 (async function () {
     const isConnected = await printer.isPrinterConnected();
