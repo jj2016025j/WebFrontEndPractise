@@ -150,7 +150,6 @@ app.use("/session", session)
 // 取得區網IP
 const { getLocalIPAddress, getNetIPAddress } = require('./script/getIPAddress.js');
 const localIP = getLocalIPAddress();
-const NetIP = getNetIPAddress();
 
 //開放端口給用戶訪問
 app.listen(port, function (err) {
@@ -164,5 +163,4 @@ app.listen(port, function (err) {
     console.log("同步延遲系統服務中...               http://localhost:" + port + "/wait/3")
     console.log("非同步延遲系統服務中...             http://localhost:" + port + "/asynwait/5")
     console.log(`局域網 IPv4 地址:                  http://${localIP}:${port}`);
-    console.log(`局域網 IPv4 地址:                  http://${NetIP}:${port}`);
 })
