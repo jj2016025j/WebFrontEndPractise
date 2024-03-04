@@ -1,3 +1,4 @@
+<!-- 90% -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,53 +18,42 @@
     <picture> Defines a container for multiple image resources
     https://www.w3schools.com/html/html_images_imagemap.asp -->
 
-    <img src="" alt="" sizes="" srcset="">
-
-    <!-- 多邊形 -->
-    <img src="workplace.jpg" alt="Workplace" usemap="#workmap">
+    <!-- 不知道 -->
     <map name="workmap">
         <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
         <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
         <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm">
     </map>
-
+    <br />
+    <!-- 不知道 -->
     <area shape="circle" coords="337, 300, 44" href="coffee.htm">
+    <br />
+    <!-- 不知道 -->
     <area shape="poly"
         coords="140,121,181,116,204,160,204,222,191,270,140,329,85,355,58,352,37,322,40,259,103,161,128,147"
-        href="croissant.htm">
+        href="https://lee871116.ddns.net/templates/">
     <!-- rect - defines a rectangular region
       circle - defines a circular region
       poly - defines a polygonal region
       default - defines the entire region -->
-
-
-    <!-- 如果第一個格式支援就會忽略後面的選項 -->
-    <picture>
-        <source media="(min-width: 650px)" srcset="img_food.jpg">
-        <source media="(min-width: 465px)" srcset="img_car.jpg">
-        <img src="img_girl.jpg" style="width:auto;">
-    </picture>
+    <br />
+    <!-- 符號 -->
     &copy;
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/IDDmrzzB14M?si=vI6l3yEny_xD5C7T"
+    <br />
+    <!-- 可以導入網站 -->
+    <iframe src="https://lee871116.ddns.net/templates/" height="300" width="1000" title="Iframe Example"
+        style="border:none;"></iframe>
+    <br />
+    <!-- 點連結會在target=name的位置開啟 -->
+    <iframe src="https://lee871116.ddns.net/templates/" name="iframe_a" height="300px" width="100%"
+        title="Iframe Example"></iframe>
+    <br />
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/k58QQMN9DEY?si=cvAFLg9ydzjG4DSg"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
-    <audio src="" controls>
-        <source srcset="" type="image/">
-        <source srcset="" type="audio/mpeg">
-    </audio>
-
-    <iframe src="demo_iframe.htm" height="200" width="300" title="Iframe Example" style="border:none;"></iframe>
-    <!-- 點連結會在target=name的位置開啟 -->
-    <iframe src="demo_iframe.htm" name="iframe_a" height="300px" width="100%" title="Iframe Example"></iframe>
+    <br />
     <p><a href="https://www.w3schools.com" target="iframe_a">W3Schools.com</a></p>
-    <!-- 當下路徑 -->
-    <img src="picture.jpg">
-    <img src="./picture.jpg">
-    <!-- 根目錄 -->
-    <img src="/picture.jpg">
-    <!-- 上一個目錄 -->
-    <img src="../picture.jpg">
 
     <script>
         function myFunction() {
@@ -73,53 +63,58 @@
             }
         }
     </script>
+    <br />
 
     <noscript>Sorry, your browser does not support JavaScript!</noscript>
-    <video src=""></video>
+    <br />
 
+    <!-- 如果第一個格式支援就會忽略後面的選項 -->
+    <picture>
+        <source media="(min-width: 650px)" srcset="/resource/test1.jpg">
+        <source media="(min-width: 465px)" srcset="/resource/test2.jpg">
+        <img src="/resource/test.jpg" style="width:auto;">
+    </picture>
+    <br />
+    <img src="/resource/test1.jpg" alt="" sizes="" srcset="">
+    <br />
+
+    <!-- 多邊形 -->
+    <img src="/resource/test1.jpg" alt="Workplace" usemap="#workmap" style="height: 300px;">
+    <br />
+
+    <img src="/resource/test1.jpg">
+    <br />
+
+    <!-- img屬性 -->
+    <img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142">
+
+    <video src="/resource/test.mp4"></video>
+    <br />
+
+    <!-- 由上到下如果支援type則會使用 -->
     <video width="400" controls autoplay muted>
-        <source src="mov_bbb.mp4" type="video/mp4">
-        <source src="mov_bbb.ogg" type="video/ogg">
-        <source src="mov_bbb.webm" type="video/webm">
+        <source src="/resource/test.mp4" type="video/mp4">
+        <source src="/resource/test.ogg" type="video/ogg">
+        <source src="/resource/test.webm" type="video/webm">
         Your browser does not support HTML video.
         <!-- 好像是字幕的功能 -->
         <track src="fgsubtitles_en.vtt" kind="subtitles" srclang="en" label="English">
     </video>
+    <br />
 
+    <!-- 由上到下如果支援type則會使用 -->
     <audio controls autoplay muted>
-        <source src="horse.ogg" type="audio/ogg">
-        <source src="horse.mp3" type="audio/mpeg">
-        <source src="horse.wav" type="audio/wav">
+        <source src="/resource/test.mp3" type="audio/ogg">
+        <source src="/resource/test.mp3" type="audio/mpeg">
+        <source src="/resource/test.mp3" type="audio/wav">
         Your browser does not support the audio element.
     </audio>
+    <br />
 
-    <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
-    </iframe>
-
-    <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1">
-    </iframe>
-
-    <iframe width="420" height="315"
-src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
-</iframe>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <audio src="/resource/test.mp3" controls>
+        <source srcset="" type="image/">
+        <source srcset="" type="audio/mpeg">
+    </audio>
 </body>
 
 </html>
