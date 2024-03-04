@@ -1,18 +1,32 @@
-var express = require("express")
-const router = express.Router()
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host: "localhost", // 資料庫伺服器地址
+  user: "root", // 資料庫用戶名
+  password: "", // 資料庫密碼
+  // database: database // 要操作的数据库名 庫名不一定要
+  charset: "utf8mb4" // 確保使用 utf8mb4
+});
+
+connection.connect(err => {
+  if (err) {
+    console.error('連接資料庫失敗: ' + err.stack);
+    return;
+  }
+  console.log('資料庫連接成功，連接 ID ' + connection.threadId);
+});
 
 const dbOperations = {
   // 建立資料庫連接
   createConnection: function (host = 'localhost', user = 'root', password = '', database = null, charset = 'utf8mb4') {
-    const mysql = require('mysql');
     const connection = mysql.createConnection({
       host: host, // 資料庫伺服器地址
       user: user, // 資料庫用戶名
       password: password, // 資料庫密碼
       // database: database // 要操作的数据库名 庫名不一定要
       charset: charset // 確保使用 utf8mb4
-    });
+    })
   },
+  Connection: function () { return connection },
 
   // 連接到資料庫
   connectToDatabase: function () {
@@ -63,6 +77,17 @@ const dbOperations = {
   //   if (err) throw err;
   //   console.log('menu_items 表創建成功或已存在');
   // });
+  createTable: function () {
+    queries.forEach((_query, index) => {
+      dbOperations.query(_query, function (err, results) {
+        if (err) throw err;
+        console.log(`Table ${index + 1} created`);
+
+        // 當所有表都已創建完畢，關閉連接
+        if (index === queries.length - 1) dbOperations.end();
+      });
+    });
+  },
 
   // 轉換表編碼
   alterTableCharset: function (tableName, charset = 'utf8mb4', collate = 'utf8mb4_unicode_ci') {
@@ -175,24 +200,73 @@ const dbOperations = {
   }
 };
 
-// 展示
-router.get("/test/index", function (req, res) {
-  // 展示;select
-})
 
-// 新增
-router.get("/test/add", function (req, res) {
-  // 新增;insert
-})
-
-// 修改
-router.get("/test/edit", function (req, res) {
-  // 修改;update
-})
-
-// 刪除
-router.get("/test/delete", function (req, res) {
-  // 刪除;delete
-})
+const queries = [
+  `CREATE TABLE IF NOT EXISTS Users (
+    UserId INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(255) UNIQUE NOT NULL,
+    PasswordHash VARCHAR(255) NOT NULL,
+    Email VARCHAR(255),
+    Role VARCHAR(50),
+    CreateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UpdateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  );`,
+  `CREATE TABLE IF NOT EXISTS Roles (
+    Role VARCHAR(50),
+    RoleId INT AUTO_INCREMENT PRIMARY KEY,
+    ValidUntil TIMESTAMP
+  );`,
+  `CREATE TABLE IF NOT EXISTS Pages (
+    PageId INT AUTO_INCREMENT PRIMARY KEY,
+    PageName VARCHAR(255) NOT NULL,
+    RoleRequired VARCHAR(50) NOT NULL
+  );`,
+  `CREATE TABLE IF NOT EXISTS Categories (
+    CategoryId INT AUTO_INCREMENT PRIMARY KEY,
+    CategoryName VARCHAR(255) NOT NULL,
+    Description TEXT
+  );`,
+  `CREATE TABLE IF NOT EXISTS MenuItems (
+    MenuItemId INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Description TEXT,
+    Price DECIMAL(10, 2) NOT NULL,
+    CategoryId INT,
+    IsActive BOOLEAN DEFAULT TRUE,
+    CreateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UpdateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (CategoryId) REFERENCES Categories(CategoryId)
+  );`,
+  `CREATE TABLE IF NOT EXISTS OrderItemMappings (
+    OrderId INT,
+    OrderItemId INT,
+    FOREIGN KEY (OrderId) REFERENCES Orders(OrderId),
+    FOREIGN KEY (OrderItemId) REFERENCES OrderItems(OrderItemId)
+  );`,
+  `CREATE TABLE IF NOT EXISTS Orders (
+    OrderId INT AUTO_INCREMENT PRIMARY KEY,
+    TableId INT,
+    TotalPrice DECIMAL(10, 2) NOT NULL,
+    Status INT NOT NULL,
+    OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UpdateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UserId INT,
+    FOREIGN KEY (UserId) REFERENCES Users(UserId)
+  );`,
+  `CREATE TABLE IF NOT EXISTS OrderItems (
+    OrderItemId INT AUTO_INCREMENT PRIMARY KEY,
+    MenuItemId INT,
+    Quantity INT NOT NULL,
+    Price DECIMAL(10, 2) NOT NULL,
+    CreateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UpdateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    Status INT NOT NULL,
+    FOREIGN KEY (MenuItemId) REFERENCES MenuItems(MenuItemId)
+  );`,
+  `CREATE TABLE IF NOT EXISTS Tables (
+    TableId INT AUTO_INCREMENT PRIMARY KEY,
+    TableName VARCHAR(50) NOT NULL
+  );`
+];
 
 module.exports = dbOperations, router;
