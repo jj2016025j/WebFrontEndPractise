@@ -1,0 +1,94 @@
+﻿jQueryMobile 的表格與樣式
+
+
+1.	請以 HTML Editor 開啟 Lab_JQM_Table_1.html，瀏覽網頁的內容架構，
+	然後在瀏覽器觀看文件的視覺效果，尤其是視窗寬度縮小到一度程度時，
+	文件外觀的變化。
+
+
+
+
+2.	針對 table 的 StarTag 加入 data-role="table" data-mode="reflow"屬性，如下:
+	<table id="MustHaveID" data-role="table" data-mode="reflow">
+	  <thead>
+	  ...
+
+	完成後，在瀏覽器觀看文件的視覺效果。
+
+
+
+
+3.	試用 columntoggle 模式
+
+3-1	將上述的 table 元素 data-mode="reflow" 屬性值改成  "columntoggle"
+	並且套用 class="ui-responsive" 樣式
+
+3-2	針對 Reviews 那個 <th> 加上 data-priority="5" 屬性
+
+3-3	針對 Year 那個 <th> 加上 data-priority="3" 屬性
+
+3-4	針對 Rank 那個 <th> 加上 data-priority="2" 屬性
+
+3-5	針對 Rating 那個 <th> 加上 data-priority="1" 屬性
+
+(上述步驟完成後的 HTML 內容如下:)
+    <table id="MustHaveID" data-role="table" data-mode="columntoggle" class="ui-responsive">
+
+      <thead>
+
+        <tr>
+
+          <th data-priority="2">Rank</th>
+
+          <th>Movie Title</th>
+
+          <th data-priority="3">Year</th>
+
+          <th data-priority="1">Rating</th>
+
+          <th data-priority="5">Reviews</th>
+
+        </tr>
+
+      </thead>
+
+
+3-6	在瀏覽器觀看文件的視覺效果，先將視窗寬度設為全螢幕寬，
+	然後逐步縮小瀏覽器視窗，隨著視窗愈來愈窄，資料優先值較
+	大的會先隱藏消失。
+
+
+3-7	點按右上角的「Columns」按鈕，嘗試勾選/取消某些欄位。
+
+
+
+
+4.	主題與樣式
+
+4-1	將 table 的 class 屬性改成  class="ui-responsive table-stroke ui-body-c"
+	完成後，在瀏覽器觀看文件的視覺效果。
+	
+4-2	在 </head> 的前一行，加入 style 區塊並且修訂 table-stroke 樣式類別，
+	幫整個表格上下兩端各加上灰色橫線，例如:
+	(完成後，在瀏覽器觀看文件的視覺效果。)
+	
+<style>
+.table-stroke thead th {
+  border-top: 2px solid lightgray;
+ }
+
+#MustHaveID {
+  border-bottom: 2px solid rgb(192, 192, 192);
+ }
+</style>
+
+
+4-3	在 </body> 的前一行置入下列程式，請試著說明這行程式的作用為何?
+<script>
+	$("#MustHaveID tr:odd").addClass("ui-bar-d");
+</script>
+
+4-4	在瀏覽器觀看文件的視覺效果。
+
+4-5	將上述程式去除，然後，重新手動輸入一遍程式。
+

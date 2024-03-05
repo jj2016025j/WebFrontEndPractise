@@ -1,0 +1,44 @@
+【選擇器】
+descendant selector 後代選擇器
+child selector 子選擇器
+Adjacent sibling combinator 同層相鄰選擇器
+General sibling combinator 同層全體選擇器
+https://www.w3schools.com/css/css_combinators.asp
+------------------------------------------------------------
+CSS 偽類 (CSS Pseudo-classes)
+https://www.w3schools.com/css/css_pseudo_classes.asp
+------------------------------------------------------------
+偽元素 (CSS Pseudo-elements)
+https://www.w3schools.com/css/css_pseudo_elements.asp
+------------------------------------------------------------
+屬性選擇器 (CSS Attribute Selectors)
+https://www.w3schools.com/css/css_attribute_selectors.asp
+============================================================
+
+
+權重值 (CSS Specificity)
+https://www.w3schools.com/css/css_specificity.asp
+------------------------------------------------------------
+多欄文字
+https://zh-tw.learnlayout.com/column.html
+------------------------------------------------------------
+CSS Flexbox Layout
+https://www.w3schools.com/css/css3_flexbox.asp
+------------------------------------------------------------
+CSS Tables
+https://www.w3schools.com/css/css_table.asp
+------------------------------------------------------------
+CSS Opacity / Transparency
+https://www.w3schools.com/css/css_image_transparency.asp
+------------------------------------------------------------
+Form and Controllers
+https://www.w3schools.com/css/css_form.asp
+------------------------------------------------------------
+
+
+
+【範例參考】
+https://www.w3schools.com/css/default.asp
+https://csslayout.io/
+
+

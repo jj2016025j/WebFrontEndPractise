@@ -1,0 +1,94 @@
+﻿CSS / jQuery 選擇器(Selector)語法練習
+
+
+1. 連接到下列網址:
+   https://www.iessanclemente.net/recurso/labs/chapter2/lab.selectors.html
+
+
+2. 瀏覽網頁的原始碼。
+
+
+3. 分別輸入以下的 Selector Expression，並且預測標定的對象。
+div label
+div label:first
+div label:eq(1)
+table
+table tr
+table tr:odd
+form
+form input[type='text']
+#aTextField
+#someDiv
+.myList
+.myList li
+.myList li:gt(2)
+
+<Note>
+建議針對 wrappedElement 類別，新增以下的設定:
+outline: 1px solid red;
+
+
+4. 如果想選取所有的超連結(a 元素)，Selector 該怎麼寫?
+(請參考本頁頁尾的解答)
+
+
+5. 如果想選取 name="checkboxes" 的核取方塊，Selector 該怎麼寫?
+(請參考本頁頁尾的解答)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<參考解答>>
+4. 如果想選取所有的超連結(a 元素)，Selector 該怎麼寫?
+a
+
+5. 如果想選取 name="checkboxes" 的核取方塊，Selector 該怎麼寫?
+input[name="checkboxes"]
+
