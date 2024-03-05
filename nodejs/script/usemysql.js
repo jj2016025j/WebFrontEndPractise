@@ -1,7 +1,7 @@
 // 不確定能不能用
-const dbOperations = require('script/nodejs_mysql.js');
+const dbOperations = require('./mynodesql.js');
 // 連接到資料庫
-dbOperations.connectToDatabase();
+// dbOperations.connectToDatabase();
 
 // 創建資料庫
 dbOperations.createDatabase('testDB');
