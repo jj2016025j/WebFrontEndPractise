@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", "Microsoft YaHei", STHeiti,
+        sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="root2"></div>
+  <div id="root3"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    // ***
+    var heirloom = React.createContext();
+
+    function Me(props) {
+      // ***
+      let { secret, setSecret } = React.useContext(heirloom) || "";
+      return (
+        <div>
+          <h5>我是子層</h5>
+          <p>{secret || "我沒有拿到訊息"}</p>
+        </div>
+      );
+    }
+
+    function Father(props) {
+      let { secret, setSecret } = React.useContext(heirloom) || "";
+      return (
+        <div>
+          <h3>我是父層</h3>
+          <h4>{secret || "我沒有拿到訊息"}</h4>
+          <Me />
+        </div>
+      )
+    }
+
+    // 可用於傳送資料 在包含範圍內即可 OK
+    function GrandFather(props) {
+      let [secret, setSecret] = React.useState("我是家族訊息");
+      // ***
+      let heirloomState = { secret, setSecret };
+
+      // ***
+      return (
+        <React.Fragment>
+          <heirloom.Provider value={heirloomState}>
+            <h1>我是爺層</h1>
+            <h2>{secret || "我沒有拿到訊息"}</h2>
+            <Father />
+          </heirloom.Provider>
+        </React.Fragment>
+      );
+    }
+    ReactDOM.render(<Me />, document.getElementById("root"));
+    ReactDOM.render(<Father />, document.getElementById("root2"));
+    ReactDOM.render(<GrandFather />, document.getElementById("root3"));
+  </script>
+</body>
+
+</html>

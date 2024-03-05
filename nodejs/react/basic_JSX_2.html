@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', "Microsoft YaHei", STHeiti, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const dataItem = {
+            scientificName: "Everes lacturnus rileyi",
+            commonName: "南方燕藍灰蝶",
+            image: "images/rileyi.jpg"
+        }
+
+        function formatName(species) {
+            return <span>
+                {species.commonName}<br />
+                {species.scientificName}
+            </span>;
+        }
+
+        const element = (
+            <div className="col-4">
+                <h3> {formatName(dataItem)} </h3>
+                <img src={dataItem.image} />
+            </div>
+        );
+
+        ReactDOM.render(
+            element,
+            document.getElementById('root')
+        );
+
+        // OK
+    </script>
+
+</body>
+
+</html>
