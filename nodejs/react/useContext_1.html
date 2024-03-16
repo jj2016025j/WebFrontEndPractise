@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", "Microsoft YaHei", STHeiti,
+        sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="root2"></div>
+  <div id="root3"></div>
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    function Me(props) {
+      return (
+        <div>
+          <h5>叫兒子</h5>
+          <h3>{props.secret || "我沒拿到傳家寶"}</h3>
+        </div>
+      );
+    }
+
+    function Father(props) {
+      return (
+        <div>
+          <h3>叫爸爸</h3>
+          <h3>{props.secret || "我沒拿到傳家寶"}</h3>
+          <Me secret={props.secret || "我沒拿到傳家寶"} />
+        </div>
+      )
+    }
+
+    function GrandFather(props) {
+      let [secret, setSecret] = React.useState("我是傳家寶");
+      return (
+        <React.Fragment>
+          <h1>叫爺爺</h1>
+          <h2>{secret}</h2>
+          <Father secret={secret} />
+        </React.Fragment>
+      );
+    }
+    ReactDOM.render(<Me />, document.getElementById("root"));
+    ReactDOM.render(<Father />, document.getElementById("root2"));
+    ReactDOM.render(<GrandFather />, document.getElementById("root3"));
+  </script>
+</body>
+
+</html>

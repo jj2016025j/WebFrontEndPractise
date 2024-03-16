@@ -2,7 +2,7 @@ var express = require("express")
 var app = express()
 
 // 查看預設port有沒有占用 有則換成3000
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 4000;
 var requesthost = "http://localhost:";//'127.0.0.1';
 
 // 解析 application/x-www-form-urlencoded => key=value

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>    
+    <script>
+        ReactDOM.render(
+            React.createElement("h1", null, "Hello, world!"),
+            document.getElementById('root')
+        );
+    </script>
+    <script>
+        ReactDOM.render(
+            React.createElement("h2",null,"Hey"),
+            document.getElementById("root")
+        )
+            // OK
+</script>
+</body>
+
+</html>

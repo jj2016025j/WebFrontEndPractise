@@ -1,0 +1,152 @@
+<Note> 本範例之樣式與圖片，源自於:
+https://tympanus.net/codrops/2009/12/03/css-and-jquery-tutorial-overlay-with-slide-out-box/
+
+
+Lab: JavaScript 事件處理函式
+
+
+
+1.	開啟 Lab_Event_01.html。
+	（請閱讀網頁的內容，並在瀏覽器觀看文件效果。）
+
+
+
+2.	繼續貼入下列樣式定義，然後在瀏覽器觀看文件效果。
+	（建議一個類別一個類別分段貼入，利用瀏覽器觀看網頁成型的過程。）
+
+<style type="text/css">
+.box {
+	position: fixed;
+	top: 100px;
+	left: 30%;
+	width: 450px;
+	background-color: #fff;
+	color: #7F7F7F;
+	padding: 20px;
+	border: 2px solid #ccc;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-khtml-border-radius: 20px;
+	-moz-box-shadow: 0 1px 5px #333;
+	-webkit-box-shadow: 0 1px 5px #333;
+	z-index: 101;
+}
+
+.box h1 {
+	border-bottom: 1px dashed #7F7F7F;
+	margin: -20px -20px 0px -20px;
+	padding: 10px;
+	background-color: #FFEFEF;
+	color: #EF7777;
+	-moz-border-radius: 20px 20px 0px 0px;
+	-webkit-border-top-left-radius: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-khtml-border-top-left-radius: 20px;
+	-khtml-border-top-right-radius: 20px;
+}
+
+a.boxclose {
+	float: right;
+	width: 26px;
+	height: 26px;
+	background: transparent url(images/cancel.png) repeat top left;
+	margin-top: -30px;
+	margin-right: -30px;
+	cursor: pointer;
+}
+
+</style>
+
+
+
+
+
+3.	宣告與寫作 <img> 的 onclick 事件處理函式。
+
+3.1	在 <script></script>之間寫一個名為 doAnimateShow() 的函數，
+	該函數沒有參數，利用 getElementById 找到 id 為 box 的元素，
+	找到後，將元素的 top 座標改成 200px，完成後的程式如下: 
+	function doAnimateShow() {
+		document.getElementById("box").style.top = "200px";
+	}
+	
+3.2	在 HTML 文件找出 <img> 標籤，宣告其 onclick 事件要呼叫 doAnimateShow():
+<img src="images/clickme.png" onclick="doAnimateShow();">
+
+3.3 存檔後，用瀏覽器測試看看，點一下左上角的 Click Me 圖案，看看 box 是/否移動位置。
+
+3.4	在 style 樣式區塊找出 .box 類別，多寫進以下三行:
+	-webkit-transition: top 3s ease-out;
+	-ms-transition: top 3s ease-out;
+	transition: top 3s ease-out;
+	
+3.5 存檔後，用瀏覽器測試看看，點一下左上角的 Click Me 圖案，看看 box 移動的位置與速度。
+
+
+
+
+
+4.	改用程式指定物件的事件與其事件處理函式。
+
+4.1	在 script 程式區塊加寫 doAnimateHide 函數，內容與 3.1 相似，
+	但 top 位置改成 -200px。 
+
+		function doAnimateHide() {
+			document.getElementById("box").style.top = "-200px";
+		}
+		
+4.2	然後，在 </script> 的前一行寫上這行:
+	document.getElementById("boxclose").onclick = doAnimateHide;
+
+4.3	存檔後，用瀏覽器測試看看，點一下盒子右上角的 X 圖案，看看 box 是/否逐漸移出視界之外。
+
+4.4	在 style 樣式區塊找出 .box 類別，將 top 屬性值從 100px 改成  -200px。
+	（這樣就看不到這個對話盒了，相當於隱藏這個對話盒。）
+
+4.5	存檔後，用瀏覽器測試看看。
+
+
+
+
+
+5.	關於 Event Bubbling 的效果與副作用...
+5.1	在 </script> 的前一行寫上這行:
+	document.onclick = doAnimateShow;
+	
+5.2	存檔後，用瀏覽器測試看看，這次，我們滑鼠點按文件的任何位置，
+	都可召喚出對話盒，但是，點一下盒子右上角的 X 圖案，對話盒卻沒有反應。
+
+5.3 修改 doAnimateHide() 函數的程式，中斷 Bubbling 機制，程式如下:
+
+		function doAnimateHide() {
+			document.getElementById("box").style.top = "-200px";
+			event.cancelBubble = true;
+		}
+
+5.4	存檔後，用瀏覽器測試看看。
+
+
+
+
+6.	讀取事件的相關資訊。
+
+6.1	如果我想在滑鼠點按後，將對話盒移往滑鼠點按的位置，程式該怎麼寫?
+
+	function doAnimateShow() {
+		document.getElementById("box").style.left = event.clientX + "px";
+		document.getElementById("box").style.top = event.clientY + "px";
+	}
+	
+
+6.2	存檔後，用瀏覽器測試看看。
+
+6.3	建議`將 .box 這個 CSS 類別的 transition 的作用對象從 top 改成 all（如下），
+	這樣，移動起來會比較自然一些。
+
+	-webkit-transition: all 3s ease-out;
+	-ms-transition: all 3s ease-out;
+	transition: all 3s ease-out;
+
+6.4	存檔後，用瀏覽器測試看看。
+
+

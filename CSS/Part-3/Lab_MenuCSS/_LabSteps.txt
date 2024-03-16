@@ -1,0 +1,148 @@
+下列 Lab 步驟，整理自 Ralph Phillips 在 YouTube 的教學影片:
+http://www.youtube.com/watch?v=TmQm-p3wCSU
+http://www.youtube.com/watch?v=T7ayE5AtRUA
+請同學抽空看一遍原作的示範。
+--------------------------------------------------------------------------------
+
+
+1.	建立一個新的 HTML 文件，內容如 Lab_Menu_00.html
+
+
+2.	瀏覽文件內容與結構，並請找出 id 為 navmenu 的元素，以及套用 sub1、sub2 類別的元素。
+
+
+3.	在 <style>...</style> 之間，加入下列 CSS 設定，完成後，在瀏覽器測試效果。
+	* {
+		margin: 0px;
+		padding: 0px;
+		}
+		
+	body {
+		font-family: verdana;
+		background-color: #ABC;
+		padding: 50px;
+		}
+		
+	h1 {
+		text-align: center;
+		border-bottom: 2px solid #009;
+		margin-bottom: 50px;
+		}
+
+
+4.	去掉 ul#navmenu, ul.sub1, ul.sub2 的項目符號，
+	然後勾勒出功能表的大樣:
+	(Hint: 稍後就會發現  position: relative; 是重要設定。)
+	(Q: ul#navmenu, ul.sub1, ul.sub2, 為什麼不直接定義 ul 就好?)
+
+	ul#navmenu, ul.sub1, ul.sub2 {
+		list-style-type: none;
+		}
+
+	ul#navmenu li {
+		width: 125px;
+		text-align: center;
+		position: relative;
+		float: left;
+		}
+
+
+5.	定義功能表的 a 超連結。(試一下有/無設定 display: block; 的差別)  
+	ul#navmenu a {
+		text-decoration: none;
+		display: block;
+		width: 125px;
+		height: 25px;
+		line-height: 25px;
+		background-color: #FFF;
+		border: 1px solid #CCC;
+		border-radius: 5px;
+		}
+
+
+6.	定義子選單的位置、滑鼠停駐各選單上方時的背影色彩:
+	(以下各段，建議每做一小段，就測一下看效果。)
+	(Q1: 想想看，為何子選單各選項的邊界(margin-top)要寫在 <a> 這邊，為何不在 <li> 那邊設邊界?) 
+	(Q2: position: absolute; 座標的原點在哪裏?) 
+
+	ul#navmenu .sub1 a {
+		margin-top: 5px;
+		}
+		
+	ul#navmenu .sub2 a {
+		margin-left: 3px;
+		}
+		
+	ul#navmenu li:hover > a {
+		background-color: #CFC;
+		}
+		
+	ul#navmenu li:hover a:hover {
+		background-color: #FF0;
+		}
+		
+	ul#navmenu ul.sub1 {
+		display: block;
+		position: absolute;
+		top: 26px;
+		left: 0px;
+		}
+		
+	ul#navmenu ul.sub2 {
+		display: block;
+		position: absolute;
+		top: 0px;
+		left: 126px;
+		}
+
+
+7.	將 ul#navmenu ul.sub1 與  ul#navmenu ul.sub2 的 display: block 改成 none，
+	改好之後，在瀏覽器試一下效果 （子選單都不見了!）。
+	
+	ul#navmenu ul.sub1 {
+		display: none;
+		position: absolute;
+		top: 26px;
+		left: 0px;
+		}
+		
+	ul#navmenu ul.sub2 {
+		display: none;
+		position: absolute;
+		top: 0px;
+		left: 126px;
+		}
+
+
+8.	利用  ui 的 hover 事件，在滑鼠停駐期間，將子選單的 display 設定為 block:
+
+	ul#navmenu li:hover .sub1 {
+		display: block;
+		}
+		
+	ul#navmenu .sub1 li:hover .sub2 {
+		display: block;
+		}
+
+
+9.	找到 ul#navmenu, ul.sub1, ul.sub2，加入 font-size: 9pt;
+10. 	將「向下」、「向右」兩個 span 文字藏入子選單:
+
+	.darrow {
+		font-size: 11pt;
+		position: absolute;
+		top: 5px;
+		right: 4px;
+		}
+		
+	.rarrow {
+		font-size: 13pt;
+		position: absolute;
+		top: 6px;
+		right: 4px;
+		}
+
+
+
+11.	回想一遍剛才的流程。
+(如果能不看筆記、課本，全部手工打造不靠複製貼上，就更高竿了!)

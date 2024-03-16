@@ -26,6 +26,9 @@
     "nodemon": "^3.0.3",
     "path": "^0.12.7",
     "printer": "^0.4.0",
-    "thermal-printer": "^1.0.5"
+    "thermal-printer": "^1.0.5",
+    "escpos": "^3.0.0-alpha.6",
+    "escpos-usb": "^3.0.0-alpha.4",
+    "pdfkit": "^0.14.0"
   }
 }
