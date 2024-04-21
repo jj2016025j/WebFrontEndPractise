@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Logical Assignment Operators</title>
+</head>
+<body>
+    <h1>JavaScript 逻辑赋值运算符</h1>
+
+    <button onclick="showResults()">显示结果</button>
+    <p id="result"></p>
+
+    <script>
+        function showResults() {
+            let a = 0;
+            let b = null;
+            let c = false;
+            let d = 1;
+            let e = undefined;
+            let f = 2;
+
+            a &&= 2;
+            b ||= 3;
+            c ||= 4;
+            d &&= 5;
+            e ??= 6;
+            f ??= 7;
+
+            const results = `
+                <strong>逻辑与赋值 (&&=):</strong> a 的初始值为 0, 结果为 ${a} (0 && 2)<br>
+                <strong>逻辑或赋值 (||=):</strong> b 的初始值为 null, 结果为 ${b} (null || 3)<br>
+                <strong>逻辑或赋值 (||=):</strong> c 的初始值为 false, 结果为 ${c} (false || 4)<br>
+                <strong>逻辑与赋值 (&&=):</strong> d 的初始值为 1, 结果为 ${d} (1 && 5)<br>
+                <strong>空值合并赋值 (??=):</strong> e 的初始值为 undefined, 结果为 ${e} (undefined ?? 6)<br>
+                <strong>空值合并赋值 (??=):</strong> f 的初始值为 2, 结果为 ${f} (2 ?? 7)
+            `;
+            document.getElementById('result').innerHTML = results;
+        }
+    </script>
+</body>
+</html>

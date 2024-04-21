@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Basics</title>
+</head>
+<body>
+    <h1>JavaScript Statements and Syntax</h1>
+
+    <button onclick="showDate()">顯示日期</button>
+    <button onclick="checkScore()">檢查分數</button>
+    <button onclick="displayNumbers()">顯示數字序列</button>
+
+    <p id="output"></p>
+
+    <script>
+        // 變量宣告
+        let today = new Date();
+        let score = 85; // 假設分數
+
+        // 函數：顯示當前日期
+        function showDate() {
+            document.getElementById("output").innerHTML = "今天日期是: " + today.toDateString();
+        }
+
+        // 函數：根據分數顯示不同的訊息
+        function checkScore() {
+            let message;
+            if (score >= 90) {
+                message = "優秀";
+            } else if (score >= 75) {
+                message = "良好";
+            } else {
+                message = "需要努力";
+            }
+            document.getElementById("output").innerHTML = "你的分數是 " + score + "，等級： " + message;
+        }
+
+        // 函數：使用迴圈顯示數字序列
+        function displayNumbers() {
+            let numbers = "";
+            for (let i = 1; i <= 10; i++) {
+                numbers += i + " ";
+            }
+            document.getElementById("output").innerHTML = "數字序列： " + numbers.trim();
+        }
+    </script>
+</body>
+</html>

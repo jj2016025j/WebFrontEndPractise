@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Comments Example</title>
+</head>
+<body>
+    <h1>JavaScript Comments</h1>
+
+    <button onclick="showMessage()">顯示訊息</button>
+    <button onclick="performCalculation()">執行計算</button>
+
+    <p id="message"></p>
+
+    <script>
+        // 這是一個單行注釋，用來說明下面的變量
+        let welcomeMessage = "歡迎學習 JavaScript!"; // 儲存歡迎訊息的字符串
+
+        /* 
+         * 這是一個多行注釋，用於詳細說明下面的函數。
+         * 函數名稱: showMessage
+         * 功能: 將歡迎訊息顯示在網頁的指定元素中。
+         */
+        function showMessage() {
+            document.getElementById("message").innerHTML = welcomeMessage;
+        }
+
+        // 以下是一個使用單行和多行注釋來說明複雜邏輯的示例
+        function performCalculation() {
+            let result = 0; // 初始化結果變量
+            // 進行一些假定的計算
+            for (let i = 1; i <= 10; i++) {
+                result += i; // 將 i 加到 result 上
+            }
+            /* 
+             * 多行注釋可以在這裡解釋每一步的計算的原因
+             * 例如，這個循環計算了 1 到 10 的和
+             */
+            document.getElementById("message").innerHTML = "計算結果是: " + result;
+        }
+    </script>
+</body>
+</html>

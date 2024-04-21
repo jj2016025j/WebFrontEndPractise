@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Operators</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript 運算符類型</h1>
+    
+    <h2>算術運算符</h2>
+    <p>用於數字的算術計算。</p>
+    <table>
+        <tr><th>運算符</th><th>描述</th><th>例子</th></tr>
+        <tr><td>+</td><td>加法</td><td>x + y</td></tr>
+        <tr><td>-</td><td>減法</td><td>x - y</td></tr>
+        <tr><td>*</td><td>乘法</td><td>x * y</td></tr>
+        <tr><td>/</td><td>除法</td><td>x / y</td></tr>
+        <tr><td>%</td><td>求餘</td><td>x % y</td></tr>
+        <tr><td>**</td><td>指數</td><td>x ** y</td></tr>
+        <tr><td>++</td><td>自增</td><td>x++</td></tr>
+        <tr><td>--</td><td>自減</td><td>x--</td></tr>
+    </table>
+
+    <h2>賦值運算符</h2>
+    <p>用於將值賦予變量。</p>
+    <table>
+        <tr><th>運算符</th><th>例子</th><th>等同於</th></tr>
+        <tr><td>=</td><td>x = y</td><td>x = y</td></tr>
+        <tr><td>+=</td><td>x += y</td><td>x = x + y</td></tr>
+        <tr><td>-=</td><td>x -= y</td><td>x = x - y</td></tr>
+        <tr><td>*=</td><td>x *= y</td><td>x = x * y</td></tr>
+        <tr><td>/=</td><td>x /= y</td><td>x = x / y</td></tr>
+        <tr><td>%=</td><td>x %= y</td><td>x = x % y</td></tr>
+        <tr><td>**=</td><td>x **= y</td><td>x = x ** y</td></tr>
+    </table>
+
+    <h2>比較運算符</h2>
+    <p>用於比較兩個值。</p>
+    <table>
+        <tr><th>運算符</th><th>描述</th><th>例子</th></tr>
+        <tr><td>==</td><td>等於</td><td>x == y</td></tr>
+        <tr><td>===</td><td>值和類型都相等</td><td>x === y</td></tr>
+        <tr><td>!=</td><td>不等於</td><td>x != y</td></tr>
+        <tr><td>!==</td><td>值或類型不等</td><td>x !== y</td></tr>
+        <tr><td>></td><td>大於</td><td>x > y</td></tr>
+        <tr><td><</td><td>小於</td><td>x < y</td></tr>
+        <tr><td>>=</td><td>大於等於</td><td>x >= y</td></tr>
+        <tr><td><=</td><td>小於等於</td><td>x <= y</td></tr>
+    </table>
+
+    <h2>邏輯運算符</h2>
+    <p>用於基於兩個值之間的邏輯關係決定表達式的真偽。</p>
+    <table>
+        <tr><th>運算符</th><th>描述</th></tr>
+        <tr><td>&&</td><td>邏輯與</td></tr>
+        <tr><td>||</td><td>邏輯或</td></tr>
+        <tr><td>!</td><td>邏輯非</td></tr>
+    </table>
+
+    <h2>位元運算符</h2>
+    <p>操作整數的二進制位。</p>
+    <table>
+        <tr><th>運算符</th><th>描述</th><th>例子</th><th>結果</th></tr>
+        <tr><td>&</td><td>AND</td><td>5 & 1</td><td>1</td></tr>
+        <tr><td>|</td><td>OR</td><td>5 | 1</td><td>5</td></tr>
+        <tr><td>~</td><td>NOT</td><td>~5</td><td>10</td></tr>
+        <tr><td>^</td><td>XOR</td><td>5 ^ 1</td><td>4</td></tr>
+        <tr><td><<</td><td>左移</td><td>5 << 1</td><td>10</td></tr>
+        <tr><td>>></td><td>右移</td><td>5 >> 1</td><td>2</td></tr>
+        <tr><td>>>></td><td>無符號右移</td><td>5 >>> 1</td><td>2</td></tr>
+    </table>
+
+    <h2>三元運算符</h2>
+    <p>一個條件運算符，是 JavaScript 中唯一擁有三個操作數的運算符。</p>
+    <p>語法: 條件 ? 表達式1 : 表達式2</p>
+    <p>例子: <code>let result = age > 18 ? "成年" : "未成年";</code></p>
+
+    <h2>類型運算符</h2>
+    <p>用於返回變量或表達式的數據類型。</p>
+    <p>例子: <code>typeof x</code> 返回 x 的類型。</p>
+    <p>例子: <code>x instanceof Array</code> 檢查 x 是否為 Array 的實例。</p>
+</body>
+</html>

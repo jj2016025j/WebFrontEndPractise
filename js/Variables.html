@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Variables Example</title>
+</head>
+<body>
+    <h1>JavaScript Variables</h1>
+
+    <button onclick="displayTypes()">顯示變量類型</button>
+    <button onclick="performOperations()">執行操作</button>
+
+    <p id="info"></p>
+
+    <script>
+        // 字符串變量
+        let message = "Hello, JavaScript!";
+        // 數字變量
+        let age = 30;
+        // 布尔值變量
+        let isLearning = true;
+        // 數組變量
+        let colors = ["Red", "Green", "Blue"];
+        // 對象變量
+        let person = {
+            name: "Alice",
+            city: "Taipei"
+        };
+
+        // 函數：顯示各種變量的類型
+        function displayTypes() {
+            let typesInfo = "Message is a string: " + message +
+                            "<br>Age is a number: " + age +
+                            "<br>Is learning is a boolean: " + isLearning +
+                            "<br>Colors is an array: " + colors +
+                            "<br>Person is an object: " + JSON.stringify(person);
+            document.getElementById("info").innerHTML = typesInfo;
+        }
+
+        // 函數：對一些變量進行操作並顯示結果
+        function performOperations() {
+            // 數字操作
+            age += 1;
+            // 數組操作
+            colors.push("Yellow");
+            // 對象操作
+            person.email = "alice@example.com";
+
+            let operationsInfo = "New age: " + age +
+                                 "<br>Updated colors: " + colors +
+                                 "<br>Updated person: " + JSON.stringify(person);
+            document.getElementById("info").innerHTML = operationsInfo;
+        }
+    </script>
+</body>
+</html>

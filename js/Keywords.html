@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Keywords Example</title>
+</head>
+<body>
+    <h1>JavaScript Keywords</h1>
+
+    <button onclick="testControlFlow()">測試控制流</button>
+    <button onclick="testLoop()">測試迴圈</button>
+    <button onclick="testErrorHandling()">測試錯誤處理</button>
+
+    <p id="result"></p>
+
+    <script>
+        // 使用 var 声明一个全局变量
+        var globalVar = "This is a global variable";
+
+        // 使用 let 声明一个块级变量
+        let blockVar = "This is a block variable";
+
+        // 使用 const 声明一个块级常量
+        const blockConst = "This is a block constant";
+
+        // 函数声明
+        function displayMessage(message) {
+            return message; // 返回函数值
+        }
+
+        // 控制流 - if 和 switch
+        function testControlFlow() {
+            let value = 10;
+            let message;
+
+            // 使用 if
+            if (value === 10) {
+                message = "Value is exactly 10";
+            }
+
+            // 使用 switch
+            switch (value) {
+                case 10:
+                    message += " and switch case is also 10";
+                    break;
+                default:
+                    message += " and switch case is default";
+            }
+
+            document.getElementById("result").innerHTML = displayMessage(message);
+        }
+
+        // 迴圈 - for
+        function testLoop() {
+            let numbers = [];
+            // 使用 for 迴圈
+            for (let i = 0; i < 5; i++) {
+                numbers.push(i);
+            }
+            document.getElementById("result").innerHTML = "Numbers: " + numbers.join(", ");
+        }
+
+        // 错误处理 - try 和 catch
+        function testErrorHandling() {
+            try {
+                // 故意引发错误
+                throw new Error("Something went wrong!");
+            } catch (error) {
+                document.getElementById("result").innerHTML = "Caught an error: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

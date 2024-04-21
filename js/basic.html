@@ -1,15 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Comprehensive Example</title>
+    <script src="script.js"></script> <!-- 引入外部 JavaScript 文件 -->
+</head>
 <body>
     <h2>My First JavaScript</h2>
-
-    <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
-        Click me to display Date and Time.</button>
-
+    
+    <!-- 按鈕用於顯示日期和時間 -->
+    <button type="button" onclick="showDate()">Click me to display Date and Time.</button>
+    
     <p id="demo"></p>
-    <script>
-        document.getElementById('demo').innerHTML = 'Hello JavaScript';
-    </script>
-</body>
 
+    <script>
+        // 變數和數據類型
+        let name = "Alice";
+        const age = 30;
+        let isStudent = false;
+        let scores = [90, 85, 88];
+        let person = { firstName: "Bob", lastName: "Smith" };
+
+        // 函數
+        function greet(name) {
+            return "Hello " + name + "!";
+        }
+        console.log(greet("Alice"));  // 輸出 "Hello Alice!"
+
+        // 條件語句
+        let score = 75;
+        if (score >= 90) {
+            console.log("Excellent");
+        } else if (score >= 75) {
+            console.log("Good");
+        } else {
+            console.log("Needs Improvement");
+        }
+
+        // 迴圈
+        for (let i = 0; i < 5; i++) {
+            console.log(i);
+        }
+
+        // 事件處理
+        document.getElementById("demo").addEventListener("click", function() {
+            alert("Paragraph clicked!");
+        });
+
+        // DOM 操作
+        document.getElementById("demo").innerHTML = "Hello, World!";
+
+        // 網路請求
+        fetch('https://api.example.com/data')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+
+        // 顯示日期和時間的函數
+        function showDate() {
+            document.getElementById('demo').innerHTML = Date();
+        }
+    </script>
+
+    <!-- 直接導入模組 -->
+    <script type="module">
+        import { functionName } from './module.js';
+        functionName("basic");
+    </script>
+
+    <!-- 引入 JavaScript 模塊 -->
+    <script type="module" src="main.js"></script>
+</body>
 </html>

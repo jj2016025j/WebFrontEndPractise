@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 事件處理示例</title>
+</head>
+<body>
+    <h1>JavaScript 常見事件處理</h1>
+    <button id="clickButton">點擊這裡</button>
+    <input type="text" id="inputField" placeholder="輸入文字後按 Enter">
+    <div id="mouseArea" style="width: 200px; height: 200px; background-color: #f0f0f0; margin-top: 20px;">鼠標移動到這裡</div>
+    <form id="submitForm">
+        <input type="text" placeholder="輸入一些文字">
+        <button type="submit">提交</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        // 點擊事件處理
+        document.getElementById("clickButton").addEventListener("click", function() {
+            document.getElementById("message").textContent = "按鈕被點擊了！";
+        });
+
+        // 鍵盤事件處理
+        document.getElementById("inputField").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // 防止表單意外提交
+                document.getElementById("message").textContent = "按下了 Enter 鍵！";
+            }
+        });
+
+        // 鼠標事件處理
+        document.getElementById("mouseArea").addEventListener("mouseover", function() {
+            this.style.backgroundColor = '#cccccc';
+            document.getElementById("message").textContent = "鼠標移到了框內！";
+        });
+        document.getElementById("mouseArea").addEventListener("mouseout", function() {
+            this.style.backgroundColor = '#f0f0f0';
+            document.getElementById("message").textContent = "鼠標離開了框內！";
+        });
+
+        // 表單提交事件處理
+        document.getElementById("submitForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // 阻止表單的自然提交
+            document.getElementById("message").textContent = "表單被提交了！";
+        });
+    </script>
+</body>
+</html>

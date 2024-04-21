@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 物件</title>
+</head>
+<body>
+    <h1>JavaScript 物件：屬性和方法</h1>
+
+    <button onclick="showDetails()">顯示詳情</button>
+    <button onclick="updateModel()">更新型號</button>
+    <button onclick="displayOwnerName()">顯示擁有者姓名</button>
+
+    <p id="info"></p>
+
+    <script>
+        // 創建一個物件
+        var car = {
+            make: 'Toyota',
+            model: 'Corolla',
+            year: 2021,
+            owner: {
+                name: 'Alice',
+                age: 30
+            },
+            displayInfo: function() {
+                return '一輛製造於 ' + this.year + ' 年的 ' + this.make + ' ' + this.model;
+            },
+            updateCarModel: function(newModel) {
+                this.model = newModel;
+            },
+            getOwnerName: function() {
+                return this.owner.name;
+            }
+        };
+
+        // 顯示車輛詳情
+        function showDetails() {
+            document.getElementById("info").innerHTML = car.displayInfo();
+        }
+
+        // 更新車輛型號
+        function updateModel() {
+            car.updateCarModel('Camry');
+            document.getElementById("info").innerHTML = '車輛型號已更新為 ' + car.model;
+        }
+
+        // 顯示車主姓名
+        function displayOwnerName() {
+            document.getElementById("info").innerHTML = '車主姓名為 ' + car.getOwnerName();
+        }
+    </script>
+</body>
+</html>

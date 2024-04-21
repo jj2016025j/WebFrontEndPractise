@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Output Demo</title>
+</head>
+<body>
+    <h1>JavaScript Output Methods</h1>
+    <div id="demo">這裡會顯示 innerHTML 的結果</div>
+    <button onclick="showAlert()">顯示警告框</button>
+    <button onclick="printPage()">列印頁面</button>
+    <button onclick="displayConsoleLog()">顯示控制台日誌</button>
+    <button onclick="useDocumentWrite()">使用 document.write()</button>
+    
+    <script>
+        // 使用 innerHTML 修改元素內容
+        document.getElementById("demo").innerHTML = "<strong>這是 innerHTML 的輸出！</strong>";
+
+        // 使用 document.write() 寫入 HTML 內容（注意：在實際開發中慎用，可能會覆蓋整個文檔）
+        function useDocumentWrite() {
+            document.write("<p>document.write() 輸出了這行文字，將會覆蓋整個文檔。</p>");
+        }
+
+        // 使用 console.log() 輸出到瀏覽器控制台
+        function displayConsoleLog() {
+            console.log("這是 console.log 的輸出。查看瀏覽器控制台！");
+        }
+
+        // 使用 window.alert() 顯示警告框
+        function showAlert() {
+            window.alert("這是 window.alert 的輸出！");
+        }
+
+        // 使用 window.print() 觸發列印對話框
+        function printPage() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

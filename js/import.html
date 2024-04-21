@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <!-- 引入外部JavaScript文件 -->
+    <script src="script.js"></script>
+
+    <h2>My First JavaScript</h2>
+
+    <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+        Click me to display Date and Time.</button>
+
+    <p id="demo"></p>
+
+    <!-- 在HTML文件中直接寫JavaScript代碼 -->
+    <script>
+        document.getElementById('demo').innerHTML = 'Hello JavaScript';
+        document.getElementById("demo").style.display = "none";
+        document.getElementById("demo").style.display = "block";
+        document.getElementById("demo").innerHTML = "我的第一個 JavaScript";
+    </script>
+
+    <!-- 直接導入模組 -->
+    <script type="module">
+        import { functionName } from './module.js';
+
+        functionName("basic");
+    </script>
+
+    <!-- 引入JavaScript模塊 再用模塊引入另一個模塊 -->
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
