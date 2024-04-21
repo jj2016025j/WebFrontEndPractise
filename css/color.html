@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color and select</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        p {
+            color: red;
+        }
+
+        .bg-color-solid {
+            background-color: #f0f0f0;
+            /* 淺灰色 */
+        }
+
+        .bg-color-gradient {
+            background-image: linear-gradient(to right, #ffa600, #5f2eff);
+            /* 從粉紅到橙色的漸變 */
+        }
+
+        .text-color-blue {
+            color: blue;
+            /* 藍色文字 */
+        }
+
+        .text-color-green {
+            color: green;
+            /* 綠色文字 */
+        }
+
+        .border-color-red {
+            border: 2px solid red;
+            /* 紅色邊框 */
+        }
+
+        .border-color-purple {
+            border: 3px solid purple;
+            /* 紫色邊框 */
+        }
+
+        .gradient-text {
+            background: -webkit-linear-gradient(right, red, blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="gradient-text">漸變文字效果</h1>
+    <p class="text-color-blue">藍色文字</p>
+    <div class="bg-color-solid">淺灰色背景</div>
+    <div class="bg-color-gradient">漸變背景色</div>
+    <div class="border-color-red">紅色邊框</div>
+    <h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
+    <h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
+    <h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
+</body>
+
+</html>

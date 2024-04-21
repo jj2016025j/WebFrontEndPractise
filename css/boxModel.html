@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model 示例</title>
+    <style>
+        /* 基本樣式設定 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f4f4f4;
+        }
+
+        .box {
+            background: #4CAF50;
+            color: white;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 固定寬高 */
+        .fixed {
+            width: 200px;
+            height: 100px;
+        }
+
+        /* 最大寬高限制 */
+        .max-size {
+            max-width: 300px;
+            max-height: 150px;
+            overflow: auto; /* 添加滾動條 */
+        }
+
+        /* 最小寬高限制 */
+        .min-size {
+            min-width: 150px;
+            min-height: 50px;
+        }
+
+        /* 響應式寬高 */
+        .responsive {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Box Model 示範</h1>
+    
+    <div class="box fixed">
+        固定寬高: 200px x 100px
+    </div>
+
+    <div class="box max-size" style="width: 500px; height: 200px;">
+        最大寬高限制: max-width 300px, max-height 150px (實際寬500px, 高200px)
+    </div>
+
+    <div class="box min-size" style="width: 100px; height: 20px;">
+        最小寬高限制: min-width 150px, min-height 50px (實際寬100px, 高20px)
+    </div>
+
+    <div class="box responsive" style="background-image: url('https://via.placeholder.com/600x400'); background-repeat: no-repeat; background-size: cover; height: 400px;">
+        響應式寬度: 100% 且最大寬度 600px, 高度自適應
+    </div>
+</body>
+</html>

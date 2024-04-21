@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 圖像畫廊</title>
+    <style>
+        /* 容器样式，包含所有图片 */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 8px;
+            justify-content: space-around;
+        }
+
+        /* 单个图片的容器样式 */
+        .gallery-item {
+            border: 5px solid #fff; /* 为图片添加白色边框 */
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 添加阴影 */
+            transition: transform 0.3s ease; /* 过渡动画 */
+        }
+
+        /* 图片样式 */
+        .gallery-item img {
+            width: 100%; /* 设置图片宽度填满容器 */
+            height: auto; /* 设置图片高度自动 */
+            display: block;
+        }
+
+        /* 悬停时放大图片 */
+        .gallery-item:hover {
+            transform: scale(1.1); /* 放大效果 */
+            cursor: pointer; /* 更改鼠标样式为指针 */
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 圖像畫廊</h1>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/300/ff7f7f/333333?text=Image+1" alt="Gallery Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/300/7f7fff/333333?text=Image+2" alt="Gallery Image 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/300/ffff7f/333333?text=Image+3" alt="Gallery Image 3">
+        </div>
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/300/7fff7f/333333?text=Image+4" alt="Gallery Image 4">
+        </div>
+    </div>
+</body>
+</html>

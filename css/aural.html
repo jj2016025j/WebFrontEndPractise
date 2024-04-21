@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Aural 屬性示範</title>
+    <style>
+        .example {
+            azimuth: right;
+            cue-before: url('start.wav');
+            cue-after: url('end.wav');
+            elevation: above;
+            pause-before: 250ms;
+            pause-after: 250ms;
+            pitch: x-high;
+            pitch-range: 50;
+            play-during: url('background.wav') mix;
+            richness: 90;
+            speak: spell-out;
+            speak-header: once;
+            speak-numeral: digits;
+            speak-punctuation: code;
+            speech-rate: fast;
+            stress: 80;
+            voice-family: "female";
+            volume: loud;
+        }
+    </style>
+</head>
+<body>
+    <div class="example">
+        這是一個示範如何使用 CSS 聲音屬性來增強語音合成的例子。
+    </div>
+</body>
+</html>

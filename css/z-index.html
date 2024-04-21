@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS z-index 示例</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .box1 {
+            background-color: red;
+            left: 50px;
+            top: 50px;
+            z-index: 3; /* 最高，显示在最前面 */
+        }
+
+        .box2 {
+            background-color: blue;
+            left: 100px;
+            top: 100px;
+            z-index: 2; /* 中间 */
+        }
+
+        .box3 {
+            background-color: green;
+            left: 150px;
+            top: 150px;
+            z-index: 1; /* 最低，显示在最后面 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">Red Box</div>
+    <div class="box box2">Blue Box</div>
+    <div class="box box3">Green Box</div>
+</body>
+</html>

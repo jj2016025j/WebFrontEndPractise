@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display: inline-block 示例</title>
+    <style>
+        .container {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 20px 0;
+            text-align: center; /* 让内容居中显示 */
+        }
+        .inline-block {
+            display: inline-block;
+            width: 120px;
+            height: 120px;
+            margin: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            vertical-align: top; /* 设置垂直对齐 */
+            line-height: 120px; /* 使文字垂直居中 */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>使用 display: inline-block</h1>
+    <div class="container">
+        <div class="inline-block">Box 1</div>
+        <div class="inline-block" style="height: 80px;">Box 2</div>
+        <div class="inline-block" style="width: 200px;">Box 3</div>
+        <div class="inline-block" style="vertical-align: middle;">Box 4</div>
+    </div>
+    <p>以上示例展示了多个使用 display: inline-block 的元素如何在一行内显示，同时展示了如何控制它们的大小和垂直对齐。</p>
+</body>
+</html>

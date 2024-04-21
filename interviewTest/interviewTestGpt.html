@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* border: 1px solid red; */
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            justify-content: stretch;
+        }
+
+        @media screen and (max-width: 500px) {
+
+            #red {
+                background-color: orange !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="red" class="clicked" style="display: flex; flex-direction: column; background-color: red; width: 100vw;height: 33vh;"></div>
+    <div style=" width: 100vw;height: 67vh;display: flex; flex-direction: row; ">
+        <div id="purple" class="clicked" style="background-color: purple;width: 33vw;">
+
+        </div>
+        <div
+            style="display: flex; flex-direction: column;justify-content: stretch; width: 34vw;">
+            <div id="blue" class="clicked" style="background-color: blue;width: 100vw;height: 50%; "></div>
+            <div style="height: 50%;display: flex; flex-direction: row; ">
+                <div class="clicked" id="black" style="background-color: black;width: 100vw;height: 33vh;"></div>
+                <div class="clicked" id="white" style="background-color: white;width: 100vw;height: 33vh;"></div>
+            </div>
+        </div>
+        <div id="green" class="clicked" style="background-color: green;width: 33vw;">
+
+        </div>
+
+    </div>
+    <script>
+        const colorNames = {
+            "rgb(255, 0, 0)": "紅色",
+            "rgb(255, 165, 0)": "橘色",
+            "rgb(128, 0, 128)": "紫色",
+            "rgb(0, 0, 255)": "藍色",
+            "rgb(0, 0, 0)": "黑色",
+            "rgb(255, 255, 255)": "白色",
+            "rgb(0, 128, 0)": "綠色"
+        };
+
+        document.body.addEventListener('click', function(event) {
+            if (event.target.classList.contains('clicked')) {
+                const rgbColor = getComputedStyle(event.target).backgroundColor;
+                const colorName = colorNames[rgbColor] || rgbColor;
+                alert("這是: " + colorName);
+            }
+        });
+    </script>
+</body>
+
+</html>

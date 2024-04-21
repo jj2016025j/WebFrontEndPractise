@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 表格样式示例</title>
+    <style>
+        /* 基本表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse; /* 边框合并为单一边框 */
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ccc; /* 单元格边框 */
+            padding: 8px; /* 单元格内边距 */
+            text-align: left; /* 文本对齐方式 */
+        }
+
+        th {
+            background-color: #f4f4f4; /* 表头背景色 */
+            color: #333; /* 表头文字颜色 */
+        }
+
+        /* 斑马线样式 */
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* 偶数行背景色 */
+        }
+
+        tr:hover {
+            background-color: #ddf; /* 鼠标悬停行的背景色 */
+        }
+
+        /* 响应式表格 */
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block; /* 响应式布局时表格及其子元素显示为块级元素 */
+            }
+
+            th, td {
+                text-align: right; /* 文本右对齐 */
+            }
+
+            td {
+                text-align: right; /* 数据单元格文本对齐 */
+                vertical-align: bottom;
+                position: relative; /* 相对定位 */
+                padding-left: 50%; /* 文本偏移 */
+            }
+
+            td:before {
+                content: attr(data-label); /* 使用data-label属性的值 */
+                position: absolute;
+                left: 0;
+                width: 50%; /* 宽度设置 */
+                padding-left: 10px; /* 内边距 */
+                font-weight: bold; /* 字体加粗 */
+                text-align: left; /* 文本左对齐 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 表格样式示例</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>职位</th>
+                <th>公司</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="姓名">张三</td>
+                <td data-label="职位">产品经理</td>
+                <td data-label="公司">Tech Ltd.</td>
+            </tr>
+            <tr>
+                <td data-label="姓名">李四</td>
+                <td data-label="职位">开发工程师</td>
+                <td data-label="公司">Innovate Inc.</td>
+            </tr>
+            <tr>
+                <td data-label="姓名">王五</td>
+                <td data-label="职位">测试主管</td>
+                <td data-label="公司">Solutions LLC</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

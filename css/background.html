@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 背景示範</title>
+    <style>
+        .fixed-background {
+            /* 設置背景圖片 */
+            background-image: url('https://via.placeholder.com/1000x500');
+            /* 固定背景圖片 */
+            background-attachment: fixed;
+            /* 背景圖片不重複 */
+            background-repeat: no-repeat;
+            /* 背景圖片覆蓋整個元素 */
+            background-size: cover;
+            /* 設置元素高度 */
+            height: 500px;
+            /* 文字配置 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        /* 背景色 */
+        .bg-color {
+            background-color: lightgray;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* 背景圖片 */
+        .bg-image {
+            background-image: url('https://via.placeholder.com/150');
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* 背景重複 */
+        .bg-no-repeat {
+            background: url('https://via.placeholder.com/150') no-repeat;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .bg-repeat-x {
+            background: url('https://via.placeholder.com/150') repeat-x;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .bg-repeat-y {
+            background: url('https://via.placeholder.com/150') repeat-y;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* 背景位置 */
+        .bg-position {
+            background: url('https://via.placeholder.com/150') no-repeat center center;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* 背景大小 */
+        .bg-size-cover {
+            background: url('https://via.placeholder.com/150') no-repeat center center;
+            background-size: cover;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .bg-size-contain {
+            background: url('https://via.placeholder.com/150') no-repeat center center;
+            background-size: contain;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* 背景附著 */
+        .bg-attachment-fixed {
+            background: url('https://via.placeholder.com/500x150') no-repeat fixed center;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* 背景簡寫 */
+        .bg-shortcut {
+            background: #000 url('https://via.placeholder.com/150') no-repeat center center;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* 背景原點 */
+        .bg-origin-border-box {
+            background: url('https://via.placeholder.com/150') no-repeat center center;
+            background-origin: border-box;
+            border: 10px solid black;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fixed-background">
+        <p>固定背景的效果展示</p>
+    </div>
+    <div class="bg-color">背景色：淺灰色</div>
+    <div class="bg-image">背景圖片</div>
+    <div class="bg-no-repeat">背景不重複</div>
+    <div class="bg-repeat-x">水平重複背景</div>
+    <div class="bg-repeat-y">垂直重複背景</div>
+    <div class="bg-position">背景位置：中間</div>
+    <div class="bg-size-cover">背景大小：覆蓋</div>
+    <div class="bg-size-contain">背景大小：包含</div>
+    <div class="bg-attachment-fixed">背景附著：固定</div>
+    <div class="bg-shortcut">背景簡寫：黑色底</div>
+    <div class="bg-origin-border-box">背景原點：邊框盒</div>
+</body>
+
+</html>

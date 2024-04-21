@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 選擇器展示</title>
+    <style>
+        /* 元素選擇器 */
+        p {
+            color: blue;
+        }
+
+        /* 類選擇器 */
+        .important {
+            color: green;
+        }
+
+        /* ID選擇器 */
+        #header {
+            color: darkblue;
+        }
+
+        /* 屬性選擇器 */
+        input[type="text"] {
+            color: darkred;
+        }
+
+        /* 後代選擇器 */
+        div p {
+            color: violet;
+        }
+
+        /* 子選擇器 */
+        ul > li {
+            color: chocolate;
+        }
+
+        /* 相鄰兄弟選擇器 */
+        h1 + p {
+            color: magenta;
+        }
+
+        /* 通用兄弟選擇器 */
+        h2 ~ p {
+            color: coral;
+        }
+
+        /* 眾選擇器 */
+        * {
+            border: 1px solid grey;
+        }
+
+        /* 組合選擇器 */
+        h1, h2 {
+            color: red;
+        }
+
+        /* 偽類 */
+        a:hover {
+            color: gold;
+        }
+
+        /* 偽元素 */
+        p::first-letter {
+            color: teal;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="header">帶有ID的標題</h1>
+    <p>使用元素選擇器的段落</p>
+    <div>
+        <p>位於div內的段落（後代選擇器）</p>
+    </div>
+    <ul>
+        <li>列表項目1（子選擇器）</li>
+        <li>列表項目2</li>
+    </ul>
+    <h2>第二個標題（組合選擇器）</h2>
+    <p>這個段落在h2之後（通用兄弟選擇器）</p>
+    <a href="#">懸停我看看！（偽類）</a>
+    <input type="text" value="具有屬性選擇器的輸入框">
+    <p class="important">具有類選擇器的段落</p>
+    <p>另一個段落</p>
+</body>
+</html>

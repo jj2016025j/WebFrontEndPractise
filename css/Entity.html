@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS字符實體擴展示例</title>
+    <style>
+        .example {
+            padding: 20px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+        .example::before {
+            content: "開頭：\'"; /* 顯示單引號 */
+            padding-right: 10px;
+            color: red;
+        }
+        .example::after {
+            content: " 結束\u00A9"; /* 顯示版權符號 */
+            padding-left: 10px;
+            color: green;
+        }
+        .example trademark::after {
+            content: " 注册\u00AE"; /* 顯示注册商标符号 */
+            color: blue;
+        }
+        .example heart::after {
+            content: " 愛心\u2665"; /* 顯示心形符号 */
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS字符實體擴展示例</h1>
+    <div class="example">這是一些文本。</div>
+    <div class="example trademark">這是帶有商標的文本。</div>
+    <div class="example heart">這是帶有愛心的文本。</div>
+</body>
+</html>

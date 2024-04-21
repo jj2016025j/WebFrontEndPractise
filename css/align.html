@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 進階排版與對齊示例</title>
+    <style>
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Flexbox 基本設定 */
+        .flex-container {
+            display: flex;
+            padding: 10px;
+            background: #f8f8f8;
+            margin-bottom: 20px;
+        }
+
+        .flex-item {
+            padding: 20px;
+            background: lightblue;
+            margin: 5px;
+            text-align: center;
+        }
+
+        /* 水平居中與垂直居中 */
+        .centered {
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+        }
+
+        /* 兩端對齊 */
+        .space-between {
+            justify-content: space-between;
+        }
+
+        /* 均勻分布 */
+        .space-around {
+            justify-content: space-around;
+        }
+
+        /* 項目填滿空間 */
+        .fill {
+            flex: 1; /* 自動填滿所有可用空間 */
+        }
+
+        /* Grid 布局 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 三等分列 */
+            gap: 10px; /* 設定格子間距 */
+            background: #eee;
+            padding: 10px;
+        }
+
+        .grid-item {
+            padding: 20px;
+            background: coral;
+            text-align: center;
+        }
+
+        /* 文本對齊 */
+        .text-align {
+            text-align: center; /* 文本居中對齊 */
+        }
+
+        /* 垂直對齊 */
+        .vertical-align {
+            display: inline-block;
+            vertical-align: middle;
+            height: 100px;
+            line-height: 100px; /* 用於 vertical-align */
+            background-color: #ddd;
+        }
+
+        /* Grid 中心對齊 */
+        .grid {
+            display: grid;
+            place-items: center; /* Grid 中心對齐 */
+            height: 100px;
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 進階排版與對齊示例</h1>
+
+    <div class="flex-container centered">
+        <div class="flex-item">居中</div>
+    </div>
+
+    <div class="flex-container space-between">
+        <div class="flex-item">左側</div>
+        <div class="flex-item">右側</div>
+    </div>
+
+    <div class="flex-container space-around">
+        <div class="flex-item">第一項</div>
+        <div class="flex-item">第二項</div>
+        <div class="flex-item">第三項</div>
+    </div>
+
+    <div class="flex-container">
+        <div class="flex-item">固定</div>
+        <div class="flex-item fill">填滿</div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+    </div>
+
+    <div class="text-align">
+        <p>這是文本居中對齊的示例。</p>
+    </div>
+
+    <div class="flex-container">
+        <div class="flex-item">Flexbox 布局中的元素水平和垂直居中。</div>
+    </div>
+
+    <div class="grid">
+        <div>Grid 布局中的元素完全居中。</div>
+    </div>
+
+    <div>
+        <span class="vertical-align">垂直居中對齊的行內塊元素</span>
+    </div>
+</body>
+</html>

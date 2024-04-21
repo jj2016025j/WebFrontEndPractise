@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display 属性示例</title>
+    <style>
+        .block {
+            display: block;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        .inline {
+            display: inline;
+            background-color: #f44336;
+            color: white;
+            padding: 10px;
+        }
+
+        .inline-block {
+            display: inline-block;
+            background-color: #008CBA;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            width: 120px;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+            background-color: #ddd;
+            padding: 10px;
+        }
+
+        .flex-item {
+            background-color: #ffeb3b;
+            padding: 10px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 10px;
+            gap: 10px;
+            background-color: #ccc;
+        }
+
+        .grid-item {
+            background-color: #673ab7;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Display 属性示例</h1>
+
+    <div class="block">Block 元素</div>
+    <span class="inline">Inline 元素</span>
+    <span class="inline">Inline 元素</span>
+    <div class="inline-block">Inline-Block 元素</div>
+    <div class="inline-block">Inline-Block 元素</div>
+
+    <div class="flex-container">
+        <div class="flex-item">Flex Item 1</div>
+        <div class="flex-item">Flex Item 2</div>
+        <div class="flex-item">Flex Item 3</div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item">Grid Item 1</div>
+        <div class="grid-item">Grid Item 2</div>
+        <div class="grid-item">Grid Item 3</div>
+    </div>
+</body>
+</html>

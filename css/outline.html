@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Outline 示範</title>
+    <style>
+        div {
+            margin: 20px;
+            padding: 20px;
+            background-color: lightgray;
+        }
+
+        .basic-outline {
+            outline: 2px solid red;
+        }
+
+        .solid-outline {
+            outline-style: solid;
+            outline-color: green;
+            outline-width: 3px;
+        }
+
+        .dashed-outline {
+            outline-style: dashed;
+            outline-color: blue;
+            outline-width: 2px;
+        }
+
+        .colored-outline {
+            outline: 2px solid deepskyblue;
+        }
+
+        .wide-outline {
+            outline: 5px solid purple;
+        }
+
+        .offset-outline {
+            outline: 2px solid black;
+            outline-offset: 5px;
+        }
+
+        .shortcut-outline {
+            outline: 3px dotted red;
+        }
+
+        .no-outline {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="basic-outline">基本 Outline</div>
+    <div class="solid-outline">實線 Outline</div>
+    <div class="dashed-outline">虛線 Outline</div>
+    <div class="colored-outline">顏色 Outline</div>
+    <div class="wide-outline">寬度 Outline</div>
+    <div class="offset-outline">偏移 Outline</div>
+    <div class="shortcut-outline">縮寫 Outline</div>
+    <div class="no-outline">移除 Outline</div>
+</body>
+</html>

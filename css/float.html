@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Float 和 Clear 示例</title>
+    <style>
+        /* 样式设置 */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .float-left {
+            float: left;
+            width: 40%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+        }
+
+        .float-right {
+            float: right;
+            width: 40%;
+            padding: 10px;
+            background-color: #2196F3;
+            color: white;
+            text-align: center;
+        }
+
+        .content {
+            padding: 10px;
+            background-color: #f9f9f9;
+            overflow: auto; /* 处理元素内部的浮动 */
+        }
+
+        .clear {
+            clear: both;
+            padding: 10px;
+            background-color: #FFC107;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="clearfix">
+        <div class="float-left">左浮动的盒子</div>
+        <div class="float-right">右浮动的盒子</div>
+        <div class="content">
+            这是一个内容区域。此文本围绕着左右两侧的浮动元素流动。
+        </div>
+    </div>
+    <div class="clear">
+        这个盒子通过 clear:both 清除上面的浮动效果。
+    </div>
+</body>
+</html>

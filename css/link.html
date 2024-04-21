@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 链接样式示例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        a {
+            text-decoration: none; /* 移除下划线 */
+            color: blue; /* 默认颜色 */
+        }
+
+        /* 鼠标悬停 */
+        a:hover {
+            color: red; /* 改变颜色 */
+            text-decoration: underline; /* 添加下划线 */
+        }
+
+        /* 已访问的链接 */
+        a:visited {
+            color: purple;
+        }
+
+        /* 链接被按下时 */
+        a:active {
+            color: green;
+        }
+
+        /* 禁用链接样式 */
+        .disabled {
+            pointer-events: none; /* 禁止点击 */
+            color: gray; /* 改变颜色表示不可用状态 */
+        }
+
+        /* 链接按钮样式 */
+        .button-link {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .button-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 链接样式示例</h1>
+    <a href="#">普通链接</a><br>
+    <a href="#" class="disabled">禁用链接</a><br>
+    <a href="#" class="button-link">按钮样式链接</a>
+</body>
+</html>

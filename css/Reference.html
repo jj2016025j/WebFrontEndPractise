@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 函数示例</title>
+    <style>
+        :root {
+            --main-bg-color: coral;
+        }
+        .container {
+            padding: 20px;
+            margin: 10px;
+        }
+        .calc {
+            width: calc(100% - 40px);
+            background-color: var(--main-bg-color);
+            padding: 10px;
+            color: white;
+        }
+        .rgba {
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+        .hsla {
+            background-color: hsla(120, 100%, 75%, 0.3);
+        }
+        .gradient {
+            background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+        }
+        .background {
+            background-image: url('https://via.placeholder.com/150');
+        }
+    </style>
+</head>
+<body>
+    <div class="container calc">使用 calc() 函数设置宽度</div>
+    <div class="container rgba">使用 rgba() 设置背景色</div>
+    <div class="container hsla">使用 hsla() 设置背景色</div>
+    <div class="container gradient">使用 linear-gradient() 创建渐变背景</div>
+    <div class="container background">使用 url() 加载背景图片</div>
+</body>
+</html>

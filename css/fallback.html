@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fallback 字体示例</title>
+    <style>
+        .sans-serif {
+            font-family: 'Open Sans', Arial, Verdana, sans-serif;
+        }
+        .serif {
+            font-family: 'Merriweather', 'Times New Roman', Georgia, serif;
+        }
+        .monospace {
+            font-family: 'Fira Code', 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <p class="sans-serif">这是一个使用无衬线字体的示例，包括 Fallback 字体。</p>
+    <p class="serif">这是一个使用衬线字体的示例，包括 Fallback 字体。</p>
+    <p class="monospace">这是一个使用等宽字体的示例，包括 Fallback 字体。</p>
+</body>
+</html>

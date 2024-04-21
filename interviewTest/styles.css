@@ -1,0 +1,9 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+@keyframes myAnimation {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}

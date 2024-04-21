@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 属性选择器示例</title>
+    <style>
+        /* 存在属性选择器 */
+        [title] {
+            border: 2px solid blue;
+            padding: 5px;
+        }
+
+        /* 精确属性选择器 */
+        input[type="text"] {
+            background-color: yellow;
+        }
+
+        /* 部分值匹配属性选择器（开头） */
+        a[href^="https"] {
+            color: green;
+        }
+
+        /* 子串值匹配属性选择器 */
+        [class*="example"] {
+            font-weight: bold;
+            color: magenta;
+        }
+
+        /* 结尾值匹配属性选择器 */
+        img[src$=".jpg"] {
+            border: 3px solid red;
+        }
+
+        /* 空格分隔的属性值选择器 */
+        [class~="selected"] {
+            color: red;
+            background-color: lightgrey;
+        }
+
+        /* 连字符分隔的属性值选择器 */
+        [lang|="en"] {
+            font-style: italic;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div title="示例">
+        我有 title 属性，边框为蓝色。
+    </div>
+
+    <input type="text" value="我是文本框，背景为黄色。">
+
+    <a href="https://www.example.com">我是 HTTPS 链接，文字为绿色。</a>
+
+    <div class="example">我有包含 'example' 的 class，文字为粉红色并加粗。</div>
+
+    <img src="image.jpg" alt="图片以 .jpg 结尾，边框为红色。">
+
+    <p class="not-selected selected">我有 'selected' 这个词作为其中一个 class，背景为灰色，文字为红色。</p>
+
+    <p lang="en-US">我是英文内容（lang="en-US"），文字为意大利斜体，颜色为深蓝。</p>
+</body>
+</html>

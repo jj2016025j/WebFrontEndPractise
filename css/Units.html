@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 單位展示</title>
+    <style>
+        /* 基礎樣式設置 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .unit-example {
+            margin-bottom: 20px;
+        }
+        .unit-example div {
+            background-color: #f0f0f0;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        /* 單位展示 */
+        .pixels {
+            width: 100px;
+            height: 50px;
+        }
+        .centimeters {
+            width: 2cm;
+            height: 1cm;
+        }
+        .inches {
+            width: 1in;
+            height: 0.5in;
+        }
+        .points {
+            width: 72pt;
+            height: 36pt;
+        }
+        .percentages {
+            width: 50%;
+            height: 30px;
+        }
+        .ems {
+            font-size: 2em; /* 相對於當前字體大小的倍數 */
+        }
+        .rems {
+            font-size: 1.5rem; /* 相對於根元素字體大小的倍數 */
+        }
+        .view-width {
+            width: 20vw; /* 佔視口寬度的百分比 */
+        }
+        .view-height {
+            height: 10vh; /* 佔視口高度的百分比 */
+        }
+        .min-max {
+            min-width: 50px;
+            max-width: 150px;
+            width: 75%;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 單位展示</h1>
+
+    <div class="unit-example">
+        <h2>像素 (px)</h2>
+        <div class="pixels">寬 100px, 高 50px</div>
+    </div>
+
+    <div class="unit-example">
+        <h2>厘米 (cm)</h2>
+        <div class="centimeters">寬 2cm, 高 1cm</div>
+    </div>
+
+    <div class="unit-example">
+        <h2>英寸 (in)</h2>
+        <div class="inches">寬 1in, 高 0.5in</div>
+    </div>
+
+    <div class="unit-example">
+        <h2>點 (pt)</h2>
+        <div class="points">寬 72pt, 高 36pt</div>
+    </div>
+
+    <div class="unit-example">
+        <h2>百分比 (%)</h2>
+        <div class="percentages">寬 50%</div>
+    </div>
+
+    <div class="unit-example">
+        <h2>em</h2>
+        <div class="ems">字體大小 2em</div>
+    </div>
+
+    <div class="unit-example">
+        <h2>rem</h2>
+        <div class="rems">字體大小 1.5rem</div>
+    </div>
+
+    <div class="unit-example">
+        <h2>視口寬度 (vw)</h2>
+        <div class="view-width">寬 20vw</div>
+    </div>
+
+    <div class="unit-example">
+        <h2>視口高度 (vh)</h2>
+        <div class="view-height">高 10vh</div>
+    </div>
+
+    <div class="unit-example">
+        <h2>最小與最大寬度</h2>
+        <div class="min-max">最小寬度 50px, 最大寬度 150px, 實際寬度 75%</div>
+    </div>
+</body>
+</html>

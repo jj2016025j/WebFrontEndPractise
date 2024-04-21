@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 动画示例</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: width 2s, background-color 2s, transform 2s;
+            margin: 20px;
+        }
+
+        .box:hover {
+            width: 200px;
+            background-color: red;
+            transform: rotate(180deg);
+        }
+
+        .fade {
+            opacity: 1;
+            transition: opacity 2s;
+            background-color: green;
+            padding: 10px;
+            color: white;
+            margin: 20px;
+        }
+
+        .fade:hover {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">悬停我!</div>
+    <div class="fade">悬停减少透明度</div>
+</body>
+</html>
